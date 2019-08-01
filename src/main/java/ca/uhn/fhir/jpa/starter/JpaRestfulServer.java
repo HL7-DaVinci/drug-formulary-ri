@@ -15,6 +15,7 @@ import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.JpaSystemProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.TerminologyUploaderProviderR4;
 import ca.uhn.fhir.jpa.search.DatabaseBackedPagingProvider;
+import ca.uhn.fhir.jpa.starter.ReadOnlyInterceptor;
 import ca.uhn.fhir.jpa.subscription.SubscriptionInterceptorLoader;
 import ca.uhn.fhir.jpa.subscription.module.interceptor.SubscriptionDebugLogInterceptor;
 import ca.uhn.fhir.jpa.util.ResourceProviderFactory;
@@ -134,8 +135,10 @@ public class JpaRestfulServer extends RestfulServer {
          * browser.
          */
         ResponseHighlighterInterceptor responseHighlighterInterceptor = new ResponseHighlighterInterceptor();
+        ReadOnlyInterceptor readOnlyInterceptor = new ReadOnlyInterceptor();
         ;
         this.registerInterceptor(responseHighlighterInterceptor);
+        this.registerInterceptor(readOnlyInterceptor);
 
         /*
          * Add some logging for each request
