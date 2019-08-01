@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  formulary:
+    image: hapi-fhir/hapi-fhir-jpaserver-starter:latest
+    volumes:
+      - ./data:/var/lib/jetty/target
+    ports:
+      - '8080:8080'
