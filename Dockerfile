@@ -1,4 +1,4 @@
 FROM jetty:9-jre8-alpine
 USER jetty:jetty
-ADD ./target/hapi-fhir-jpaserver.war /var/lib/jetty/webapps/hapi-fhir-jpaserver.war
+ADD ./target/formulary.war /var/lib/jetty/webapps/formulary.war
 EXPOSE 8080
