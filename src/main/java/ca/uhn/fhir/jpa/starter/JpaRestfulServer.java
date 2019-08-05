@@ -15,6 +15,7 @@ import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.JpaSystemProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.TerminologyUploaderProviderR4;
 import ca.uhn.fhir.jpa.search.DatabaseBackedPagingProvider;
+import ca.uhn.fhir.jpa.starter.MetadataProvider;
 import ca.uhn.fhir.jpa.starter.ReadOnlyInterceptor;
 import ca.uhn.fhir.jpa.subscription.SubscriptionInterceptorLoader;
 import ca.uhn.fhir.jpa.subscription.module.interceptor.SubscriptionDebugLogInterceptor;
@@ -93,9 +94,12 @@ public class JpaRestfulServer extends RestfulServer {
             setServerConformanceProvider(confProvider);
         } else if (fhirVersion == FhirVersionEnum.R4) {
             IFhirSystemDao<org.hl7.fhir.r4.model.Bundle, org.hl7.fhir.r4.model.Meta> systemDao = appCtx.getBean("mySystemDaoR4", IFhirSystemDao.class);
-            JpaConformanceProviderR4 confProvider = new JpaConformanceProviderR4(this, systemDao, appCtx.getBean(DaoConfig.class));
-            confProvider.setImplementationDescription("HAPI FHIR R4 Server");
-            setServerConformanceProvider(confProvider);
+            // JpaConformanceProviderR4 confProvider = new JpaConformanceProviderR4(this, systemDao, appCtx.getBean(DaoConfig.class));
+            // confProvider.setImplementationDescription("HAPI FHIR R4 Server");
+            // setServerConformanceProvider(confProvider);
+            MetadataProvider metadata = new MetadataProvider(this, systemDao, appCtx.getBean(DaoConfig.class));
+            setServerConformanceProvider(metadata);
+
         } else {
             throw new IllegalStateException();
         }

@@ -2,7 +2,7 @@ package ca.uhn.fhir.jpa.starter;
 
 import ca.uhn.fhir.rest.api.RestOperationTypeEnum;
 import ca.uhn.fhir.rest.api.server.RequestDetails;
-import ca.uhn.fhir.rest.server.exceptions.AuthenticationException;
+import ca.uhn.fhir.rest.server.exceptions.MethodNotAllowedException;
 import ca.uhn.fhir.rest.server.interceptor.InterceptorAdapter;
 
 public class ReadOnlyInterceptor extends InterceptorAdapter {
@@ -18,7 +18,7 @@ public class ReadOnlyInterceptor extends InterceptorAdapter {
         theOperation != RestOperationTypeEnum.TRANSACTION &&
         theOperation != RestOperationTypeEnum.VALIDATE &&
         theOperation != RestOperationTypeEnum.VREAD) {
-      throw new AuthenticationException();
+      throw new MethodNotAllowedException(theOperation.toString());
     }
   }
 }
