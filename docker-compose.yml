@@ -3,7 +3,5 @@ version: '3'
 services:
   formulary:
     image: formulary
-    volumes:
-      - ./data:/var/lib/jetty/target
     ports:
       - '8080:8080'
