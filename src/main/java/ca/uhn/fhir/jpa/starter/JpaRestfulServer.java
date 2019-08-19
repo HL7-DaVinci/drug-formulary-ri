@@ -5,12 +5,7 @@ import ca.uhn.fhir.context.FhirVersionEnum;
 import ca.uhn.fhir.interceptor.api.IInterceptorService;
 import ca.uhn.fhir.jpa.dao.DaoConfig;
 import ca.uhn.fhir.jpa.dao.IFhirSystemDao;
-import ca.uhn.fhir.jpa.provider.JpaConformanceProviderDstu2;
-import ca.uhn.fhir.jpa.provider.JpaSystemProviderDstu2;
 import ca.uhn.fhir.jpa.provider.SubscriptionTriggeringProvider;
-import ca.uhn.fhir.jpa.provider.dstu3.JpaConformanceProviderDstu3;
-import ca.uhn.fhir.jpa.provider.dstu3.JpaSystemProviderDstu3;
-import ca.uhn.fhir.jpa.provider.dstu3.TerminologyUploaderProviderDstu3;
 import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.JpaSystemProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.TerminologyUploaderProviderR4;
@@ -56,18 +51,8 @@ public class JpaRestfulServer extends RestfulServer {
         FhirVersionEnum fhirVersion = HapiProperties.getFhirVersion();
         ResourceProviderFactory resourceProviders;
         Object systemProvider;
-        if (fhirVersion == FhirVersionEnum.DSTU2) {
-            resourceProviders = appCtx.getBean("myResourceProvidersDstu2", ResourceProviderFactory.class);
-            systemProvider = appCtx.getBean("mySystemProviderDstu2", JpaSystemProviderDstu2.class);
-        } else if (fhirVersion == FhirVersionEnum.DSTU3) {
-            resourceProviders = appCtx.getBean("myResourceProvidersDstu3", ResourceProviderFactory.class);
-            systemProvider = appCtx.getBean("mySystemProviderDstu3", JpaSystemProviderDstu3.class);
-        } else if (fhirVersion == FhirVersionEnum.R4) {
-            resourceProviders = appCtx.getBean("myResourceProvidersR4", ResourceProviderFactory.class);
-            systemProvider = appCtx.getBean("mySystemProviderR4", JpaSystemProviderR4.class);
-        } else {
-            throw new IllegalStateException();
-        }
+        resourceProviders = appCtx.getBean("myResourceProvidersR4", ResourceProviderFactory.class);
+        systemProvider = appCtx.getBean("mySystemProviderR4", JpaSystemProviderR4.class);
 
         setFhirContext(appCtx.getBean(FhirContext.class));
 
@@ -82,27 +67,9 @@ public class JpaRestfulServer extends RestfulServer {
          * You can also create your own subclass of the conformance provider if you need to
          * provide further customization of your server's CapabilityStatement
          */
-        if (fhirVersion == FhirVersionEnum.DSTU2) {
-            IFhirSystemDao<ca.uhn.fhir.model.dstu2.resource.Bundle, MetaDt> systemDao = appCtx.getBean("mySystemDaoDstu2", IFhirSystemDao.class);
-            JpaConformanceProviderDstu2 confProvider = new JpaConformanceProviderDstu2(this, systemDao, appCtx.getBean(DaoConfig.class));
-            confProvider.setImplementationDescription("HAPI FHIR DSTU2 Server");
-            setServerConformanceProvider(confProvider);
-        } else if (fhirVersion == FhirVersionEnum.DSTU3) {
-            IFhirSystemDao<Bundle, Meta> systemDao = appCtx.getBean("mySystemDaoDstu3", IFhirSystemDao.class);
-            JpaConformanceProviderDstu3 confProvider = new JpaConformanceProviderDstu3(this, systemDao, appCtx.getBean(DaoConfig.class));
-            confProvider.setImplementationDescription("HAPI FHIR DSTU3 Server");
-            setServerConformanceProvider(confProvider);
-        } else if (fhirVersion == FhirVersionEnum.R4) {
-            IFhirSystemDao<org.hl7.fhir.r4.model.Bundle, org.hl7.fhir.r4.model.Meta> systemDao = appCtx.getBean("mySystemDaoR4", IFhirSystemDao.class);
-            // JpaConformanceProviderR4 confProvider = new JpaConformanceProviderR4(this, systemDao, appCtx.getBean(DaoConfig.class));
-            // confProvider.setImplementationDescription("HAPI FHIR R4 Server");
-            // setServerConformanceProvider(confProvider);
-            MetadataProvider metadata = new MetadataProvider(this, systemDao, appCtx.getBean(DaoConfig.class));
-            setServerConformanceProvider(metadata);
-
-        } else {
-            throw new IllegalStateException();
-        }
+        IFhirSystemDao<org.hl7.fhir.r4.model.Bundle, org.hl7.fhir.r4.model.Meta> systemDao = appCtx.getBean("mySystemDaoR4", IFhirSystemDao.class);
+        MetadataProvider metadata = new MetadataProvider(this, systemDao, appCtx.getBean(DaoConfig.class));
+        setServerConformanceProvider(metadata);
 
         /*
          * ETag Support
@@ -173,11 +140,7 @@ public class JpaRestfulServer extends RestfulServer {
          * with this feature.
          */
         if (false) { // <-- DISABLED RIGHT NOW
-            if (fhirVersion == FhirVersionEnum.DSTU3) {
-                registerProvider(appCtx.getBean(TerminologyUploaderProviderDstu3.class));
-            } else if (fhirVersion == FhirVersionEnum.R4) {
-                registerProvider(appCtx.getBean(TerminologyUploaderProviderR4.class));
-            }
+          registerProvider(appCtx.getBean(TerminologyUploaderProviderR4.class));
         }
 
         // If you want to enable the $trigger-subscription operation to allow
