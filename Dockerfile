@@ -5,7 +5,7 @@ COPY src /usr/src/app/src
 RUN mvn -f /usr/src/app/pom.xml clean package
 
 FROM jetty:9-jre8-alpine
-COPY --from=build /usr/src/app/target/formulary.war /var/lib/jetty/webapps/formulary.war
+COPY --from=build /usr/src/app/target/root.war /var/lib/jetty/webapps/root.war
 ADD ./data /var/lib/jetty/target
 USER root
 RUN chown -R jetty:jetty /var/lib/jetty/target

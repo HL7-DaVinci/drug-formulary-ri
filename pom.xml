@@ -217,8 +217,8 @@
 
     <build>
 
-        <!-- Tells Maven to name the generated WAR file as hapi-fhir-jpaserver.war -->
-        <finalName>formulary</finalName>
+        <!-- Tells Maven to name the generated WAR file as root.war -->
+        <finalName>root</finalName>
 
         <plugins>
             <!-- The following is not required for the application to build, but allows you to test it by issuing "mvn jetty:run" from the command line. -->
@@ -228,7 +228,7 @@
                 <version>9.4.8.v20180619</version>
                 <configuration>
                     <webApp>
-                        <contextPath>/formulary</contextPath>
+                        <contextPath>/</contextPath>
                         <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
                     </webApp>
                 </configuration>

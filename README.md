@@ -23,6 +23,6 @@ docker run -p 8080:8080 drug-formulary
 ```
 
 The server will then be browseable at
-[http://localhost:8080/formulary](http://localhost:8080/formulary), and the
+[http://localhost:8080/](http://localhost:8080/), and the
 server's FHIR endpoint will be available at
-[http://localhost:8080/formulary/fhir](http://localhost:8080/formulary/fhir)
+[http://localhost:8080/fhir](http://localhost:8080/fhir)
