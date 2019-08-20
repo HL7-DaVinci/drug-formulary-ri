@@ -9,7 +9,10 @@ Server](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
 # Running Locally
 
 The easiest way to run this server is to use docker. First, clone this
-repository. Then, from the repository root run:
+repository. Then, in `src/main/resources/hapi.properties`, set `server_address`
+to `http://localhost:8080/fhir`
+
+Then, from the repository root run:
 
 ```
 docker build -t drug-formulary .
