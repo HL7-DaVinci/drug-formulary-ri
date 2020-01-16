@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;
+import ca.uhn.fhir.rest.api.server.RequestDetails;
 import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.r4.model.CapabilityStatement.*;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -21,8 +22,8 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
   }
 
   @Override
-  public CapabilityStatement getServerConformance(HttpServletRequest theRequest) {
-    CapabilityStatement metadata = super.getServerConformance(theRequest);
+  public CapabilityStatement getServerConformance(HttpServletRequest theRequest, RequestDetails theRequestDetails) {
+    CapabilityStatement metadata = super.getServerConformance(theRequest, theRequestDetails);
     metadata.setTitle("Da Vinci US Drug Formulary Reference Implementation");
     metadata.setStatus(PublicationStatus.DRAFT);
     metadata.setExperimental(true);

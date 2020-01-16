@@ -1,5 +1,3 @@
 #!/bin/sh
 
-mvn package && \
-  docker build -t formulary .
-
+docker build -t formulary .
