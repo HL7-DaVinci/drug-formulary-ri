@@ -43,7 +43,7 @@ public class FhirServerConfigR4 extends BaseJavaConfigR4 {
             throw new ConfigurationException("Could not set the data source due to a configuration issue", e);
         }
 
-        retVal.setJpaProperties(HapiProperties.getProperties());
+        retVal.setJpaProperties(HapiProperties.getJpaProperties());
         return retVal;
     }
 
@@ -54,13 +54,4 @@ public class FhirServerConfigR4 extends BaseJavaConfigR4 {
         return retVal;
     }
 
-    @Override
-    protected boolean isSupported(String resourceType) {
-      return resourceType.startsWith("List") ||
-        resourceType.startsWith("MedicationKnowledge") ||
-        resourceType.startsWith("StructureDefinition") ||
-        resourceType.startsWith("CodeSystem") ||
-        resourceType.startsWith("ValueSet") ||
-        resourceType.startsWith("SearchParameter");
-    }
 }

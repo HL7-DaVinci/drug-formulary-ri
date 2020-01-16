@@ -7,7 +7,7 @@ import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.client.api.ServerValidationModeEnum;
 import ca.uhn.fhir.rest.client.interceptor.LoggingInterceptor;
-import ca.uhn.fhir.util.PortUtil;
+import ca.uhn.fhir.test.utilities.JettyUtil;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.websocket.api.Session;
@@ -36,22 +36,19 @@ public class ExampleServerR4IT {
     private static IGenericClient ourClient;
     private static FhirContext ourCtx;
     private static int ourPort;
-
     private static Server ourServer;
-    private static String ourServerBase;
 
     static {
         HapiProperties.forceReload();
-        HapiProperties.setProperty(HapiProperties.DATASOURCE_URL, "jdbc:derby:memory:dbr4;create=true");
+        HapiProperties.setProperty(HapiProperties.DATASOURCE_URL, "jdbc:h2:mem:dbr4");
         HapiProperties.setProperty(HapiProperties.FHIR_VERSION, "R4");
         HapiProperties.setProperty(HapiProperties.SUBSCRIPTION_WEBSOCKET_ENABLED, "true");
         ourCtx = FhirContext.forR4();
-        ourPort = PortUtil.findFreePort();
     }
 
     @Test
     public void testCreateAndRead() {
-        ourLog.info("Base URL is: " +  HapiProperties.getServerAddress());
+        ourLog.info("Base URL is: " + HapiProperties.getServerAddress());
         String methodName = "testCreateResourceConditional";
 
         Patient pt = new Patient();
@@ -131,10 +128,7 @@ public class ExampleServerR4IT {
 
         ourLog.info("Project base path is: {}", path);
 
-        if (ourPort == 0) {
-            ourPort = RandomServerPortProvider.findFreePort();
-        }
-        ourServer = new Server(ourPort);
+        ourServer = new Server(0);
 
         WebAppContext webAppContext = new WebAppContext();
         webAppContext.setContextPath("/hapi-fhir-jpaserver");
@@ -146,9 +140,11 @@ public class ExampleServerR4IT {
         ourServer.setHandler(webAppContext);
         ourServer.start();
 
+        ourPort = JettyUtil.getPortForStartedServer(ourServer);
+
         ourCtx.getRestfulClientFactory().setServerValidationMode(ServerValidationModeEnum.NEVER);
         ourCtx.getRestfulClientFactory().setSocketTimeout(1200 * 1000);
-        ourServerBase = HapiProperties.getServerAddress();
+        String ourServerBase = HapiProperties.getServerAddress();
         ourServerBase = "http://localhost:" + ourPort + "/hapi-fhir-jpaserver/fhir/";
 
         ourClient = ourCtx.newRestfulGenericClient(ourServerBase);
