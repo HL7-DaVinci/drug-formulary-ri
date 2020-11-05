@@ -6,17 +6,5 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
-  # hapi-fhir-mysql:
-  #   image: mysql:latest
-  #   container_name: hapi-fhir-mysql
-  #   restart: always
-  #   environment:
-  #     MYSQL_DATABASE: 'hapi'
-  #     MYSQL_USER: 'admin'
-  #     MYSQL_PASSWORD: 'admin'
-  #     MYSQL_ROOT_PASSWORD: 'admin'
     volumes:
-      # - hapi-fhir-mysql:/var/lib/mysql
-      - ./data:/usr/local/tomcat/target
-# volumes:
-#   hapi-fhir-mysql:
+      - ./data:/var/lib/jetty/target
