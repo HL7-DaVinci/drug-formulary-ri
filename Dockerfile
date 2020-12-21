@@ -1,30 +1,14 @@
-FROM hapiproject/hapi:base as build-hapi
+FROM maven:3.6.1-jdk-8 AS build
+COPY pom.xml /usr/src/app/pom.xml
+COPY src /usr/src/app/src
+RUN mvn -f /usr/src/app/pom.xml clean package
 
-ARG HAPI_FHIR_URL=https://github.com/jamesagnew/hapi-fhir/
-ARG HAPI_FHIR_BRANCH=master
-ARG HAPI_FHIR_STARTER_URL=https://github.com/hapifhir/hapi-fhir-jpaserver-starter/
-ARG HAPI_FHIR_STARTER_BRANCH=master
-
-RUN git clone --branch ${HAPI_FHIR_BRANCH} ${HAPI_FHIR_URL}
-WORKDIR /tmp/hapi-fhir/
-RUN /tmp/apache-maven-3.6.2/bin/mvn dependency:resolve
-RUN /tmp/apache-maven-3.6.2/bin/mvn install -DskipTests
-
-WORKDIR /tmp
-# RUN git clone --branch ${HAPI_FHIR_STARTER_BRANCH} ${HAPI_FHIR_STARTER_URL}
-COPY pom.xml hapi-fhir-jpaserver-starter/pom.xml
-COPY src hapi-fhir-jpaserver-starter/src
-
-WORKDIR /tmp/hapi-fhir-jpaserver-starter
-RUN /tmp/apache-maven-3.6.2/bin/mvn clean install -DskipTests
-
-FROM tomcat:9-jre11
-
-RUN mkdir -p /data/hapi/lucenefiles && chmod 775 /data/hapi/lucenefiles
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
-COPY --from=build-hapi /tmp/hapi-fhir-jpaserver-starter/target/root.war /usr/local/tomcat/webapps/ROOT.war
-COPY ./data /usr/local/tomcat/target
-
+FROM jetty:9-jre8-alpine
+COPY --from=build /usr/src/app/target/root.war /var/lib/jetty/webapps/root.war
+COPY --from=build /usr/src/app/target /var/lib/jetty/target 
+ADD ./data /var/lib/jetty/target/
+COPY src /var/lib/jetty/src
+USER root
+RUN chown -R jetty:jetty /var/lib/jetty/target
+USER jetty:jetty
 EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
