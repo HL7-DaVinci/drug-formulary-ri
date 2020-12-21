@@ -2,6 +2,11 @@ target/
 .idea/
 *.iml
 
+.classpath
+.project
+.settings/
+.vscode/
+
 # Compiled class file
 *.class
 
