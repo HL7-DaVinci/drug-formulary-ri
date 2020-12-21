@@ -160,8 +160,18 @@ public class JpaRestfulServer extends RestfulServer {
     ;
     this.registerInterceptor(responseHighlighterInterceptor);
 
+    /*
+     * Add Read Only Interceptor
+     */
     ReadOnlyInterceptor readOnlyInterceptor = new ReadOnlyInterceptor();
     this.registerInterceptor(readOnlyInterceptor);
+    
+     /*
+     * This interceptor handles the $export operation
+     */
+    ExportInterceptor exportInterceptor = new ExportInterceptor();
+    this.registerInterceptor(exportInterceptor);
+
     /*
      * Add some logging for each request
      */
