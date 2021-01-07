@@ -1,0 +1,35 @@
+{
+  "transactionTime": "21/12/2020 11:22",
+  "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/$export",
+  "requiresAccessToken": false,
+  "output": [
+    {
+      "type": "List",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/CoveragePlan.ndjson"
+    },
+    {
+      "type": "MedicationKnowledge",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/FormularyDrug_6448eb.ndjson"
+    },
+    {
+      "type": "MedicationKnowledge",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/FormularyDrug_8f776e.ndjson"
+    },
+    {
+      "type": "MedicationKnowledge",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/FormularyDrug_0d33e2.ndjson"
+    },
+    {
+      "type": "MedicationKnowledge",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/FormularyDrug_65980a.ndjson"
+    },
+    {
+      "type": "MedicationKnowledge",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/FormularyDrug_35c264.ndjson"
+    }
+  ],
+  "error": {
+    "type": "OperationOutcome",
+    "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/err_file_1.ndjson"
+  }
+}
