@@ -14,7 +14,7 @@ public class ExportInterceptor extends InterceptorAdapter {
      String endPoint = theRequest.getRequestURL().substring(theRequest.getRequestURL().lastIndexOf("/")+1);
      if (endPoint.equals("$export") && theRequest.getMethod().equals("GET")) {
          theResponse.setStatus(202);
-         theResponse.setHeader("Content-Type", "https://davinci-drug-formulary-ri.logicahealth.org/resources/export.json");
+         theResponse.setHeader("Content-Location", "https://davinci-drug-formulary-ri.logicahealth.org/resources/export.json");
          return false;
      }
       return true;
