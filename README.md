@@ -15,15 +15,21 @@ to `http://localhost:8080/fhir`
 Then, from the repository root run:
 
 ```
-docker build -t drug-formulary .
+$ docker build -t drug-formulary .
 ```
 
 This will build the docker image for the reference server. Once the image has
 been built, the server can be run with the following command:
 
 ```
-docker run -p 8080:8080 drug-formulary
+$ docker run -p 8080:8080 drug-formulary
 ```
+
+Alternatively, you can run this server with maven (and Java 8):
+
+```
+$ mvn jetty:run
+
 
 The server will then be browseable at
 [http://localhost:8080/](http://localhost:8080/), and the
