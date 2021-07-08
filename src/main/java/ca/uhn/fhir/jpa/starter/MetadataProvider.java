@@ -67,15 +67,15 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.VREAD));
         resource.setInteraction(interactions);
 
-        if(resource.getType() == "MedicationKnowledge") {
-          resource.setProfile("http://hl7.org/fhir/us/Davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
-        } else if(resource.getType() == "List") {
-          resource.setProfile("http://hl7.org/fhir/us/Davinci-drug-formulary/StructureDefinition/usdf-CoveragePlan");
+        if(resource.getType().toString().equals("MedicationKnowledge")){
+          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
+        } else if(resource.getType().toString().equals("List")){
+          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-CoveragePlan");
         }
       }
     }
   }
-
+  
   private void removeOperations(
     List<CapabilityStatementRestComponent> originalRests
   ) {
