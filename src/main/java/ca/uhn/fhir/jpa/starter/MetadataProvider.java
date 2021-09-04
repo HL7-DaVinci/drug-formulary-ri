@@ -69,8 +69,13 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
 
         if(resource.getType().toString().equals("MedicationKnowledge")){
           resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
-        } else if(resource.getType().toString().equals("List")){
-          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-CoveragePlan");
+        } else if(resource.getType().toString().equals("Basic")){
+          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
+        } else if(resource.getType().toString().equals("InsurancePlan")){
+          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
+          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsuranceDrugPlan");
+        } else if(resource.getType().toString().equals("Location")){
+          resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
         }
       }
     }

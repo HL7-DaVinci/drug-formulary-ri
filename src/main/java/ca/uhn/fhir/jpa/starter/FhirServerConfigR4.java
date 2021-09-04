@@ -56,8 +56,10 @@ public class FhirServerConfigR4 extends BaseJavaConfigR4 {
 
     @Override
     protected boolean isSupported(String resourceType) {
-      return resourceType.startsWith("List") ||
+      return resourceType.startsWith("InsurancePlan") ||
+        resourceType.startsWith("Basic") ||
         resourceType.startsWith("MedicationKnowledge") ||
+        resourceType.startsWith("Location") ||
         resourceType.startsWith("StructureDefinition") ||
         resourceType.startsWith("CodeSystem") ||
         resourceType.startsWith("ValueSet") ||
