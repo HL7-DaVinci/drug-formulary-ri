@@ -45,7 +45,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     software.setName("https://github.com/HL7-DaVinci/drug-formulary-ri");
     metadata.setSoftware(software);
 
-    metadata.addImplementationGuide("http://build.fhir.org/ig/HL7/davinci-pdex-formulary/index.html");
+    metadata.addImplementationGuide("https://build.fhir.org/ig/HL7/davinci-pdex-formulary/branches/stu2-draft/index.html");
     metadata.addImplementationGuide("https://wiki.hl7.org/Da_Vinci_PDex-formulary_FHIR_IG_Proposal");
 
     updateRestComponents(metadata.getRest());
@@ -77,6 +77,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         } else if(resource.getType().toString().equals("Location")){
           resource.addSupportedProfile("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
         }
+
       }
     }
   }
