@@ -2,7 +2,7 @@
 
 This project is a reference FHIR server for the [Da Vinci US Drug Formulary
 Implementation
-Guide](http://build.fhir.org/ig/HL7/davinci-pdex-formulary/index.html). It is
+Guide](https://build.fhir.org/ig/HL7/davinci-pdex-formulary/branches/stu2-draft//index.html). It is
 based on the [HAPI FHIR JPA
 Server](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
 
