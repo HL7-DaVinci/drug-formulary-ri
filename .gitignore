@@ -13,6 +13,9 @@ target/
 # Log file
 *.log
 
+# Dotenv file
+.env
+
 # BlueJ files
 *.ctxt
 

@@ -71,7 +71,7 @@ public class JpaRestfulServer extends RestfulServer {
     Set<String> supportedResourceTypes = HapiProperties.getSupportedResourceTypes();
 
     if (!supportedResourceTypes.isEmpty() && !supportedResourceTypes.contains("SearchParameter")) {
-        supportedResourceTypes.add("SearchParameter");
+      supportedResourceTypes.add("SearchParameter");
     }
 
     if (!supportedResourceTypes.isEmpty()) {
@@ -107,18 +107,22 @@ public class JpaRestfulServer extends RestfulServer {
     registerProvider(systemProvider);
 
     /*
-     * The conformance provider exports the supported resources, search parameters, etc for
-     * this server. The JPA version adds resourceProviders counts to the exported statement, so it
+     * The conformance provider exports the supported resources, search parameters,
+     * etc for
+     * this server. The JPA version adds resourceProviders counts to the exported
+     * statement, so it
      * is a nice addition.
      *
-     * You can also create your own subclass of the conformance provider if you need to
+     * You can also create your own subclass of the conformance provider if you need
+     * to
      * provide further customization of your server's CapabilityStatement
      */
     IFhirSystemDao<org.hl7.fhir.r4.model.Bundle, org.hl7.fhir.r4.model.Meta> systemDao = appCtx
         .getBean("mySystemDaoR4", IFhirSystemDao.class);
     MetadataProvider metadata = new MetadataProvider(this, systemDao, appCtx.getBean(DaoConfig.class));
-    // JpaConformanceProviderR4 confProvider = new JpaConformanceProviderR4(this, systemDao,
-    //     appCtx.getBean(DaoConfig.class));
+    // JpaConformanceProviderR4 confProvider = new JpaConformanceProviderR4(this,
+    // systemDao,
+    // appCtx.getBean(DaoConfig.class));
     metadata.setImplementationDescription("Da Vinci Drug Formulary Reference Server");
     setServerConformanceProvider(metadata);
 
@@ -165,8 +169,8 @@ public class JpaRestfulServer extends RestfulServer {
      */
     ReadOnlyInterceptor readOnlyInterceptor = new ReadOnlyInterceptor();
     this.registerInterceptor(readOnlyInterceptor);
-    
-     /*
+
+    /*
      * This interceptor handles the $export operation
      */
     ExportInterceptor exportInterceptor = new ExportInterceptor();
@@ -183,9 +187,16 @@ public class JpaRestfulServer extends RestfulServer {
     this.registerInterceptor(loggingInterceptor);
 
     /*
+     * Add Authorization interceptor
+     */
+    PatientAuthorizationInterceptor authorizationInterceptor = new PatientAuthorizationInterceptor();
+    this.registerInterceptor(authorizationInterceptor);
+
+    /*
      * If you are hosting this server at a specific DNS name, the server will try to
      * figure out the FHIR base URL based on what the web container tells it, but
-     * this doesn't always work. If you are setting links in your search bundles that
+     * this doesn't always work. If you are setting links in your search bundles
+     * that
      * just refer to "localhost", you might want to use a server address strategy:
      */
     String serverAddress = HapiProperties.getServerAddress();
@@ -194,10 +205,14 @@ public class JpaRestfulServer extends RestfulServer {
     }
 
     /*
-     * If you are using DSTU3+, you may want to add a terminology uploader, which allows
-     * uploading of external terminologies such as Snomed CT. Note that this uploader
-     * does not have any security attached (any anonymous user may use it by default)
-     * so it is a potential security vulnerability. Consider using an AuthorizationInterceptor
+     * If you are using DSTU3+, you may want to add a terminology uploader, which
+     * allows
+     * uploading of external terminologies such as Snomed CT. Note that this
+     * uploader
+     * does not have any security attached (any anonymous user may use it by
+     * default)
+     * so it is a potential security vulnerability. Consider using an
+     * AuthorizationInterceptor
      * with this feature.
      */
     if (false) { // <-- DISABLED RIGHT NOW
@@ -247,7 +262,8 @@ public class JpaRestfulServer extends RestfulServer {
     if (HapiProperties.getSubscriptionWebsocketEnabled() ||
         HapiProperties.getSubscriptionEmailEnabled() ||
         HapiProperties.getSubscriptionRestHookEnabled()) {
-      // Loads subscription interceptors (SubscriptionActivatingInterceptor, SubscriptionMatcherInterceptor)
+      // Loads subscription interceptors (SubscriptionActivatingInterceptor,
+      // SubscriptionMatcherInterceptor)
       // with activation of scheduled subscription
       SubscriptionInterceptorLoader subscriptionInterceptorLoader = appCtx
           .getBean(SubscriptionInterceptorLoader.class);
@@ -277,9 +293,9 @@ public class JpaRestfulServer extends RestfulServer {
     // Validation
     IValidatorModule validatorModule;
     switch (fhirVersion) {
-            case DSTU2:
-                validatorModule = appCtx.getBean("myInstanceValidatorDstu2", IValidatorModule.class);
-                break;
+      case DSTU2:
+        validatorModule = appCtx.getBean("myInstanceValidatorDstu2", IValidatorModule.class);
+        break;
       case DSTU3:
         validatorModule = appCtx.getBean("myInstanceValidatorDstu3", IValidatorModule.class);
         break;
@@ -289,9 +305,9 @@ public class JpaRestfulServer extends RestfulServer {
       case R5:
         validatorModule = appCtx.getBean("myInstanceValidatorR5", IValidatorModule.class);
         break;
-            // These versions are not supported by HAPI FHIR JPA
-            case DSTU2_HL7ORG:
-            case DSTU2_1:
+      // These versions are not supported by HAPI FHIR JPA
+      case DSTU2_HL7ORG:
+      case DSTU2_1:
       default:
         validatorModule = null;
         break;
@@ -329,12 +345,12 @@ public class JpaRestfulServer extends RestfulServer {
       config.setBundleTypesAllowedForStorage(
           Collections.unmodifiableSet(new TreeSet<>(allowedBundleTypes)));
     }
-  
-        // Bulk Export
-        if (HapiProperties.getBulkExportEnabled()) {
-            registerProvider(appCtx.getBean(BulkDataExportProvider.class));
-        }
 
+    // Bulk Export
+    if (HapiProperties.getBulkExportEnabled()) {
+      registerProvider(appCtx.getBean(BulkDataExportProvider.class));
     }
+
+  }
 
 }
