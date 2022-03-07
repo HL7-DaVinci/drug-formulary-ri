@@ -31,8 +31,9 @@ public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
     if (!requestPath.startsWith("Patient") && !requestPath.startsWith("Coverage"))
       return new RuleBuilder().allow().read().resourcesOfType("InsurancePlan").withAnyId()
           .andThen().allow().read().resourcesOfType("Basic").withAnyId()
-          .andThen().allow().read().resourcesOfType("MedicationKnowledge")
-          .withAnyId().andThen().denyAll().build();
+          .andThen().allow().read().resourcesOfType("MedicationKnowledge").withAnyId()
+          .andThen().allow().metadata()
+          .andThen().denyAll().build();
 
     IdType userIdPatientId = null;
     boolean userIsAdmin = false;
