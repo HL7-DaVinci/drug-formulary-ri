@@ -1,5 +1,8 @@
 package ca.uhn.fhir.jpa.starter.wellknown;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ca.uhn.fhir.jpa.starter.MetadataProvider;
+import ca.uhn.fhir.jpa.starter.ServerLogger;
 import ca.uhn.fhir.jpa.starter.authorization.AuthUtils;
 
 @RestController
@@ -31,9 +35,11 @@ public class WellKnownEndpointController {
 
   private static final JSONArray WELL_KNOWN_SCOPES_SUPPORTED_VALUES = new JSONArray(AuthUtils.supportedScopes());
 
+  private static final Logger logger = ServerLogger.getLogger();
+
   @PostConstruct
   protected void postConstruct() {
-    System.out.println("Well Known controller added.");
+    logger.log(Level.INFO, "WellKnownEndpointController: Well Known controller added");
   }
 
   /**
