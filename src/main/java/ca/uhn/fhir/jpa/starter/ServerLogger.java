@@ -8,6 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+/**
+ * @copied from
+ *         https://github.com/carin-alliance/cpcds-server-ri/blob/patient-access/src/main/java/ca/uhn/fhir/jpa/starter/authorization/RegisterEndpoint.java
+ */
 public class ServerLogger {
 
   // Instance of a logger. File copied from cpcds-server-ri
