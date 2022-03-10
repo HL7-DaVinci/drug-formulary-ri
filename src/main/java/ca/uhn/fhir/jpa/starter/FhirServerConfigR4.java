@@ -62,6 +62,7 @@ public class FhirServerConfigR4 extends BaseJavaConfigR4 {
         resourceType.startsWith("Location") ||
         resourceType.startsWith("Patient") ||
         resourceType.equals("Coverage") ||
+        resourceType.equals("Organization") ||
         resourceType.startsWith("StructureDefinition") ||
         resourceType.startsWith("CodeSystem") ||
         resourceType.startsWith("ValueSet") ||

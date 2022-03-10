@@ -116,6 +116,8 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
           resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
         } else if (resource.getType().equals("Coverage")) {
           resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
+        } else if (resource.getType().equals("Organization")) {
+          resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization|1.2.0");
         }
 
       }

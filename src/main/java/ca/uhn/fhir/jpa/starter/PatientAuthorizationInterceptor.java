@@ -74,6 +74,7 @@ public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
   private List<IAuthRule> authorizedRule(IIdType userIdPatientId) {
     return new RuleBuilder().allow().read().resourcesOfType("Patient").inCompartment("Patient", userIdPatientId)
         .andThen().allow().read().resourcesOfType("Coverage").inCompartment("Patient", userIdPatientId)
+        .andThen().allow().read().resourcesOfType("Organization").withAnyId()
         .andThen().allow().read().resourcesOfType("InsurancePlan").withAnyId()
         .andThen().allow().read().resourcesOfType("Basic").withAnyId()
         .andThen().allow().read().resourcesOfType("MedicationKnowledge").withAnyId()
