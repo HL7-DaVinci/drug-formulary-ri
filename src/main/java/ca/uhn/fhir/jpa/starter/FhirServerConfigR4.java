@@ -15,54 +15,56 @@ import javax.sql.DataSource;
 @Configuration
 public class FhirServerConfigR4 extends BaseJavaConfigR4 {
 
-    @Autowired
-    private DataSource myDataSource;
+  @Autowired
+  private DataSource myDataSource;
 
-    /**
-     * We override the paging provider definition so that we can customize
-     * the default/max page sizes for search results. You can set these however
-     * you want, although very large page sizes will require a lot of RAM.
-     */
-    @Override
-    public DatabaseBackedPagingProvider databaseBackedPagingProvider() {
-        DatabaseBackedPagingProvider pagingProvider = super.databaseBackedPagingProvider();
-        pagingProvider.setDefaultPageSize(HapiProperties.getDefaultPageSize());
-        pagingProvider.setMaximumPageSize(HapiProperties.getMaximumPageSize());
-        return pagingProvider;
+  /**
+   * We override the paging provider definition so that we can customize
+   * the default/max page sizes for search results. You can set these however
+   * you want, although very large page sizes will require a lot of RAM.
+   */
+  @Override
+  public DatabaseBackedPagingProvider databaseBackedPagingProvider() {
+    DatabaseBackedPagingProvider pagingProvider = super.databaseBackedPagingProvider();
+    pagingProvider.setDefaultPageSize(HapiProperties.getDefaultPageSize());
+    pagingProvider.setMaximumPageSize(HapiProperties.getMaximumPageSize());
+    return pagingProvider;
+  }
+
+  @Override
+  @Bean()
+  public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    LocalContainerEntityManagerFactoryBean retVal = super.entityManagerFactory();
+    retVal.setPersistenceUnitName("HAPI_PU");
+
+    try {
+      retVal.setDataSource(myDataSource);
+    } catch (Exception e) {
+      throw new ConfigurationException("Could not set the data source due to a configuration issue", e);
     }
 
-    @Override
-    @Bean()
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean retVal = super.entityManagerFactory();
-        retVal.setPersistenceUnitName("HAPI_PU");
+    retVal.setJpaProperties(HapiProperties.getJpaProperties());
+    return retVal;
+  }
 
-        try {
-            retVal.setDataSource(myDataSource);
-        } catch (Exception e) {
-            throw new ConfigurationException("Could not set the data source due to a configuration issue", e);
-        }
+  @Bean()
+  public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+    JpaTransactionManager retVal = new JpaTransactionManager();
+    retVal.setEntityManagerFactory(entityManagerFactory);
+    return retVal;
+  }
 
-        retVal.setJpaProperties(HapiProperties.getJpaProperties());
-        return retVal;
-    }
-
-    @Bean()
-    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-        JpaTransactionManager retVal = new JpaTransactionManager();
-        retVal.setEntityManagerFactory(entityManagerFactory);
-        return retVal;
-    }
-
-    @Override
-    protected boolean isSupported(String resourceType) {
-      return resourceType.startsWith("InsurancePlan") ||
+  @Override
+  protected boolean isSupported(String resourceType) {
+    return resourceType.startsWith("InsurancePlan") ||
         resourceType.startsWith("Basic") ||
         resourceType.startsWith("MedicationKnowledge") ||
         resourceType.startsWith("Location") ||
+        resourceType.startsWith("Patient") ||
+        resourceType.equals("Coverage") ||
         resourceType.startsWith("StructureDefinition") ||
         resourceType.startsWith("CodeSystem") ||
         resourceType.startsWith("ValueSet") ||
         resourceType.startsWith("SearchParameter");
-    }
+  }
 }

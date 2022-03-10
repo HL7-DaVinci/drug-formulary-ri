@@ -161,7 +161,7 @@ public class JpaRestfulServer extends RestfulServer {
      * browser.
      */
     ResponseHighlighterInterceptor responseHighlighterInterceptor = new ResponseHighlighterInterceptor();
-    ;
+
     this.registerInterceptor(responseHighlighterInterceptor);
 
     /*

@@ -34,9 +34,7 @@ import ca.uhn.fhir.jpa.starter.ServerLogger;
 public class OauthEndpointController {
 
   /**
-   * TODO:
-   * Update metadata
-   * Update readme
+   * TODO: Update readme
    */
 
   private static Database DB;
@@ -100,7 +98,6 @@ public class OauthEndpointController {
     return keyId;
   }
 
-  // TODO: Enable user registration
   @GetMapping(value = "/register/user")
   public String getRegisterUserPage() {
     return "Registering new clients has been disabled";

@@ -90,7 +90,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
       rest.setSecurity(securityComponent);
       List<CapabilityStatementRestResourceComponent> resources = rest.getResource();
       for (CapabilityStatementRestResourceComponent resource : resources) {
-        List<ResourceInteractionComponent> interactions = new ArrayList<ResourceInteractionComponent>();
+        List<ResourceInteractionComponent> interactions = new ArrayList<>();
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.HISTORYINSTANCE));
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.HISTORYTYPE));
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.READ));
@@ -112,6 +112,10 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         } else if (resource.getType().equals("Location")) {
           resource.addSupportedProfile(
               "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
+        } else if (resource.getType().equals("Patient")) {
+          resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
+        } else if (resource.getType().equals("Coverage")) {
+          resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
         }
 
       }
