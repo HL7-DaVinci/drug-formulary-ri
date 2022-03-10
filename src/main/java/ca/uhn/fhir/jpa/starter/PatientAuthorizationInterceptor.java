@@ -22,13 +22,11 @@ import ca.uhn.fhir.rest.server.exceptions.AuthenticationException;
 import ca.uhn.fhir.rest.server.interceptor.auth.AuthorizationInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.auth.IAuthRule;
 import ca.uhn.fhir.rest.server.interceptor.auth.RuleBuilder;
-import io.github.cdimascio.dotenv.Dotenv;
 
 @SuppressWarnings("ConstantConditions")
 public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
 
   private static final Logger logger = ServerLogger.getLogger();
-  private static final Dotenv dotenv = Dotenv.load();
 
   @Override
   public List<IAuthRule> buildRuleList(RequestDetails theRequestDetails) {
@@ -40,7 +38,7 @@ public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
       if (matcher.find() && matcher.groupCount() == 1) {
         String token = matcher.group(1);
         logger.fine("AuthorizationInterceptor::Token retrieved is " + token);
-        String adminToken = dotenv.get("ADMIN_TOKEN");
+        String adminToken = System.getenv("ADMIN_TOKEN");
         if (adminToken != null && token.equals(adminToken)) {
           logger.info("AuthorizationInterceptor::JWT token is admin token");
           return adminAuthorizedRule();

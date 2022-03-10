@@ -8,7 +8,6 @@ COPY --from=build /usr/src/app/target/root.war /var/lib/jetty/webapps/root.war
 COPY --from=build /usr/src/app/target /var/lib/jetty/target 
 ADD ./data /var/lib/jetty/target/
 COPY src /var/lib/jetty/src
-COPY .env /var/lib/jetty/.env
 USER root
 RUN chown -R jetty:jetty /var/lib/jetty/target
 USER jetty:jetty

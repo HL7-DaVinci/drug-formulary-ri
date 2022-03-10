@@ -148,13 +148,6 @@
       <version>20190722</version>
     </dependency>
 
-    <!-- Dotenv support for environment variables -->
-    <dependency>
-      <groupId>io.github.cdimascio</groupId>
-      <artifactId>dotenv-java</artifactId>
-      <version>2.2.0</version>
-    </dependency>
-
     <!-- You may not need this if you are deploying to an application server which provides database connection pools itself. -->
     <dependency>
       <groupId>org.apache.commons</groupId>
