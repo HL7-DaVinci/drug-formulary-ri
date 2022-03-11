@@ -5,5 +5,6 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 
 FROM jetty:9-jdk11-slim
 COPY --from=build /usr/src/app/target/hapi-fhir-jpaserver.war /var/lib/jetty/webapps/root.war
+COPY --from=build /usr/src/app/target /var/lib/jetty/target
 USER jetty:jetty
 EXPOSE 8080
