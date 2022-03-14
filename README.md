@@ -97,7 +97,13 @@ This server requires getting an access token via the [SMART's Standalone Launch 
 
       Request Example:
       ```
-      GET {base url}/oauth/authorization?response_type=code&client_id=user689&redirect_uri={your client's redirect uri}&scope=patient/*.read&state=12345abc&aud={base url}
+      GET {base url}/oauth/authorization?
+      response_type=code
+      &client_id={client_id}
+      &redirect_uri={your client's redirect uri}
+      &scope={scope}
+      &state={unique string}
+      &aud={base url}
       ```
       Once you submit the `GET` request to the authorization endpoint, you will be prompted to login. The following is the test user credentials you can use for testing:
       ```
@@ -188,4 +194,24 @@ With the `Formulary` identifier retrieved, the user's formulary can be queried a
 This project welcomes Pull Requests. Any issues identified with the RI should be submitted via the [GitHub issue tracker](https://github.com/HL7-DaVinci/drug-formulary-ri/issues).
 ## Troubleshooting
 This reference implimentation has only been tested with `java 8`. A common error encountered when manually buiding this server locally with another java version is related to `.m2/repositories/com/h2database`. If you encounter this issue verify you are using Java 8, delete the h2database folder and run the server again.
+
+* ### Debug Options
+
+    There are a few debug endpoints to help with debugging issues related to authorization. They are helpful to retrieve your client's credentials, see a list of test users, or update your client's redirect URI.
+
+    Endpoint  |  Description
+    --------- | --------------
+    `/debug/Clients` | `GET` a list of registered clients
+    `/debug/Users` | `GET` a list of available test users
+    `/debug/UpdateClient?client_id={client_id}` | `PUT` request to update client
+    `/Log` | `GET` the server log
+
+  **Request body for updateClient request**:
+  ```json
+  {
+    "id": "{id}",
+    "secret": "{secret}",
+    "redirectUri": "{redirect uri}"
+  }
+  ```
 
