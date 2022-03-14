@@ -38,7 +38,7 @@ Alternatively you can build the docker image and run it using normal docker comm
 docker build -t drug-formulary .
 docker run -p 8080:8080 drug-formulary
 ```
-The read only version of the server will be built, with the test data pre-loaded. The FHIR server will then be browesable at http://localhost:8080/fhir.
+The read only version of the server will be built, with the test data pre-loaded. The FHIR server will then be browsable at http://localhost:8080/fhir.
 
 Alternatively, you can build, test and run this server with maven (and Java 8):
 
@@ -48,7 +48,7 @@ mvn jetty:run
 ```
 
 
-The server will then be browseable at
+The server will then be browsable at
 [http://localhost:8080/](http://localhost:8080/), and the
 server's FHIR endpoint will be available at
 [http://localhost:8080/fhir](http://localhost:8080/fhir).
@@ -73,7 +73,7 @@ The following endpoints are publicly available, so do not require authentication
 Check more anticipated queries [here](https://build.fhir.org/ig/HL7/davinci-pdex-formulary/queries.html#anticipated-client-queries).
 
 ## Patient Access (Authenticated Access)
-In compliance with the Centers for Medicare and Medicaid Services (“CMS”) Interoperability and Patient Access Final Rule (CMS-9115-F), this server allows members to access their formulary information using registered, third-party client applications.
+In compliance with the Centers for Medicare and Medicaid Services (“CMS”) Interoperability and Patient Access Final Rule (CMS-9115-F), this server allows users to access their formulary information using registered, third-party client applications.
 
 The protected resources are `Patient` and `Coverage`.
 
@@ -81,7 +81,7 @@ The protected resources are `Patient` and `Coverage`.
 To get access to the Patient Access service, you can register your client app at this endpoint: `/oauth/register/client`. Once you submit your client's redirect URI, the server will generate and assign a client id and secret to your app.
 
 ### OAuth
-This server requires getting an access token via the [SMART Launch Sequence](https://hl7.org/fhir/smart-app-launch/example-app-launch-symmetric-auth.html#step-5-access-token) before making requests to the protected resources. The authorization and token endpoints can be found at the Capability Statement endpoint `/metadata` or the Smart Configuration endpoint `/.well-known/smart-configuration`.
+This server requires getting an access token via the [SMART's Standalone Launch Sequence](https://hl7.org/fhir/smart-app-launch/example-app-launch-symmetric-auth.html#step-5-access-token) before making requests to the protected resources. The authorization and token endpoints can be found at the Capability Statement endpoint `/metadata` or the Smart Configuration endpoint `/.well-known/smart-configuration`.
 1. Request Access:
 
       The authorization endpoint is `/oauth/authorization` and the required query parameters are:
@@ -97,12 +97,7 @@ This server requires getting an access token via the [SMART Launch Sequence](htt
 
       Request Example:
       ```
-      GET {base url}/oauth/authorization?           response_type=code
-      &client_id=user689
-      &redirect_uri={your client's redirect uri}
-      &scope=patient/*.read
-      &state=12345abc
-      &aud={base url}
+      GET {base url}/oauth/authorization?response_type=code&client_id=user689&redirect_uri={your client's redirect uri}&scope=patient/*.read&state=12345abc&aud={base url}
       ```
       Once you submit the `GET` request to the authorization endpoint, you will be prompted to login. The following is the test user credentials you can use for testing:
       ```
@@ -121,10 +116,10 @@ This server requires getting an access token via the [SMART Launch Sequence](htt
 
 2. Retrieve Access Token:
       
-      The token endpoint is `/oauth/token`. The client must issue a `POST` request to the server following the `authorization_code` OAuth 2.0 grant flow the process and including a basic Authorization header with the value `base64Encode(client_id:client_secret)` and use `Content-Type` of `application/x-www-form-urlencoded`.
+      The token endpoint is `/oauth/token`. The client must issue a `POST` request to the server following the `authorization_code` OAuth 2.0 grant flow process, and including a basic Authorization header with the value `base64Encode(client_id:client_secret)` and use `Content-Type` of `application/x-www-form-urlencoded`.
       ```
       POST HTTP/1.1
-      Authorization: Basic MTpwYXNzd29yZA==
+      Authorization: Basic {base64 encoded token}
       Content-Type: application/x-www-form-urlencoded
       {base url}/oauth/token?grant_type=authorization_code
       &code={Authorization code retrieved in previous step }
@@ -149,7 +144,7 @@ This server requires getting an access token via the [SMART Launch Sequence](htt
       ```
 
 ### Querying User's Drug Coverage and Formulary
-The user's drug coverage can be queried by calling the coverage endpoint `/Coverage` with the `patient` and coverage `type` parameters. Drug coverage can be search for with a `coverage.type` of `http://terminology.hl7.org/CodeSystem/v3-ActCode|DRUGPOL`. The patient id provided in the request must match the logged in user's patient id.
+The user's drug coverage can be queried by calling the coverage endpoint `/Coverage` with the `patient` and coverage `type` parameters. Drug coverage can be searched for with a `coverage.type` of `http://terminology.hl7.org/CodeSystem/v3-ActCode|DRUGPOL`. The patient id provided in the request must match the logged in user's patient id.
 
 **Sample request**:
 ```
@@ -176,7 +171,8 @@ Once you retrieve the drug coverage resource, you can get the `Formulary plan id
         }
       ]
     },
-    "value": "Formulary-10207VA0380001"
+    "value": "Formulary-10207VA0380001",
+    "name": "BlueChoice HMO Silver $3,500"
   }
 ]
 ```
