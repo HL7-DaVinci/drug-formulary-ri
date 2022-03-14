@@ -189,6 +189,7 @@ With the `Formulary` identifier retrieved, the user's formulary can be queried a
  type=http://terminology.hl7.org/CodeSystem/v3-ActCode|DRUGPOL
  &identifier=Formulary-10207VA038000
 ```
+> You may also check this [Postman Collection](https://www.getpostman.com/collections/cdb3a7eade04646ec271) for patient access queries.
 
 ## Contributions
 This project welcomes Pull Requests. Any issues identified with the RI should be submitted via the [GitHub issue tracker](https://github.com/HL7-DaVinci/drug-formulary-ri/issues).
