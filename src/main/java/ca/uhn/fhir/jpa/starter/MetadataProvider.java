@@ -11,6 +11,8 @@ import ca.uhn.fhir.rest.api.server.RequestDetails;
 import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.r4.model.CapabilityStatement.*;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
+
 import ca.uhn.fhir.jpa.dao.DaoConfig;
 import ca.uhn.fhir.jpa.dao.IFhirSystemDao;
 import ca.uhn.fhir.rest.server.RestfulServer;
@@ -44,13 +46,14 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     // Canonical URL)
     removeOperations(metadata.getRest());
 
+    metadata.addInstantiates("http://hl7.org/fhir/us/davinci-drug-formulary/CapabilityStatement/usdf-server");
     metadata.setTitle("Da Vinci US Drug Formulary Reference Implementation");
     metadata.setStatus(PublicationStatus.DRAFT);
     metadata.setExperimental(true);
     metadata.setPublisher("Da Vinci");
 
     Calendar calendar = Calendar.getInstance();
-    calendar.set(2019, 8, 5, 0, 0, 0);
+    calendar.set(2022, 3, 5, 0, 0, 0);
     metadata.setDate(calendar.getTime());
 
     CapabilityStatementSoftwareComponent software = new CapabilityStatementSoftwareComponent();
@@ -58,8 +61,10 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     metadata.setSoftware(software);
 
     metadata
-        .addImplementationGuide("https://build.fhir.org/ig/HL7/davinci-pdex-formulary/branches/stu2-draft/index.html");
+        .addImplementationGuide(
+            "http://hl7.org/fhir/us/davinci-drug-formulary/ImplementationGuide/hl7.fhir.us.davinci-drug-formulary");
     metadata.addImplementationGuide("https://wiki.hl7.org/Da_Vinci_PDex-formulary_FHIR_IG_Proposal");
+    metadata.setVersion("1.2.0");
 
     updateRestComponents(metadata.getRest());
 
@@ -97,27 +102,49 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.SEARCHTYPE));
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.VREAD));
         resource.setInteraction(interactions);
+        resource.addReferencePolicy(ReferenceHandlingPolicy.RESOLVES);
 
-        if (resource.getType().equals("MedicationKnowledge")) {
-          resource.addSupportedProfile(
-              "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
-        } else if (resource.getType().equals("Basic")) {
-          resource.addSupportedProfile(
-              "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
-        } else if (resource.getType().equals("InsurancePlan")) {
-          resource.addSupportedProfile(
-              "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
-          resource.addSupportedProfile(
-              "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsuranceDrugPlan");
-        } else if (resource.getType().equals("Location")) {
-          resource.addSupportedProfile(
-              "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
-        } else if (resource.getType().equals("Patient")) {
-          resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
-        } else if (resource.getType().equals("Coverage")) {
-          resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
-        } else if (resource.getType().equals("Organization")) {
-          resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization|1.2.0");
+        CapabilityStatementRestResourceSearchParamComponent lastUpdated = new CapabilityStatementRestResourceSearchParamComponent();
+        lastUpdated.setName("_lastUpdated").setType(SearchParamType.DATE)
+            .setDocumentation("Select resources based on the last time they were changed");
+        resource.addSearchParam(lastUpdated);
+        /**
+         * TODO:
+         * 1) add a method to set a defineed set of search param and search include for
+         * each supported resource
+         * 2) seed the DB with bundle of SearchParameter
+         */
+
+        switch (resource.getType()) {
+          case "MedicationKnowledge":
+            resource.addSupportedProfile(
+                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
+            break;
+          case "Basic":
+            resource.addSupportedProfile(
+                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
+            break;
+          case "InsurancePlan":
+            resource.addSupportedProfile(
+                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
+            resource.addSupportedProfile(
+                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsuranceDrugPlan");
+            break;
+          case "Location":
+            resource.addSupportedProfile(
+                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
+            break;
+          case "Patient":
+            resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
+            break;
+          case "Coverage":
+            resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage");
+            break;
+          case "Organization":
+            resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization");
+            break;
+          default:
+            break;
         }
 
       }
