@@ -3,6 +3,7 @@ package ca.uhn.fhir.jpa.starter.authorization;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
@@ -46,19 +47,47 @@ public class AuthUtils {
    * Populate DB with default clients and test users
    */
   public static void initializeDB() {
+    List<Client> clients = new ArrayList<>();
+    List<User> users = new ArrayList<>();
+
     Client mitreClient = new Client("6cfecf41-e364-44ab-a06f-77f8b0c56c2b",
         "XHNdbHQlOrWXQ8eeXHvZal1EDjI3n2ISlqhtP30Zc89Ad2NuzreoorWQ5P8dPrxtk267SJ23mbxlMzjriAGgkaTnm6Y9f1cOas4Z6xhWXxG43bkIKHhawMR6gGDXAuEWc8wXUHteZIi4YCX6E1qAvGdsXS1KBhkUf1CLcGmauhbCMd73CjMugT527mpLnIebuTp4LYDiJag0usCE6B6fYuTWV21AbvydLnLsMsk83T7aobE4p9R0upL2Ph3OFTE1",
         "https://pdex-formulary-client.org/login");
     Client localhost = new Client("b0c46635-c0b4-448c-a8b9-9bd282d2e05a",
         "bUYbEj5wpazS8Xv1jyruFKpuXa24OGn9MHuZ3ygKexaI5mhKUIzVEBvbv2uggVf1cW6kYD3cgTbCIGK3kjiMcmJq3OG9bn85Fh2x7JKYgy7Jwagdzs0qufgkhPGDvEoVpImpA4clIhfwn58qoTrfHx86ooWLWJeQh4s0StEMqoxLqboywr8u11qmMHd1xwBLehGXUbqpEBlkelBHDWaiCjkhwZeRe4nVu4o8wSAbPQIECQcTjqYBUrBjHlMx5vXU",
         "http://localhost:3000/login");
+    clients.add(mitreClient);
+    clients.add(localhost);
+
     User pdexPUser = new User("PDexPatient", BCrypt.hashpw("password", BCrypt.gensalt()), "PDexPatient");
     User admin = new User("admin", BCrypt.hashpw("password", BCrypt.gensalt()), "admin");
+    users.add(pdexPUser);
+    users.add(admin);
 
-    OauthEndpointController.getDB().write(mitreClient);
-    OauthEndpointController.getDB().write(localhost);
-    OauthEndpointController.getDB().write(pdexPUser);
-    OauthEndpointController.getDB().write(admin);
+    loadClients(clients);
+    loadUsers(users);
+  }
+
+  /**
+   * Load DB with a list of clients if client does not exist
+   */
+  public static void loadClients(List<Client> clients) {
+    for (Client client : clients) {
+      if (Client.getClient(client.getId()) == null) {
+        OauthEndpointController.getDB().write(client);
+      }
+    }
+  }
+
+  /**
+   * Load DB with a list of clients if user does not exist
+   */
+  public static void loadUsers(List<User> users) {
+    for (User user : users) {
+      if (User.getUser(user.getUsername()) == null) {
+        OauthEndpointController.getDB().write(user);
+      }
+    }
   }
 
   /**
