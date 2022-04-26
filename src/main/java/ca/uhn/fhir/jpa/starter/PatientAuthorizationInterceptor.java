@@ -38,7 +38,7 @@ public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
       if (matcher.find() && matcher.groupCount() == 1) {
         String token = matcher.group(1);
         logger.fine("AuthorizationInterceptor::Token retrieved is " + token);
-        String adminToken = System.getenv("ADMIN_TOKEN");
+        String adminToken = HapiProperties.getAdminToken();
         if (adminToken != null && token.equals(adminToken)) {
           logger.info("AuthorizationInterceptor::JWT token is admin token");
           return adminAuthorizedRule();
