@@ -42,7 +42,8 @@ public class RegisterEndpoint {
       return new ResponseEntity<>(gson.toJson(newClient.toMap()), HttpStatus.CREATED);
     else {
       HashMap<String, String> errorMap = new HashMap<>();
-      errorMap.put("error", "Unable to register Client. Please provide a valid redirect URI.");
+      errorMap.put("error",
+          "Unable to register Client. Please provide a valid and unique redirect URI.\n Check the '/debug/Clients' endpoint to retrieve your client credentials if already registered.");
       return new ResponseEntity<>(gson.toJson(errorMap), HttpStatus.BAD_REQUEST);
     }
   }
