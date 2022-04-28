@@ -1,0 +1,420 @@
+{
+  "id": "Drug-283535",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:40:41.800+00:00",
+    "source": "#SErO389Uz5noZ54k",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "283535",
+        "display": "doxycycline hyclate 20 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-857461",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:52:11.729+00:00",
+    "source": "#zzU7NZbKQx2enzHQ",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "857461",
+        "display": "clemastine fumarate 2.68 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-866094",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:44:29.210+00:00",
+    "source": "#hQjduwTZCh0bRfha",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "866094",
+        "display": "buspirone hydrochloride 5 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-198202",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:44:37.886+00:00",
+    "source": "#eUz02MeVsKEo0b7L",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198202",
+        "display": "rifampin 300 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-849515",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:38:49.980+00:00",
+    "source": "#4CYqL9n4SR9CtB4H",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "849515",
+        "display": "desmopressin acetate 0.1 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-198316",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:55:44.610+00:00",
+    "source": "#h8lSGCKdOl54Y0Un",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198316",
+        "display": "hydrochlorothiazide 25 MG / triamterene 37.5 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-310362",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:49:05.379+00:00",
+    "source": "#cDoFosNhDaazz7Na",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "310362",
+        "display": "fluocinonide 0.0005 MG/MG Topical Gel"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-835835",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:46:41.206+00:00",
+    "source": "#JGfjMGfkdprxC68X",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "835835",
+        "display": "cyclosporine, modified 100 MG Oral Capsule [Gengraf]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-854901",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:48:37.018+00:00",
+    "source": "#PQ7gHC3K56BJunrY",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854901",
+        "display": "bisoprolol fumarate 10 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-706546",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:42:33.795+00:00",
+    "source": "#S53GuE3Yn4NSmt1w",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "706546",
+        "display": "prednicarbate 0.001 MG/MG Topical Ointment"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1649996",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:38:25.332+00:00",
+    "source": "#Lu9iiCh4UisXyHc1",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1649996",
+        "display": "0.5 ML interferon beta-1a 0.044 MG/ML Auto-Injector [Rebif]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-200033",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:48:09.148+00:00",
+    "source": "#1xPecJ0nfALktjPp",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "200033",
+        "display": "carvedilol 25 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1657173",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:50:56.708+00:00",
+    "source": "#VeJh8AJjXPpNSajK",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1657173",
+        "display": "0.5 ML sumatriptan 8 MG/ML Cartridge"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-861010",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:53:35.943+00:00",
+    "source": "#5sFsoLwo4bwkIFbH",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861010",
+        "display": "metformin hydrochloride 850 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-903891",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:50:48.970+00:00",
+    "source": "#W6wNdRyGMTt3Hbtm",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "903891",
+        "display": "fluvoxamine maleate 50 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-310437",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:51:29.311+00:00",
+    "source": "#u6yco4jZzk73ELo9",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "310437",
+        "display": "galantamine 8 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-2105657",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:51:59.019+00:00",
+    "source": "#TQSnsLep1LXx7X1I",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2105657",
+        "display": "larotrectinib 25 MG Oral Capsule [Vitrakvi]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-199422",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:40:48.543+00:00",
+    "source": "#cMBopfm1TAnDoPby",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199422",
+        "display": "nevirapine 200 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1747577",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:49:02.447+00:00",
+    "source": "#9yCdWb9geIOqYtfo",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1747577",
+        "display": "venetoclax 10 MG Oral Tablet [Venclexta]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-402247",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:51:00.622+00:00",
+    "source": "#lstOKx6SKwwu4xO8",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "402247",
+        "display": "atazanavir 200 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}

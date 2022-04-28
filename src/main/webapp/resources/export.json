@@ -1,23 +1,26 @@
 {
-  "transactionTime": "04/09/2021 13:55",
-  "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/fhir/$export",
-  "requiresAccessToken": false,
-  "output": [
-    {
-      "type": "Basic",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/resources/Basic.ndjson"
-    },
-    {
-      "type": "InsurancePlan",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/resources/InsurancePlan.ndjson"
-    },
-    {
-      "type": "MedicationKnowledge",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/resources/MedicationKnowledge.ndjson"
+    "transactionTime": "04/09/2021 13:55",
+    "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/InsurancePlan/$export",
+    "requiresAccessToken": false,
+    "output": [{
+            "type": "Basic",
+            "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/Basic.ndjson"
+        },
+        {
+            "type": "InsurancePlan",
+            "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/InsurancePlan.ndjson"
+        },
+        {
+            "type": "MedicationKnowledge",
+            "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/MedicationKnowledge.ndjson"
+        },
+        {
+            "type": "Location",
+            "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/Location.ndjson"
+        }
+    ],
+    "error": {
+        "type": "OperationOutcome",
+        "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/err_file_1.ndjson"
     }
-  ],
-  "error": {
-    "type": "OperationOutcome",
-    "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/err_file_1.ndjson"
-  }
 }

@@ -72,6 +72,17 @@ The following endpoints are publicly available, so do not require authentication
 
 Check more anticipated queries [here](https://build.fhir.org/ig/HL7/davinci-pdex-formulary/queries.html#anticipated-client-queries).
 
+### Bulk Data Export
+This server supports exporting Formularies data  in bulk. Instead of making individual requests to gather data, the bulk data export supports exporting all available formularies data not related to a patient at once.
+
+|Service | Method | Description |
+|---------|--------|------------|
+|`/InsurancePlan/$export` | `GET` | Request to export all `InsurancePlan`, `Basic`, `MedicationKnowledge`, and `Location` resource types containing formulary related data associated with all formulary related plans.|
+|`/InsurancePlan/[:id]/$export` | `GET` | Resquest to export all `InsurancePlan`, `Basic`, `MedicationKnowledge`, and `Location` resource types containing formulary related data associated with the specific plan.|
+|
+
+Check [the wiki]() for detailed bulk data request flow.
+
 ## Patient Access (Authenticated Access)
 In compliance with the Centers for Medicare and Medicaid Services (“CMS”) Interoperability and Patient Access Final Rule (CMS-9115-F), this server allows users to access their formulary information using registered, third-party client applications.
 
@@ -79,7 +90,7 @@ The protected resources are `Patient` and `Coverage`.
 
 ### Registration
 To get access to the Patient Access service, you can register your client app at this endpoint: `/oauth/register/client`. Once you submit your client's redirect URI, the server will generate and assign a client id and secret to your app.
-
+> Note: the redirect URI must be unique. You will get an error if the given redirect URI already exists in the server (if the client is already registed). You can check the `/debug/Clients` endpoint to retrieve client's credentials if already registered.
 ### OAuth
 This server requires getting an access token via the [SMART's Standalone Launch Sequence](https://hl7.org/fhir/smart-app-launch/example-app-launch-symmetric-auth.html#step-5-access-token) before making requests to the protected resources. The authorization and token endpoints can be found at the Capability Statement endpoint `/metadata` or the Smart Configuration endpoint `/.well-known/smart-configuration`.
 1. Request Access:

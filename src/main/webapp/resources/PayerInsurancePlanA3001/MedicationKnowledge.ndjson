@@ -1,0 +1,75 @@
+{
+  "id": "FormularyDrug-1000091",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:44:23.439+00:00",
+    "source": "#Bd0fABaaSVpqWPdU",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><p><b>code</b>: <span title=\"Codes: {http://www.nlm.nih.gov/research/umls/rxnorm 1000091}\">doxepin hydrochloride 50 MG/ML Topical Cream</span></p><p><b>status</b>: active</p><p><b>synonym</b>: doxepin hydrochloride 5 % Topical Cream, doxepin HCl 5 % Topical Cream</p><blockquote><p><b>medicineClassification</b></p><p><b>type</b>: <span title=\"Codes: {http://va.gov/terminology/medrt EPC}\">Established Pharmacologic Class</span></p><p><b>classification</b>: <span title=\"Codes: {http://va.gov/terminology/medrt N0000175752}\">Tricyclic Antidepressant</span></p></blockquote><blockquote><p><b>medicineClassification</b></p><p><b>type</b>: <span title=\"Codes: {http://va.gov/terminology/medrt EPC}\">Established Pharmacologic Class</span></p><p><b>classification</b>: <span title=\"Codes: {http://cts.nlm.nih.gov/fhir/CodeSystem/2.16.840.1.113883.3.26.1.5 N0000146208}\">DOXEPIN HYDROCHLORIDE</span></p></blockquote></div>"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1000091",
+        "display": "doxepin hydrochloride 50 MG/ML Topical Cream"
+      }
+    ]
+  },
+  "status": "active",
+  "synonym": [
+    "doxepin hydrochloride 5 % Topical Cream",
+    "doxepin HCl 5 % Topical Cream"
+  ],
+  "medicineClassification": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://va.gov/terminology/medrt",
+            "code": "EPC",
+            "display": "Established Pharmacologic Class"
+          }
+        ]
+      },
+      "classification": [
+        {
+          "coding": [
+            {
+              "system": "http://va.gov/terminology/medrt",
+              "code": "N0000175752",
+              "display": "Tricyclic Antidepressant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://va.gov/terminology/medrt",
+            "code": "EPC",
+            "display": "Established Pharmacologic Class"
+          }
+        ]
+      },
+      "classification": [
+        {
+          "coding": [
+            {
+              "system": "http://cts.nlm.nih.gov/fhir/CodeSystem/2.16.840.1.113883.3.26.1.5",
+              "code": "N0000146208",
+              "display": "DOXEPIN HYDROCHLORIDE"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "transactionTime": "2022-04-28T14:26:52-04:00",
+  "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/InsurancePlan/PayerInsurancePlanA1002/$export",
+  "requiresAccessToken": false,
+  "output": [
+    {
+      "type": "InsurancePlan",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerInsurancePlanA1002/InsurancePlan.ndjson"
+    },
+    {
+      "type": "Basic",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerInsurancePlanA1002/Basic.ndjson"
+    },
+    {
+      "type": "MedicationKnowledge",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerInsurancePlanA1002/MedicationKnowledge.ndjson"
+    },
+    {
+      "type": "Location",
+      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerInsurancePlanA1002/Location.ndjson"
+    }
+  ]
+}

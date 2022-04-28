@@ -1,0 +1,71 @@
+{
+  "id": "FormularyDrug-1049640",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:44:23.254+00:00",
+    "source": "#9kbpEVhafvKbi1Nh",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><p><b>code</b>: <span title=\"Codes: {http://www.nlm.nih.gov/research/umls/rxnorm 1049640}\">acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet [Percocet]</span></p><p><b>status</b>: active</p><blockquote><p><b>medicineClassification</b></p><p><b>type</b>: <span title=\"Codes: {http://va.gov/terminology/medrt EPC}\">Established Pharmacologic Class</span></p><p><b>classification</b>: <span title=\"Codes: {http://va.gov/terminology/medrt N0000175690}\">Opioid Agonist</span></p></blockquote><blockquote><p><b>medicineClassification</b></p><p><b>type</b>: <span title=\"Codes: {http://va.gov/terminology/medrt EPC}\">Established Pharmacologic Class</span></p><p><b>classification</b>: <span title=\"Codes: {http://cts.nlm.nih.gov/fhir/CodeSystem/2.16.840.1.113883.3.26.1.5 N0000020170}\">ACETAMINOPHEN/OXYCODONE</span></p></blockquote></div>"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049640",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet [Percocet]"
+      }
+    ]
+  },
+  "status": "active",
+  "medicineClassification": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://va.gov/terminology/medrt",
+            "code": "EPC",
+            "display": "Established Pharmacologic Class"
+          }
+        ]
+      },
+      "classification": [
+        {
+          "coding": [
+            {
+              "system": "http://va.gov/terminology/medrt",
+              "code": "N0000175690",
+              "display": "Opioid Agonist"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://va.gov/terminology/medrt",
+            "code": "EPC",
+            "display": "Established Pharmacologic Class"
+          }
+        ]
+      },
+      "classification": [
+        {
+          "coding": [
+            {
+              "system": "http://cts.nlm.nih.gov/fhir/CodeSystem/2.16.840.1.113883.3.26.1.5",
+              "code": "N0000020170",
+              "display": "ACETAMINOPHEN/OXYCODONE"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
