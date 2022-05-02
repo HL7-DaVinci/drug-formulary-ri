@@ -81,7 +81,7 @@ This server supports exporting Formularies data  in bulk. Instead of making indi
 |`/InsurancePlan/[:id]/$export` | `GET` | Resquest to export all `InsurancePlan`, `Basic`, `MedicationKnowledge`, and `Location` resource types containing formulary related data associated with the specific plan.|
 |
 
-Check [the wiki]() for detailed bulk data request flow.
+Check [the wiki](https://github.com/HL7-DaVinci/drug-formulary-ri/wiki/3.-FHIR-Server-Interaction#bulk-data-export) for detailed bulk data request flow.
 
 ## Patient Access (Authenticated Access)
 In compliance with the Centers for Medicare and Medicaid Services (“CMS”) Interoperability and Patient Access Final Rule (CMS-9115-F), this server allows users to access their formulary information using registered, third-party client applications.
