@@ -1,0 +1,2416 @@
+{
+  "id": "FormularyItem-10207VA0380003-849515",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:54.188+00:00",
+    "source": "#XeYxdU0sxnVmAXsa",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 849515</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-849515",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-1657173",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:54.921+00:00",
+    "source": "#e9SrVTeHnUikW3yL",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 1657173</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-1657173",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-857461",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:55.139+00:00",
+    "source": "#MPvR31xaYeDqxuDd",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 857461</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorizationNewStartsOnly-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-857461",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-310437",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:56.635+00:00",
+    "source": "#HJ9Ez5XMkW5dyzgH",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 310437</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-310437",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-1649996",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:56.868+00:00",
+    "source": "#h59FIetT08Bt3g8S",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 1649996</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "specialty",
+            "display": "Specialty"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorizationNewStartsOnly-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-1649996",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-903891",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:58.184+00:00",
+    "source": "#Q1jE3fc28ufsuFld",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 903891</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-903891",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-198316",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:47:58.955+00:00",
+    "source": "#RxFXOxpJA1KfJmUu",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 198316</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-198316",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-1747577",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:02.487+00:00",
+    "source": "#Mlq7LmfhoguupJtg",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 1747577</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "zero-cost-share-preventative",
+            "display": "Zero cost-share preventative"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorizationNewStartsOnly-extension",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-1747577",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-310362",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:02.689+00:00",
+    "source": "#213GTVhGCZfSkcSH",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 310362</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-310362",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-199422",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:03.153+00:00",
+    "source": "#JthzrCTnAmo7QLWt",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 199422</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-199422",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-2105657",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:03.429+00:00",
+    "source": "#H2DFyeLUsyLhw9S1",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 2105657</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "zero-cost-share-preventative",
+            "display": "Zero cost-share preventative"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorizationNewStartsOnly-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-2105657",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-200033",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:04.284+00:00",
+    "source": "#6p8olfcer9Y2loIs",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 200033</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-200033",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-283535",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:05.768+00:00",
+    "source": "#sRAGnYM0VIuj6BAf",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 283535</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-283535",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-854901",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:08.017+00:00",
+    "source": "#32yxBpMsXHRZZhOa",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 854901</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-854901",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-866094",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:08.762+00:00",
+    "source": "#eysW6F8ZW4XBl9H4",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 866094</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-866094",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-706546",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:10.351+00:00",
+    "source": "#pJii0XVXfJDl9Bjd",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 706546</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-706546",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-835835",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:10.575+00:00",
+    "source": "#J1r17z9cnJ9CDuEn",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 835835</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-835835",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-861010",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:11.054+00:00",
+    "source": "#It9NuHSNObcwRUum",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 861010</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-861010",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-198202",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:11.237+00:00",
+    "source": "#8tzw1Ybh09zIdAon",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 198202</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": false
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-198202",
+    "type": "MedicationKnowledge"
+  }
+}
+{
+  "id": "FormularyItem-10207VA0380003-402247",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T22:48:12.446+00:00",
+    "source": "#k3Vm04vftyegWaLO",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Formulary Item for Plan: 10207VA0380003; RxNorm: 402247</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension",
+      "valueReference": {
+        "reference": "InsurancePlan/Formulary-10207VA0380003",
+        "type": "InsurancePlan"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityStatus-extension",
+      "valueCode": "active"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-AvailabilityPeriod-extension",
+      "valuePeriod": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-in-retail",
+            "display": "1 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "1-month-out-retail",
+            "display": "1 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-in-retail",
+            "display": "3 month in network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PharmacyType-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-PharmacyTypeCS",
+            "code": "3-month-out-retail",
+            "display": "3 month out of network retail"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-DrugTierID-extension",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-DrugTierCS",
+            "code": "generic",
+            "display": "Generic"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PriorAuthorization-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-StepTherapyLimit-extension",
+      "valueBoolean": false
+    },
+    {
+      "url": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-QuantityLimit-extension",
+      "valueBoolean": true
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/davinci-drug-formulary/CodeSystem/usdf-InsuranceItemTypeCS",
+        "code": "formulary-item",
+        "display": "Formulary Item"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "MedicationKnowledge/Drug-402247",
+    "type": "MedicationKnowledge"
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "id": "Drug-314286",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:46:28.678+00:00",
+    "source": "#qGQ5u7LYMppGhBp9",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "314286",
+        "display": "ziprasidone 20 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-899485",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:50:35.017+00:00",
+    "source": "#m8V72dTE6VZTuVfa",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "899485",
+        "display": "24 HR dexmethylphenidate hydrochloride 20 MG Extended Release Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-207273",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:45:01.855+00:00",
+    "source": "#AcbAg5Ob0lY22lqR",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "207273",
+        "display": "nitroglycerin 0.02 MG/MG Topical Ointment [Nitro-Bid]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-197657",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:53:31.039+00:00",
+    "source": "#UVSGUkbfFxphxgeb",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "197657",
+        "display": "estradiol 0.5 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-800918",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:38:41.145+00:00",
+    "source": "#ir2jZOUzfgjHr87P",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "800918",
+        "display": "ascorbic acid 4700 MG / polyethylene glycol 3350 100000 MG / potassium chloride 1015 MG / sodium ascorbate 5900 MG / sodium chloride 2690 MG / sodium sulfate 7500 MG Powder for Oral Solution [MoviPrep]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1734921",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:42:23.721+00:00",
+    "source": "#2cITGe3HMwhsWUls",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1734921",
+        "display": "cyclophosphamide 2000 MG Injection"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1870230",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:38:13.920+00:00",
+    "source": "#s9BMUkSoxUHTpRDH",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1870230",
+        "display": "NDA020800 0.3 ML epinephrine 1 MG/ML Auto-Injector"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1441740",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:43:35.877+00:00",
+    "source": "#MoaeFhnT5lFgyiQj",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1441740",
+        "display": "bazedoxifene 20 MG / estrogens, conjugated (USP) 0.45 MG Oral Tablet [Duavee]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-311975",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:53:24.606+00:00",
+    "source": "#zL4Drlm6hOzGtwXc",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "311975",
+        "display": "nicotine 4 MG Chewing Gum"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-643019",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:48:58.259+00:00",
+    "source": "#8oB7a6seDXuKXjtk",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "643019",
+        "display": "aripiprazole 10 MG Disintegrating Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1091638",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:55:19.369+00:00",
+    "source": "#LUC8Xj75b2VPtMH8",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1091638",
+        "display": "24 HR diltiazem hydrochloride 360 MG Extended Release Oral Tablet [Matzim]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-855474",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:56:28.396+00:00",
+    "source": "#nOlIGKk7nJDPDdTF",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "855474",
+        "display": "alclometasone dipropionate 0.5 MG/ML Topical Cream"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-197893",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:48:47.653+00:00",
+    "source": "#lNHrft9zlLFa9zFN",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "197893",
+        "display": "lithium carbonate 600 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-729234",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:46:14.764+00:00",
+    "source": "#SYJ782UJjUMtACf3",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "729234",
+        "display": "somatropin 6 MG Cartridge [Humatrope]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-855316",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:54:15.799+00:00",
+    "source": "#v0ZEB31YAisxO6ne",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "855316",
+        "display": "warfarin sodium 2.5 MG Oral Tablet [Jantoven]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-850309",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:48:49.106+00:00",
+    "source": "#c2L99LhH8JbwhH3X",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "850309",
+        "display": "besifloxacin 6 MG/ML Ophthalmic Suspension [Besivance]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1193362",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:43:29.660+00:00",
+    "source": "#rLJnFvPr1ZpXrMz9",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1193362",
+        "display": "100 ML levetiracetam 5 MG/ML Injection"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-729203",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:46:16.849+00:00",
+    "source": "#hjz8ep8p7UJGvkaM",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "729203",
+        "display": "maraviroc 300 MG Oral Tablet [Selzentry]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1542997",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:56:51.644+00:00",
+    "source": "#aNic1hDqx3Bh6jA1",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1542997",
+        "display": "168 HR buprenorphine 0.0075 MG/HR Transdermal System"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-351859",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:44:14.867+00:00",
+    "source": "#EHmBdbSBe40ehy4L",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "351859",
+        "display": "insulin, regular, human 500 UNT/ML Injectable Solution [Humulin R]"
+      }
+    ]
+  },
+  "status": "active"
+}

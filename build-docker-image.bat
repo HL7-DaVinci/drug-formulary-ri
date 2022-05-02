@@ -1,1 +1,1 @@
-docker build -t hapi-fhir/hapi-fhir-jpaserver-starter .
+docker build -t drug-formulary .

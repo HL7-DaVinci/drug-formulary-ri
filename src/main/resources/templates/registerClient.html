@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Register Client</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<style>
+			body {
+				background-color: #5693e2;
+			}
+			#form-container {
+				margin-top: 50px;
+				padding: 20px;
+				background-color: #ededed;
+				border-radius: 20px;
+			}
+			#clientInfo {
+				word-wrap: break-word;
+			}
+			h2,
+			h4 {
+				text-align: center;
+			}
+			input,
+			button {
+				margin: 10px;
+			}
+		</style>
+
+		<section class="vh-100">
+			<div class="container h-100">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px">
+							<div class="card-body p-5">
+								<h2 class="text-center mb-5">
+									PDex Drug Formulary Server New Client Registration
+								</h2>
+								<form id="form" onsubmit="register(event)">
+									<p
+										id="error"
+										class="text-center text-danger mb-5"
+										style="display: none"
+									></p>
+									<div class="form-outline mb-4">
+										<input
+											type="text"
+											id="redirectUri"
+											class="form-control form-control-lg"
+											required
+										/>
+										<label class="form-label" for="redirectUri"
+											>Redirect Uri</label
+										>
+									</div>
+									<div class="d-flex justify-content-center">
+										<button
+											type="submit"
+											class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+										>
+											Register Client
+										</button>
+									</div>
+								</form>
+								<div id="clientInfo" style="display: none">
+									<h6 class="text-center mb-5">New Client Registered</h6>
+									<div class="row align-items-center pt-4 pb-3">
+										<div class="col-md-3 ps-5">
+											<h6 class="mb-0">ID</h6>
+										</div>
+										<div class="col-md-9 pe-5">
+											<input
+												type="text"
+												class="form-control form-control-lg"
+												id="id"
+												readonly
+											/>
+										</div>
+									</div>
+									<hr class="mx-n3" />
+									<div class="row align-items-center pt-4 pb-3">
+										<div class="col-md-3 ps-5">
+											<h6 class="mb-0">Secret</h6>
+										</div>
+										<div class="col-md-9 pe-5">
+											<input
+												type="text"
+												class="form-control form-control-lg"
+												id="secret"
+												readonly
+											/>
+										</div>
+									</div>
+									<hr class="mx-n3" />
+									<div class="row align-items-center pt-4 pb-3">
+										<div class="col-md-3 ps-5">
+											<h6 class="mb-0">Redirect URI</h6>
+										</div>
+										<div class="col-md-9 pe-5">
+											<input
+												type="text"
+												class="form-control form-control-lg"
+												id="redirect"
+												readonly
+											/>
+										</div>
+									</div>
+									<hr class="mx-n3" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script>
+			function register(event) {
+				event.preventDefault();
+
+				let redirectUri = document.getElementById("redirectUri").value;
+
+				let request = new XMLHttpRequest();
+				request.onreadystatechange = function () {
+					console.log(this.response);
+					let response = JSON.parse(this.response);
+					if (response.error) {
+						const errField = document.getElementById("error");
+						errField.style.display = "";
+						errField.innerHTML = response.error;
+					} else {
+						document.getElementById("form").style.display = "none";
+						document.getElementById("id").value = response.id;
+						document.getElementById("secret").value = response.secret;
+						document.getElementById("redirect").value = response.redirect;
+						document.getElementById("clientInfo").style.display = "block";
+					}
+				};
+				request.open(
+					"POST",
+					window.location.href + "?redirect_uri=" + redirectUri,
+					true
+				);
+				request.send();
+			}
+		</script>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

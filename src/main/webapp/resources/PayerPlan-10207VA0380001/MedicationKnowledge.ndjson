@@ -1,0 +1,420 @@
+{
+  "id": "Drug-853354",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:44:36.304+00:00",
+    "source": "#YR7trluSVypTJYQ5",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "853354",
+        "display": "0.5 ML ustekinumab 90 MG/ML Prefilled Syringe [Stelara]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-848208",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:55:41.177+00:00",
+    "source": "#G7Y002t5jgvJyfMT",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "848208",
+        "display": "Augmented betamethasone 0.0005 MG/MG Topical Gel"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-2196900",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:53:49.662+00:00",
+    "source": "#XdL8Dy3Q3Qmaz0H5",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2196900",
+        "display": "24 HR upadacitinib 15 MG Extended Release Oral Tablet [Rinvoq]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1537209",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:44:28.072+00:00",
+    "source": "#MPmrNL3FwcOPXUVU",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1537209",
+        "display": "{21 (ethinyl estradiol 0.03 MG / norethindrone acetate 1.5 MG Oral Tablet) } Pack [Larin 1.5/30]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-199885",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:54:19.751+00:00",
+    "source": "#CRYDxzsyUzGU9gOg",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199885",
+        "display": "levofloxacin 500 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-198056",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:53:50.830+00:00",
+    "source": "#pSVg1Z02CD4rvGtT",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198056",
+        "display": "oxandrolone 2.5 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-857635",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:46:11.359+00:00",
+    "source": "#xM40Z46n7Z5sCHQB",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "857635",
+        "display": "1 ML terbutaline sulfate 1 MG/ML Injection"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-856429",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:37:54.870+00:00",
+    "source": "#GZlu5LUI3xyJcnfW",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "856429",
+        "display": "hydrochlorothiazide 25 MG / propranolol hydrochloride 80 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-199369",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:41:29.231+00:00",
+    "source": "#Nh3tIXfmJlcy3TI2",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199369",
+        "display": "sodium phenylbutyrate 500 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-577208",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:43:26.002+00:00",
+    "source": "#mzG91bA6AbKO49yW",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "577208",
+        "display": "omega-3 acid ethyl esters (USP) 1000 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-199123",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:50:54.981+00:00",
+    "source": "#ihX5iyToO44eoztS",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199123",
+        "display": "bicalutamide 50 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-310429",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:47:10.681+00:00",
+    "source": "#37d5ewoOCeFTZO24",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "310429",
+        "display": "furosemide 20 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-597971",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:40:44.774+00:00",
+    "source": "#ZP16kf3oKzXQQySN",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "597971",
+        "display": "amlodipine 2.5 MG / atorvastatin 10 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-309843",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:51:37.312+00:00",
+    "source": "#yT0lLHBPbkNc8o7O",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "309843",
+        "display": "diazepam 1 MG/ML Oral Solution"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-198175",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:43:00.064+00:00",
+    "source": "#RJFGzmfYbl3Zr8Ty",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198175",
+        "display": "propylthiouracil 50 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-597852",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:51:18.442+00:00",
+    "source": "#1Gvw3Mqy8dI5lXFx",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "597852",
+        "display": "anagrelide 1 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-637173",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:40:56.787+00:00",
+    "source": "#DKI4nx7JNarjOd6Y",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "637173",
+        "display": "cephalexin 750 MG Oral Capsule"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-1600710",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:46:09.086+00:00",
+    "source": "#1wMsZmNKObpaVTYr",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1600710",
+        "display": "cobicistat 150 MG / darunavir 800 MG Oral Tablet [Prezcobix]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-855292",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:51:12.230+00:00",
+    "source": "#g1TZb9QUbOzo0DTw",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "855292",
+        "display": "warfarin sodium 1 MG Oral Tablet [Jantoven]"
+      }
+    ]
+  },
+  "status": "active"
+}
+{
+  "id": "Drug-864650",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2021-10-22T23:39:31.135+00:00",
+    "source": "#ovwl6LhHV1FJ84XC",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864650",
+        "display": "ganciclovir 0.0015 MG/MG Ophthalmic Gel [Zirgan]"
+      }
+    ]
+  },
+  "status": "active"
+}
