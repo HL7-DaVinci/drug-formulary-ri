@@ -42,7 +42,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
   public CapabilityStatement getServerConformance(HttpServletRequest theRequest, RequestDetails theRequestDetails) {
     CapabilityStatement metadata = super.getServerConformance(theRequest, theRequestDetails);
 
-    // Remove HAPI defined default OperationDefinitions (Their definitions are not a
+    // Remove HAPI defined default OperationDefinitions (Their definitions are not
     // Canonical URL)
     removeOperations(metadata.getRest());
 
@@ -62,7 +62,6 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     metadata.setSoftware(software);
 
     metadata.addImplementationGuide("https://hl7.org/fhir/us/davinci-drug-formulary/2022Jan");
-
     metadata.setVersion("1.2.0");
 
     updateRestComponents(metadata.getRest());
@@ -71,85 +70,15 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
   }
 
   private void updateRestComponents(List<CapabilityStatementRestComponent> originalRests) {
-    CodeableConcept service = new CodeableConcept();
-    ArrayList<Coding> codings = new ArrayList<>();
-    codings.add(
-        new Coding("http://terminology.hl7.org/CodeSystem/restful-security-service", "SMART-on-FHIR", "SMART on FHIR"));
-    service.setCoding(codings);
-    service.setText("OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)");
-
-    Extension oauthExtension = new Extension();
-    ArrayList<Extension> uris = new ArrayList<>();
-    uris.add(new Extension("authorize", new UriType(getAuthorizationUrl())));
-    uris.add(new Extension("introspect", new UriType(getIntrospectionUrl())));
-    uris.add(new Extension("token", new UriType(getTokenUrl())));
-    oauthExtension.setUrl("http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris");
-    oauthExtension.setExtension(uris);
-
-    CapabilityStatementRestSecurityComponent securityComponent = new CapabilityStatementRestSecurityComponent();
-    securityComponent.addService(service);
-    securityComponent.addExtension(oauthExtension);
+    CodeableConcept service = getSecurityComponentService();
+    Extension oauthExtension = getSecurityComponentOauthExtension();
+    CapabilityStatementRestSecurityComponent securityComponent = getSecurityComponent(service, oauthExtension);
 
     for (CapabilityStatementRestComponent rest : originalRests) {
       rest.setSecurity(securityComponent);
       List<CapabilityStatementRestResourceComponent> resources = rest.getResource();
       for (CapabilityStatementRestResourceComponent resource : resources) {
-        List<ResourceInteractionComponent> interactions = new ArrayList<>();
-        interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.HISTORYINSTANCE));
-        interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.HISTORYTYPE));
-        interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.READ));
-        interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.SEARCHTYPE));
-        interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.VREAD));
-        resource.setInteraction(interactions);
-        resource.addReferencePolicy(ReferenceHandlingPolicy.RESOLVES);
-        resource.addSearchParam(lastUpdatedParam());
-        /**
-         * TODO:
-         * 1) add a method to set a defineed set of search param and search include for
-         * each supported resource
-         * 2) seed the DB with bundle of SearchParameter
-         */
-
-        switch (resource.getType()) {
-          case "MedicationKnowledge":
-            resource.addSupportedProfile(
-                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
-            break;
-          case "Basic":
-            resource.addSupportedProfile(
-                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
-            resource.addSearchParam(periodParam());
-            resource.addSearchParam(statusParam());
-            resource.addSearchParam(formularyParam());
-            resource.addSearchInclude("Basic:formulary");
-            break;
-          case "InsurancePlan":
-            resource.addSupportedProfile(
-                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
-            resource.addSupportedProfile(
-                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-Formulary");
-            resource.addSearchParam(periodParam());
-            resource.addSearchParam(coverageAreaParam());
-            resource.addSearchParam(formularyCoverageParam());
-            resource.addSearchInclude("InsurancePlan:formulary-coverage");
-            break;
-          case "Location":
-            resource.addSupportedProfile(
-                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
-            break;
-          case "Patient":
-            resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
-            break;
-          case "Coverage":
-            resource.addSupportedProfile("https://hl7.org/fhir/us/carin-bb/STU1.1/StructureDefinition/C4BB-Coverage");
-            break;
-          case "Organization":
-            resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization");
-            break;
-          default:
-            break;
-        }
-
+        configResourceComponent(resource);
       }
     }
   }
@@ -159,6 +88,128 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     for (CapabilityStatementRestComponent rest : originalRests) {
       rest.setOperation(null);
     }
+  }
+
+  // Set rest security component instance
+  private CapabilityStatementRestSecurityComponent getSecurityComponent(CodeableConcept service,
+      Extension oauthExtension) {
+    CapabilityStatementRestSecurityComponent securityComponent = new CapabilityStatementRestSecurityComponent();
+    securityComponent.addService(service);
+    securityComponent.addExtension(oauthExtension);
+    return securityComponent;
+  }
+
+  // Security Component Properties
+  private CodeableConcept getSecurityComponentService() {
+    CodeableConcept service = new CodeableConcept();
+    ArrayList<Coding> codings = new ArrayList<>();
+    codings.add(
+        new Coding("http://terminology.hl7.org/CodeSystem/restful-security-service", "SMART-on-FHIR", "SMART on FHIR"));
+    service.setCoding(codings);
+    service.setText("OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)");
+    return service;
+  }
+
+  private Extension getSecurityComponentOauthExtension() {
+    Extension oauthExtension = new Extension();
+    ArrayList<Extension> uris = new ArrayList<>();
+    uris.add(new Extension("authorize", new UriType(getAuthorizationUrl())));
+    uris.add(new Extension("introspect", new UriType(getIntrospectionUrl())));
+    uris.add(new Extension("token", new UriType(getTokenUrl())));
+    oauthExtension.setUrl("http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris");
+    oauthExtension.setExtension(uris);
+    return oauthExtension;
+  }
+
+  // Resources configuration
+  private void configResourceComponent(CapabilityStatementRestResourceComponent resource) {
+    setCommonResourceProperties(resource);
+
+    switch (resource.getType()) {
+      case "MedicationKnowledge":
+        setMedicationKnowledgeResourceProperties(resource);
+        break;
+      case "Basic":
+        setBasicResourceProperties(resource);
+        break;
+      case "InsurancePlan":
+        setInsurancePlanResourceProperties(resource);
+        break;
+      case "Location":
+        setLocationResourceProperties(resource);
+        break;
+      case "Patient":
+        setPatientResourceProperties(resource);
+        break;
+      case "Coverage":
+        setCoverageResourceProperties(resource);
+        break;
+      case "Organization":
+        setOrganizationResourceProperties(resource);
+        break;
+      default:
+        break;
+    }
+  }
+
+  private void setCommonResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    List<ResourceInteractionComponent> interactions = getInteractionList();
+    resource.setInteraction(interactions);
+    resource.addReferencePolicy(ReferenceHandlingPolicy.RESOLVES);
+    resource.addSearchParam(lastUpdatedParam());
+  }
+
+  private void setInsurancePlanResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile(
+        "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
+    resource.addSupportedProfile(
+        "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-Formulary");
+    resource.addSearchParam(periodParam());
+    resource.addSearchParam(coverageAreaParam());
+    resource.addSearchParam(formularyCoverageParam());
+    resource.addSearchInclude("InsurancePlan:formulary-coverage");
+  }
+
+  private void setMedicationKnowledgeResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile(
+        "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug");
+  }
+
+  private void setBasicResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile(
+        "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
+    resource.addSearchParam(periodParam());
+    resource.addSearchParam(statusParam());
+    resource.addSearchParam(formularyParam());
+    resource.addSearchInclude("Basic:formulary");
+  }
+
+  private void setLocationResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile(
+        "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
+  }
+
+  private void setPatientResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
+  }
+
+  private void setCoverageResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile("https://hl7.org/fhir/us/carin-bb/STU1.1/StructureDefinition/C4BB-Coverage");
+  }
+
+  private void setOrganizationResourceProperties(CapabilityStatementRestResourceComponent resource) {
+    resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization");
+  }
+
+  // Interaction component for all resources:
+  private List<ResourceInteractionComponent> getInteractionList() {
+    List<ResourceInteractionComponent> interactions = new ArrayList<>();
+    interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.HISTORYINSTANCE));
+    interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.HISTORYTYPE));
+    interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.READ));
+    interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.SEARCHTYPE));
+    interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.VREAD));
+    return interactions;
   }
 
   // All resources search params
