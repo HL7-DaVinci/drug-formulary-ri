@@ -46,7 +46,8 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     // Canonical URL)
     removeOperations(metadata.getRest());
 
-    metadata.addInstantiates("http://hl7.org/fhir/us/davinci-drug-formulary/CapabilityStatement/usdf-server");
+    metadata.addInstantiates("https://hl7.org/fhir/us/davinci-drug-formulary/2022Jan/CapabilityStatement/usdf-server");
+    metadata.setName("PDEx Formulary RI");
     metadata.setTitle("Da Vinci US Drug Formulary Reference Implementation");
     metadata.setStatus(PublicationStatus.DRAFT);
     metadata.setExperimental(true);
@@ -60,10 +61,8 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     software.setName("https://github.com/HL7-DaVinci/drug-formulary-ri");
     metadata.setSoftware(software);
 
-    metadata
-        .addImplementationGuide(
-            "http://hl7.org/fhir/us/davinci-drug-formulary/ImplementationGuide/hl7.fhir.us.davinci-drug-formulary");
-    metadata.addImplementationGuide("https://wiki.hl7.org/Da_Vinci_PDex-formulary_FHIR_IG_Proposal");
+    metadata.addImplementationGuide("https://hl7.org/fhir/us/davinci-drug-formulary/2022Jan");
+
     metadata.setVersion("1.2.0");
 
     updateRestComponents(metadata.getRest());
@@ -71,11 +70,11 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     return metadata;
   }
 
-  private void updateRestComponents(
-      List<CapabilityStatementRestComponent> originalRests) {
+  private void updateRestComponents(List<CapabilityStatementRestComponent> originalRests) {
     CodeableConcept service = new CodeableConcept();
     ArrayList<Coding> codings = new ArrayList<>();
-    codings.add(new Coding("http://hl7.org/fhir/restful-security-service", "SMART-on-FHIR", "SMART on FHIR"));
+    codings.add(
+        new Coding("http://terminology.hl7.org/CodeSystem/restful-security-service", "SMART-on-FHIR", "SMART on FHIR"));
     service.setCoding(codings);
     service.setText("OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)");
 
@@ -103,11 +102,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         interactions.add(new ResourceInteractionComponent().setCode(TypeRestfulInteraction.VREAD));
         resource.setInteraction(interactions);
         resource.addReferencePolicy(ReferenceHandlingPolicy.RESOLVES);
-
-        CapabilityStatementRestResourceSearchParamComponent lastUpdated = new CapabilityStatementRestResourceSearchParamComponent();
-        lastUpdated.setName("_lastUpdated").setType(SearchParamType.DATE)
-            .setDocumentation("Select resources based on the last time they were changed");
-        resource.addSearchParam(lastUpdated);
+        resource.addSearchParam(lastUpdatedParam());
         /**
          * TODO:
          * 1) add a method to set a defineed set of search param and search include for
@@ -123,12 +118,20 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
           case "Basic":
             resource.addSupportedProfile(
                 "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
+            resource.addSearchParam(periodParam());
+            resource.addSearchParam(statusParam());
+            resource.addSearchParam(formularyParam());
+            resource.addSearchInclude("Basic:formulary");
             break;
           case "InsurancePlan":
             resource.addSupportedProfile(
                 "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
             resource.addSupportedProfile(
-                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsuranceDrugPlan");
+                "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-Formulary");
+            resource.addSearchParam(periodParam());
+            resource.addSearchParam(coverageAreaParam());
+            resource.addSearchParam(formularyCoverageParam());
+            resource.addSearchInclude("InsurancePlan:formulary-coverage");
             break;
           case "Location":
             resource.addSupportedProfile(
@@ -138,7 +141,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
             resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient");
             break;
           case "Coverage":
-            resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage");
+            resource.addSupportedProfile("https://hl7.org/fhir/us/carin-bb/STU1.1/StructureDefinition/C4BB-Coverage");
             break;
           case "Organization":
             resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization");
@@ -156,5 +159,51 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     for (CapabilityStatementRestComponent rest : originalRests) {
       rest.setOperation(null);
     }
+  }
+
+  // All resources search params
+  private CapabilityStatementRestResourceSearchParamComponent lastUpdatedParam() {
+    CapabilityStatementRestResourceSearchParamComponent lastUpdated = new CapabilityStatementRestResourceSearchParamComponent();
+    lastUpdated.setName("_lastUpdated").setType(SearchParamType.DATE)
+        .setDocumentation("Select resources based on the last time they were changed");
+    return lastUpdated;
+  }
+
+  // InsurancePlan and Basic Search Params
+  private CapabilityStatementRestResourceSearchParamComponent periodParam() {
+    CapabilityStatementRestResourceSearchParamComponent period = new CapabilityStatementRestResourceSearchParamComponent();
+    period.setName("period").setType(SearchParamType.DATE)
+        .setDocumentation("Accesses the active period of the resource instance");
+    return period;
+  }
+
+  // InsurancePlan Search Params
+  private CapabilityStatementRestResourceSearchParamComponent coverageAreaParam() {
+    CapabilityStatementRestResourceSearchParamComponent coverageArea = new CapabilityStatementRestResourceSearchParamComponent();
+    coverageArea.setName("coverage-area").setType(SearchParamType.REFERENCE)
+        .setDocumentation("Search InsurancePlan by coverage location");
+    return coverageArea;
+  }
+
+  private CapabilityStatementRestResourceSearchParamComponent formularyCoverageParam() {
+    CapabilityStatementRestResourceSearchParamComponent formularyCoverage = new CapabilityStatementRestResourceSearchParamComponent();
+    formularyCoverage.setName("formulary-coverage").setType(SearchParamType.REFERENCE)
+        .setDocumentation("Accesses the Coverage Formulary Reference of an InsurancePlan");
+    return formularyCoverage;
+  }
+
+  // Basic Search Params
+  private CapabilityStatementRestResourceSearchParamComponent statusParam() {
+    CapabilityStatementRestResourceSearchParamComponent status = new CapabilityStatementRestResourceSearchParamComponent();
+    status.setName("status").setType(SearchParamType.TOKEN)
+        .setDocumentation("Accesses the status of the given resource instance");
+    return status;
+  }
+
+  private CapabilityStatementRestResourceSearchParamComponent formularyParam() {
+    CapabilityStatementRestResourceSearchParamComponent formulary = new CapabilityStatementRestResourceSearchParamComponent();
+    formulary.setName("formulary").setType(SearchParamType.REFERENCE)
+        .setDocumentation("Accesses the formulary reference of the given resource");
+    return formulary;
   }
 }
