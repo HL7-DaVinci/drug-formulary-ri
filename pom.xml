@@ -206,7 +206,7 @@
     <dependency>
       <groupId>org.webjars.bower</groupId>
       <artifactId>moment</artifactId>
-      <version>2.29.1</version>
+      <version>2.29.3</version>
     </dependency>
 
     <!-- The following dependencies are only needed for automated unit tests, you do not neccesarily need them to run the example. -->
