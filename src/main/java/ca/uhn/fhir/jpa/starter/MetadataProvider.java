@@ -54,7 +54,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     metadata.setPublisher("Da Vinci");
 
     Calendar calendar = Calendar.getInstance();
-    calendar.set(2022, 3, 5, 0, 0, 0);
+    calendar.set(2022, 7, 10, 0, 0, 0); // Change this date each time the capability statement is being updated
     metadata.setDate(calendar.getTime());
 
     CapabilityStatementSoftwareComponent software = new CapabilityStatementSoftwareComponent();
