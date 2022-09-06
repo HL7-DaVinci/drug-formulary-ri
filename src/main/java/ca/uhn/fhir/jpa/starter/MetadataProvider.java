@@ -46,7 +46,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     // Canonical URL)
     removeOperations(metadata.getRest());
 
-    metadata.addInstantiates("https://hl7.org/fhir/us/davinci-drug-formulary/2022Jan/CapabilityStatement/usdf-server");
+    metadata.addInstantiates("http://hl7.org/fhir/us/davinci-drug-formulary/CapabilityStatement/usdf-server");
     metadata.setName("PDEx Formulary RI");
     metadata.setTitle("Da Vinci US Drug Formulary Reference Implementation");
     metadata.setStatus(PublicationStatus.DRAFT);
@@ -61,8 +61,9 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     software.setName("https://github.com/HL7-DaVinci/drug-formulary-ri");
     metadata.setSoftware(software);
 
-    metadata.addImplementationGuide("https://hl7.org/fhir/us/davinci-drug-formulary/2022Jan");
-    metadata.setVersion("1.2.0");
+    metadata.addImplementationGuide(
+        "http://hl7.org/fhir/us/davinci-drug-formulary/ImplementationGuide/hl7.fhir.us.davinci-drug-formulary");
+    metadata.setVersion("2.0.0");
 
     updateRestComponents(metadata.getRest());
 
