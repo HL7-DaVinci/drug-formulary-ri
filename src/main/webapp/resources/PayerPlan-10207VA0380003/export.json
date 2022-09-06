@@ -1,5 +1,5 @@
 {
-  "transactionTime": "2022-04-28T14:26:53-04:00",
+  "transactionTime": "2022-09-05T23:02:17-04:00",
   "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/InsurancePlan/PayerPlan-10207VA0380003/$export",
   "requiresAccessToken": false,
   "output": [
