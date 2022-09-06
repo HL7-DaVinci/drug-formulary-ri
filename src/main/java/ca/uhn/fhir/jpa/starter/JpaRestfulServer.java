@@ -11,23 +11,14 @@ import ca.uhn.fhir.jpa.dao.DaoRegistry;
 import ca.uhn.fhir.jpa.dao.IFhirSystemDao;
 import ca.uhn.fhir.jpa.interceptor.CascadingDeleteInterceptor;
 import ca.uhn.fhir.jpa.provider.GraphQLProvider;
-import ca.uhn.fhir.jpa.provider.JpaConformanceProviderDstu2;
 import ca.uhn.fhir.jpa.provider.JpaSystemProviderDstu2;
-import ca.uhn.fhir.jpa.provider.SubscriptionTriggeringProvider;
-import ca.uhn.fhir.jpa.provider.TerminologyUploaderProvider;
-import ca.uhn.fhir.jpa.provider.dstu3.JpaConformanceProviderDstu3;
 import ca.uhn.fhir.jpa.provider.dstu3.JpaSystemProviderDstu3;
-import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;
 import ca.uhn.fhir.jpa.provider.r4.JpaSystemProviderR4;
-import ca.uhn.fhir.jpa.provider.r5.JpaConformanceProviderR5;
 import ca.uhn.fhir.jpa.provider.r5.JpaSystemProviderR5;
 import ca.uhn.fhir.jpa.search.DatabaseBackedPagingProvider;
-import ca.uhn.fhir.jpa.starter.MetadataProvider;
-import ca.uhn.fhir.jpa.starter.ReadOnlyInterceptor;
 import ca.uhn.fhir.jpa.subscription.SubscriptionInterceptorLoader;
 import ca.uhn.fhir.jpa.subscription.module.interceptor.SubscriptionDebugLogInterceptor;
 import ca.uhn.fhir.jpa.util.ResourceProviderFactory;
-import ca.uhn.fhir.model.dstu2.composite.MetaDt;
 import ca.uhn.fhir.narrative.DefaultThymeleafNarrativeGenerator;
 import ca.uhn.fhir.rest.server.HardcodedServerAddressStrategy;
 import ca.uhn.fhir.rest.server.RestfulServer;
@@ -40,9 +31,7 @@ import ca.uhn.fhir.validation.IValidatorModule;
 import ca.uhn.fhir.validation.ResultSeverityEnum;
 import java.util.HashSet;
 import java.util.TreeSet;
-import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
-import org.hl7.fhir.dstu3.model.Meta;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.cors.CorsConfiguration;
@@ -215,17 +204,17 @@ public class JpaRestfulServer extends RestfulServer {
      * AuthorizationInterceptor
      * with this feature.
      */
-    if (false) { // <-- DISABLED RIGHT NOW
-      registerProvider(appCtx.getBean(TerminologyUploaderProvider.class));
-    }
+    // if (false) { // <-- DISABLED RIGHT NOW
+    // registerProvider(appCtx.getBean(TerminologyUploaderProvider.class));
+    // }
 
     // If you want to enable the $trigger-subscription operation to allow
     // manual triggering of a subscription delivery, enable this provider
-    if (false) { // <-- DISABLED RIGHT NOW
-      SubscriptionTriggeringProvider retriggeringProvider = appCtx
-          .getBean(SubscriptionTriggeringProvider.class);
-      registerProvider(retriggeringProvider);
-    }
+    // if (false) { // <-- DISABLED RIGHT NOW
+    // SubscriptionTriggeringProvider retriggeringProvider = appCtx
+    // .getBean(SubscriptionTriggeringProvider.class);
+    // registerProvider(retriggeringProvider);
+    // }
 
     // Define your CORS configuration. This is an example
     // showing a typical setup. You should customize this
