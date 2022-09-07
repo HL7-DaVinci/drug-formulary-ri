@@ -10,6 +10,8 @@ This server supports both authenticated and unauthenticated access methods as de
 
 The server is hosted at <https://davinci-drug-formulary-ri.logicahealth.org/fhir> and it is **read only**.
 
+>> **Note**: Switch to the `formulary-write` branch of this repo and follow the instructions on the Readme page to update the data loaded on the server.
+
 ---
 
 ## Developer Documentation
@@ -68,6 +70,11 @@ to `http://localhost:8080/fhir/`
   <http://localhost:8080/>, and the
   server's FHIR endpoint will be available at
   <http://localhost:8080/fhir>.
+
+## Deployment
+
+This app is automatically deployed to [
+Logica Health](https://www.logicahealth.org/solutions/fhir-sandbox/) with any change to the `master` branch.
 
 ## Base URLs
 
