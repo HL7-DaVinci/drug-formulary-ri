@@ -33,10 +33,6 @@ import ca.uhn.fhir.jpa.starter.ServerLogger;
 @RestController
 public class OauthEndpointController {
 
-  /**
-   * TODO: Update readme
-   */
-
   private static Database DB;
   private static RSAPublicKey publicKey;
   private static RSAPrivateKey privateKey;
@@ -58,7 +54,7 @@ public class OauthEndpointController {
      * Code to generate keys adpated from
      * https://stackoverflow.com/questions/24546397/generating-rsa-keys-for-given-
      * modulus-and-exponent
-     * 
+     *
      * p :
      * 72685705065169728266450789649852557970253453395982124202036441196258256631809
      * q :

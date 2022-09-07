@@ -46,11 +46,6 @@ public class FhirServerConfigCommon {
   private Integer emailPort = HapiProperties.getEmailPort();
   private String emailUsername = HapiProperties.getEmailUsername();
   private String emailPassword = HapiProperties.getEmailPassword();
-  private Boolean emailAuth = HapiProperties.getEmailAuth();
-  private Boolean emailStartTlsEnable = HapiProperties.getEmailStartTlsEnable();
-  private Boolean emailStartTlsRequired = HapiProperties.getEmailStartTlsRequired();
-  private Boolean emailQuitWait = HapiProperties.getEmailQuitWait();
-
   @Autowired
   private SubscriptionDeliveryHandlerFactory mySubscriptionDeliveryHandlerFactory;
 
@@ -59,11 +54,14 @@ public class FhirServerConfigCommon {
     ourLog.info("Server configured to " + (this.allowMultipleDelete ? "allow" : "deny") + " multiple deletes");
     ourLog.info("Server configured to " + (this.allowExternalReferences ? "allow" : "deny") + " external references");
     ourLog.info("Server configured to " + (this.expungeEnabled ? "enable" : "disable") + " expunges");
-    ourLog.info("Server configured to " + (this.allowPlaceholderReferences ? "allow" : "deny") + " placeholder references");
-    ourLog.info("Server configured to " + (this.allowOverrideDefaultSearchParams ? "allow" : "deny") + " overriding default search params");
+    ourLog.info(
+        "Server configured to " + (this.allowPlaceholderReferences ? "allow" : "deny") + " placeholder references");
+    ourLog.info("Server configured to " + (this.allowOverrideDefaultSearchParams ? "allow" : "deny")
+        + " overriding default search params");
 
     if (this.emailEnabled) {
-      ourLog.info("Server is configured to enable email with host '" + this.emailHost + "' and port " + this.emailPort.toString());
+      ourLog.info("Server is configured to enable email with host '" + this.emailHost + "' and port "
+          + this.emailPort.toString());
       ourLog.info("Server will use '" + this.emailFrom + "' as the from email address");
 
       if (this.emailUsername != null && this.emailUsername.length() > 0) {
@@ -91,7 +89,8 @@ public class FhirServerConfigCommon {
   public DaoConfig daoConfig() {
     DaoConfig retVal = new DaoConfig();
 
-    retVal.setIndexMissingFields(this.enableIndexMissingFields ? DaoConfig.IndexEnabledEnum.ENABLED : DaoConfig.IndexEnabledEnum.DISABLED);
+    retVal.setIndexMissingFields(
+        this.enableIndexMissingFields ? DaoConfig.IndexEnabledEnum.ENABLED : DaoConfig.IndexEnabledEnum.DISABLED);
     retVal.setAutoCreatePlaceholderReferenceTargets(this.autoCreatePlaceholderReferenceTargets);
     retVal.setEnforceReferentialIntegrityOnWrite(this.enforceReferentialIntegrityOnWrite);
     retVal.setEnforceReferentialIntegrityOnDelete(this.enforceReferentialIntegrityOnDelete);
@@ -104,7 +103,8 @@ public class FhirServerConfigCommon {
 
     Integer maxFetchSize = HapiProperties.getMaximumFetchSize();
     retVal.setFetchSizeDefaultMaximum(maxFetchSize);
-    ourLog.info("Server configured to have a maximum fetch size of " + (maxFetchSize == Integer.MAX_VALUE ? "'unlimited'" : maxFetchSize));
+    ourLog.info("Server configured to have a maximum fetch size of "
+        + (maxFetchSize == Integer.MAX_VALUE ? "'unlimited'" : maxFetchSize));
 
     Long reuseCachedSearchResultsMillis = HapiProperties.getReuseCachedSearchResultsMillis();
     retVal.setReuseCachedSearchResultsForMillis(reuseCachedSearchResultsMillis);
@@ -153,13 +153,17 @@ public class FhirServerConfigCommon {
   }
 
   /**
-   * The following bean configures the database connection. The 'url' property value of "jdbc:derby:directory:jpaserver_derby_files;create=true" indicates that the server should save resources in a
+   * The following bean configures the database connection. The 'url' property
+   * value of "jdbc:derby:directory:jpaserver_derby_files;create=true" indicates
+   * that the server should save resources in a
    * directory called "jpaserver_derby_files".
    * <p>
-   * A URL to a remote database could also be placed here, along with login credentials and other properties supported by BasicDataSource.
+   * A URL to a remote database could also be placed here, along with login
+   * credentials and other properties supported by BasicDataSource.
    */
   @Bean(destroyMethod = "close")
-  public BasicDataSource dataSource() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+  public BasicDataSource dataSource() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException,
+      InvocationTargetException, InstantiationException {
     BasicDataSource retVal = new BasicDataSource();
     Driver driver = (Driver) Class.forName(HapiProperties.getDataSourceDriver()).getConstructor().newInstance();
     retVal.setDriver(driver);
@@ -186,14 +190,13 @@ public class FhirServerConfigCommon {
       retVal.setSmtpServerUsername(this.emailUsername);
       retVal.setSmtpServerPassword(this.emailPassword);
       // TODO KHS add these when HAPI 4.2.0 is released
-//      retVal.setAuth(this.emailAuth);
-//      retVal.setStartTlsEnable(this.emailStartTlsEnable);
-//      retVal.setStartTlsRequired(this.emailStartTlsRequired);
-//      retVal.setQuitWait(this.emailQuitWait);
+      // retVal.setAuth(this.emailAuth);
+      // retVal.setStartTlsEnable(this.emailStartTlsEnable);
+      // retVal.setStartTlsRequired(this.emailStartTlsRequired);
+      // retVal.setQuitWait(this.emailQuitWait);
 
       Validate.notNull(mySubscriptionDeliveryHandlerFactory, "No subscription delivery handler");
       mySubscriptionDeliveryHandlerFactory.setEmailSender(retVal);
-
 
       return retVal;
     }
