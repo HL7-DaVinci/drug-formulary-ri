@@ -26,11 +26,8 @@ You will need to have the following pre-requisites installed:
 
 - **Java JDK 8**
 - **Maven 3.5 +**
-- **Git LFS**
 
 ### Installing
-
-Ensure that you have [Git LFS](https://git-lfs.github.com/) installed.
 
 Clone the project's repository then, cd into the project directory:
 
@@ -75,6 +72,12 @@ to `http://localhost:8080/fhir/`
 
 This app is automatically deployed to [
 Logica Health](https://www.logicahealth.org/solutions/fhir-sandbox/) with any change to the `master` branch.
+
+## Testing
+
+IG conformance test scripts are available on [Touchstone](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Formulary/Formulary-STU2&activeOnly=false&contentEntry=TEST_SCRIPTS). You will need to an account to execute the tests against the server.
+
+Contact Touchstone at <touchstone_support@aegis.net> for support.
 
 ## Base URLs
 
