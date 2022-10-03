@@ -164,9 +164,6 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
     resource.addSupportedProfile(
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-Formulary");
-    // resource.addSearchParam(periodParam());
-    // resource.addSearchParam(coverageAreaParam());
-    // resource.addSearchParam(formularyCoverageParam());
     resource.addSearchInclude("InsurancePlan:formulary-coverage");
   }
 
@@ -178,15 +175,13 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
   private void setBasicResourceProperties(CapabilityStatementRestResourceComponent resource) {
     resource.addSupportedProfile(
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
-    // resource.addSearchParam(periodParam());
-    // resource.addSearchParam(statusParam());
-    // resource.addSearchParam(formularyParam());
     resource.addSearchInclude("Basic:formulary");
   }
 
   private void setLocationResourceProperties(CapabilityStatementRestResourceComponent resource) {
     resource.addSupportedProfile(
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
+    resource.addSearchParam(lastUpdatedParam());
   }
 
   private void setPatientResourceProperties(CapabilityStatementRestResourceComponent resource) {
@@ -221,51 +216,4 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
         .setDocumentation("Select resources based on the last time they were changed");
     return lastUpdated;
   }
-
-  // InsurancePlan and Basic Search Params
-  // private CapabilityStatementRestResourceSearchParamComponent periodParam() {
-  // CapabilityStatementRestResourceSearchParamComponent period = new
-  // CapabilityStatementRestResourceSearchParamComponent();
-  // period.setName("period").setType(SearchParamType.DATE)
-  // .setDocumentation("Accesses the active period of the resource instance");
-  // return period;
-  // }
-
-  // InsurancePlan Search Params
-  // private CapabilityStatementRestResourceSearchParamComponent
-  // coverageAreaParam() {
-  // CapabilityStatementRestResourceSearchParamComponent coverageArea = new
-  // CapabilityStatementRestResourceSearchParamComponent();
-  // coverageArea.setName("coverage-area").setType(SearchParamType.REFERENCE)
-  // .setDocumentation("Search InsurancePlan by coverage location");
-  // return coverageArea;
-  // }
-
-  // private CapabilityStatementRestResourceSearchParamComponent
-  // formularyCoverageParam() {
-  // CapabilityStatementRestResourceSearchParamComponent formularyCoverage = new
-  // CapabilityStatementRestResourceSearchParamComponent();
-  // formularyCoverage.setName("formulary-coverage").setType(SearchParamType.REFERENCE)
-  // .setDocumentation("Accesses the Coverage Formulary Reference of an
-  // InsurancePlan");
-  // return formularyCoverage;
-  // }
-
-  // Basic Search Params
-  // private CapabilityStatementRestResourceSearchParamComponent statusParam() {
-  // CapabilityStatementRestResourceSearchParamComponent status = new
-  // CapabilityStatementRestResourceSearchParamComponent();
-  // status.setName("status").setType(SearchParamType.TOKEN)
-  // .setDocumentation("Accesses the status of the given resource instance");
-  // return status;
-  // }
-
-  // private CapabilityStatementRestResourceSearchParamComponent formularyParam()
-  // {
-  // CapabilityStatementRestResourceSearchParamComponent formulary = new
-  // CapabilityStatementRestResourceSearchParamComponent();
-  // formulary.setName("formulary").setType(SearchParamType.REFERENCE)
-  // .setDocumentation("Accesses the formulary reference of the given resource");
-  // return formulary;
-  // }
 }
