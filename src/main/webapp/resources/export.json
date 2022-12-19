@@ -1,19 +1,19 @@
 {
   "transactionTime": "05/09/2022 23:01",
-  "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/$export",
+  "request": "https://drug-formulary-ri.davinci.hl7.org/fhir/$export",
   "requiresAccessToken": false,
   "output": [
     {
       "type": "Basic",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/Basic.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/Basic.ndjson"
     },
     {
       "type": "InsurancePlan",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/InsurancePlan.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/InsurancePlan.ndjson"
     },
     {
       "type": "MedicationKnowledge",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/MedicationKnowledge.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/MedicationKnowledge.ndjson"
     }
   ],
   "error": {

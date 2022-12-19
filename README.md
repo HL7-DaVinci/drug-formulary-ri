@@ -8,7 +8,7 @@ Server](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
 
 This server supports both authenticated and unauthenticated access methods as described on the [implementation guide](https://build.fhir.org/ig/HL7/davinci-pdex-formulary/branches/master/use_cases_and_overview.html#access-methods).
 
-The server is hosted at <https://davinci-drug-formulary-ri.logicahealth.org/fhir> and it is **read only**.
+The server is hosted at <https://drug-formulary-ri.davinci.hl7.org/fhir> and it is **read only**.
 
 >> **Note**: Switch to the `formulary-write` branch of this repo and follow the instructions on the Readme page to update the data loaded on the server.
 
@@ -70,8 +70,7 @@ to `http://localhost:8080/fhir/`
 
 ## Deployment
 
-This app is automatically deployed to [
-Logica Health](https://www.logicahealth.org/solutions/fhir-sandbox/) with any change to the `master` branch.
+This app is automatically deployed to <https://drug-formulary-ri.davinci.hl7.org/> with any change to the `master` branch.
 
 ## Testing
 
@@ -81,7 +80,7 @@ Contact Touchstone at <touchstone_support@aegis.net> for support.
 
 ## Base URLs
 
-- **Hosted Server**:  <https://davinci-drug-formulary-ri.logicahealth.org/fhir>
+- **Hosted Server**:  <https://drug-formulary-ri.davinci.hl7.org/fhir>
 
 - **Local Server**: <http://localhost:8080/fhir>
 

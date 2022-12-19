@@ -1,23 +1,23 @@
 {
   "transactionTime": "2022-09-05T23:02:16-04:00",
-  "request": "https://davinci-drug-formulary-ri.logicahealth.org/fhir/InsurancePlan/PayerPlan-40308VA0270027/$export",
+  "request": "https://drug-formulary-ri.davinci.hl7.org/fhir/InsurancePlan/PayerPlan-40308VA0270027/$export",
   "requiresAccessToken": false,
   "output": [
     {
       "type": "InsurancePlan",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerPlan-40308VA0270027/InsurancePlan.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/PayerPlan-40308VA0270027/InsurancePlan.ndjson"
     },
     {
       "type": "Basic",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerPlan-40308VA0270027/Basic.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/PayerPlan-40308VA0270027/Basic.ndjson"
     },
     {
       "type": "MedicationKnowledge",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerPlan-40308VA0270027/MedicationKnowledge.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/PayerPlan-40308VA0270027/MedicationKnowledge.ndjson"
     },
     {
       "type": "Location",
-      "url": "https://davinci-drug-formulary-ri.logicahealth.org/resources/PayerPlan-40308VA0270027/Location.ndjson"
+      "url": "https://drug-formulary-ri.davinci.hl7.org/resources/PayerPlan-40308VA0270027/Location.ndjson"
     }
   ]
 }
