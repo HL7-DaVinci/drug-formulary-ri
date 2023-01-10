@@ -8,7 +8,9 @@ import ca.uhn.fhir.rest.server.interceptor.InterceptorAdapter;
 public class ReadOnlyInterceptor extends InterceptorAdapter {
   @Override
   public void incomingRequestPreHandled(RestOperationTypeEnum theOperation, ActionRequestDetails theProcessedRequest) {
-    if (theOperation != RestOperationTypeEnum.HISTORY_INSTANCE &&
+
+    if (theOperation != RestOperationTypeEnum.EXTENDED_OPERATION_TYPE &&
+        theOperation != RestOperationTypeEnum.HISTORY_INSTANCE &&
         theOperation != RestOperationTypeEnum.HISTORY_SYSTEM &&
         theOperation != RestOperationTypeEnum.HISTORY_TYPE &&
         theOperation != RestOperationTypeEnum.METADATA &&
@@ -20,5 +22,6 @@ public class ReadOnlyInterceptor extends InterceptorAdapter {
         theOperation != RestOperationTypeEnum.VREAD) {
       throw new MethodNotAllowedException(theOperation.toString());
     }
+    
   }
 }
