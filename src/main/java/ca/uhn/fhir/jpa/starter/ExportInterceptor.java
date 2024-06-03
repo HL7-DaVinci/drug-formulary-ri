@@ -19,8 +19,9 @@ public class ExportInterceptor extends InterceptorAdapter {
   public boolean incomingRequestPreProcessed(HttpServletRequest theRequest, HttpServletResponse theResponse) {
     String method = theRequest.getMethod();
     String path = theRequest.getServletPath() + theRequest.getPathInfo();
-    logger.info("EXPORT INCOMING REQUEST TO: " + path);
+    
     if (method.equals("GET") && path.endsWith("/$export")) {
+      logger.info("EXPORT INCOMING REQUEST TO: " + path);
       String serverBaseAddress = HapiProperties.getServerAddress().replace("fhir/", "");
 
       if (path.equals("/fhir/InsurancePlan/$export")) {

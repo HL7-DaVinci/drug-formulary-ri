@@ -105,7 +105,7 @@ public class MetadataProvider extends JpaConformanceProviderR4 {
     CodeableConcept service = new CodeableConcept();
     ArrayList<Coding> codings = new ArrayList<>();
     codings.add(
-        new Coding("http://terminology.hl7.org/CodeSystem/restful-security-service", "SMART-on-FHIR", "SMART on FHIR"));
+        new Coding("http://terminology.hl7.org/CodeSystem/restful-security-service", "SMART-on-FHIR", "SMART-on-FHIR"));
     service.setCoding(codings);
     service.setText("OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)");
     return service;
