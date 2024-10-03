@@ -18,6 +18,9 @@ The server is hosted at <https://drug-formulary-ri.davinci.hl7.org/fhir> and it 
 
 Check out the [wiki](https://github.com/HL7-DaVinci/drug-formulary-ri/wiki) to get started and learn how to connect to this server.
 
+## Foundry
+A live demo is hosted by [HL7 FHIR Foundry](https://foundry.hl7.org/products/f53385af-f21f-4fd8-a5b9-0c38cbc3f60b).
+
 ## Installing and Running
 
 ### Requierements
