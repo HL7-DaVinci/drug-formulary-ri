@@ -23,12 +23,12 @@ A live demo is hosted by [HL7 FHIR Foundry](https://foundry.hl7.org/products/f53
 
 ## Installing and Running
 
-### Requierements
+### Requirements
 
-You will need to have the following pre-requisites installed:
+You will need to have either Docker or the following pre-requisites installed:
 
-- **Java JDK 8**
-- **Maven 3.5 +**
+- **Java JDK 17**
+- **Maven 3.8.3 +**
 
 ### Installing
 
@@ -39,7 +39,7 @@ git clone git@github.com:HL7-DaVinci/drug-formulary-ri.git
 cd drug-formulary-ri
 ```
 
-Next, in `src/main/resources/hapi.properties`, set `server_address`
+Next, in `src/main/resources/application.yaml`, set `server_address`
 to `http://localhost:8080/fhir/`
 
 ### Running Locally
@@ -61,10 +61,13 @@ to `http://localhost:8080/fhir/`
 
   Alternatively, you can build, test, and start this server with maven:
 
-  ```git
-  mvn clean install
-  mvn jetty:run
+  ```bash
+  mvn spring-boot:run
   ```
+  or
+ ```bash
+    mvn -Pjetty spring-boot:run
+ ```
 
   The server will then be browsable at
   <http://localhost:8080/>, and the

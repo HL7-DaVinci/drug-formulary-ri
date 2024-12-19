@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,7 +39,7 @@ public class TokenEndpoint {
   }
 
   public static ResponseEntity<String> handleTokenRequest(HttpServletRequest request, String grantType, String token,
-      String redirectURI) {
+      String redirectURI, String serverAddress) {
     // Set the headers for the response
     MultiValueMap<String, String> headers = new HttpHeaders();
     headers.add(HttpHeaders.CACHE_CONTROL, "no-store");
@@ -48,7 +48,7 @@ public class TokenEndpoint {
     HashMap<String, String> response = new HashMap<>();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    String baseUrl = AuthUtils.getFhirBaseUrl();
+    String baseUrl = AuthUtils.getFhirBaseUrl(serverAddress);
 
     // Validate the client is authorized: Basic authorization header
     String clientId = AuthUtils.clientIsAuthorized(request);
