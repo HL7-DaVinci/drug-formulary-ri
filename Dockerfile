@@ -29,7 +29,7 @@ RUN rm -rf /opt/bitnami/tomcat/webapps/ROOT && \
 RUN mkdir -p /target && chown -R 1001:1001 target
 
 ########### Added to copy data and src folder
-COPY  --chown=1001:1001 ./data /opt/bitnami/hapi/data
+COPY  --chown=1001:1001 ./data /opt/bitnami/hapi/target
 COPY  --chown=1001:1001 src /opt/bitnami/hapi/src
 
 USER 1001
@@ -53,7 +53,7 @@ COPY --chown=nonroot:nonroot --from=build-distroless /app /app
 COPY --chown=nonroot:nonroot --from=build-hapi /tmp/hapi-fhir-jpaserver-starter/opentelemetry-javaagent.jar /app
 
 ########### Added to copy data and src folder
-COPY --chown=nonroot:nonroot ./data /app/data/
-COPY --chown=nonroot:nonroot src /app/src/
+COPY --chown=nonroot:nonroot ./data /app/target
+COPY --chown=nonroot:nonroot src /app/src
 
 ENTRYPOINT ["java", "--class-path", "/app/main.war", "-Dloader.path=main.war!/WEB-INF/classes/,main.war!/WEB-INF/,/app/extra-classes", "org.springframework.boot.loader.PropertiesLauncher"]

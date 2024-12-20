@@ -5,8 +5,5 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
-    volumes:
-      - ./data:/opt/bitnami/hapi/data
-      - ./data:/app/data
     environment:
       - ADMIN_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2RhdmluY2ktZHJ1Zy1mb3JtdWxhcnktcmkubG9naWNhaGVhbHRoLm9yZy9maGlyIiwiaWF0IjoxNjQ1MTMzNDU0LCJleHAiOjE3Mzk4Mjc4NTQsImF1ZCI6Imh0dHBzOi8vZGF2aW5jaS1kcnVnLWZvcm11bGFyeS1yaS5sb2dpY2FoZWFsdGgub3JnL2ZoaXIiLCJzdWIiOiJhZG1pbiIsInBhdGllbnRfaWQiOiJhZG1pbiJ9.cLvTTpGH5lxXMjwsPN-1NPo9jUuc6C43FcjH8s81VA5kXdmRdQhAww2oO_i_IOTUnOVaIU-JU9Ygd3MBXckPnVlrLiN_Dtdb_71DcqpVJflc9FAqorcUGmaE5qg-nZVI_sKofPaliYxUeBriTgwS06VtILl2k2WylAD83LbDjBCCq4MBHlaWSCqc9LRKJT3Ez3D93IPWgwBgPT46cIML6_PdwLO5Zl5XkEyXLjsUUAuraPM-dET7tw6KLr0gbd6Xdj2BuZLZjYmxTOWry_n6hAiQDTQ2iaLtwp2rtZlfbX5L38cpri-TRKN1l7EeNguJXk1dVfPPv78_5qqhqg71jQ

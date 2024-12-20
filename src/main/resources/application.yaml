@@ -44,8 +44,8 @@ spring:
   datasource:
     url: 'jdbc:h2:file:./target/database/h2'
     #url: jdbc:h2:mem:test_mem
-    username:
-    password:
+    username: sa
+    password: null
     driverClassName: org.h2.Driver
     max-active: 15
 
@@ -152,8 +152,8 @@ hapi:
     ### will be served under /web/app
     #app_content_path: ./configs/app
     ### enable to set the Server URL
-    server_address: https://drug-formulary-ri.davinci.hl7.org/fhir/
-    #    server_address: http://localhost:8080/fhir/
+    # server_address: https://drug-formulary-ri.davinci.hl7.org/fhir
+    server_address: http://localhost:8080/fhir
     ###################################################
     # Admin Credential
     ###################################################
@@ -188,6 +188,7 @@ hapi:
       - SearchParameter
       - Practitioner
       - Subscription
+      - GraphDefinition
     ##################################################
     # Allowed Bundle Types for persistence (defaults are: COLLECTION,DOCUMENT,MESSAGE)
     ##################################################
