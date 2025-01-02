@@ -68,18 +68,18 @@ public class WellKnownEndpointController {
     return wellKnownJson.toString(2);
   }
   public String getAuthorizationUrl() {
-    return appProperties.getServer_address() + "oauth/authorization";
+    return appProperties.getServer_address() + "/oauth/authorization";
   }
 
   public String getIntrospectionUrl() {
-    return appProperties.getServer_address() + "oauth/introspect";
+    return appProperties.getServer_address() + "/oauth/introspect";
   }
 
   public String getRegisterUrl() {
-    return appProperties.getServer_address() + "oauth/register/client";
+    return appProperties.getServer_address() + "/oauth/register/client";
   }
 
   public String getTokenUrl() {
-    return appProperties.getServer_address() + "oauth/token";
+    return appProperties.getServer_address() + "/oauth/token";
   }
 }
