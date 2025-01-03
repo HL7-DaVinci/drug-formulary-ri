@@ -19,10 +19,10 @@ public class IntrospectionEndpoint {
     throw new IllegalStateException("Introspection Endpoint Utility class");
   }
 
-  public static ResponseEntity<String> handleIntrospection(String token) {
+  public static ResponseEntity<String> handleIntrospection(String token, String serverAddress) {
     JSONObject response = new JSONObject();
 
-    String baseUrl = AuthUtils.getFhirBaseUrl();
+    String baseUrl = AuthUtils.getFhirBaseUrl(serverAddress);
 
     try {
       Algorithm algorithm = Algorithm.RSA256(OauthEndpointController.getPublicKey(), null);

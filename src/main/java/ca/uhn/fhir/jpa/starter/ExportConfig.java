@@ -1,3 +1,4 @@
+
 package ca.uhn.fhir.jpa.starter;
 
 import org.springframework.context.annotation.Configuration;
@@ -15,4 +16,3 @@ public class ExportConfig implements WebMvcConfigurer {
           .addResourceLocations("/resources/");	
     }
 }
-    

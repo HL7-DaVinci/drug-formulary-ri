@@ -3,15 +3,15 @@ package ca.uhn.fhir.jpa.starter.wellknown;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import ca.uhn.fhir.jpa.starter.AppProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import ca.uhn.fhir.jpa.starter.MetadataProvider;
 import ca.uhn.fhir.jpa.starter.ServerLogger;
 import ca.uhn.fhir.jpa.starter.authorization.AuthUtils;
 
@@ -37,6 +37,9 @@ public class WellKnownEndpointController {
 
   private static final Logger logger = ServerLogger.getLogger();
 
+  @Autowired
+  private AppProperties appProperties;
+
   @PostConstruct
   protected void postConstruct() {
     logger.log(Level.INFO, "WellKnownEndpointController: Well Known controller added");
@@ -53,15 +56,30 @@ public class WellKnownEndpointController {
   public String getWellKnownJson(HttpServletRequest theRequest) {
 
     JSONObject wellKnownJson = new JSONObject();
-    wellKnownJson.put(WELL_KNOWN_AUTHORIZATION_ENDPOINT, MetadataProvider.getAuthorizationUrl());
-    wellKnownJson.put(WELL_KNOWN_TOKEN_ENDPOINT, MetadataProvider.getTokenUrl());
-    wellKnownJson.put(WELL_KNOWN_REGISTRATION_ENDPOINT, MetadataProvider.getRegisterUrl());
-    wellKnownJson.put(WELL_KNOWN_INTROSPECTION_ENDPOINT, MetadataProvider.getIntrospectionUrl());
+    wellKnownJson.put(WELL_KNOWN_AUTHORIZATION_ENDPOINT, this.getAuthorizationUrl());
+    wellKnownJson.put(WELL_KNOWN_TOKEN_ENDPOINT, this.getTokenUrl());
+    wellKnownJson.put(WELL_KNOWN_REGISTRATION_ENDPOINT, this.getRegisterUrl());
+    wellKnownJson.put(WELL_KNOWN_INTROSPECTION_ENDPOINT, this.getIntrospectionUrl());
     wellKnownJson.put(WELL_KNOWN_SUPPORTED_AUTH_METHODS, WELL_KNOWN_SUPPORTED_AUTH_METHODS_VALUES);
     wellKnownJson.put(WELL_KNOWN_RESPONSE_TYPES, WELL_KNOWN_RESPONSE_TYPE_VALUES);
     wellKnownJson.put(WELL_KNOWN_CAPABILITIES, WELL_KNOWN_CAPABILITIES_VALUES);
     wellKnownJson.put(WELL_KNOWN_SCOPES_SUPPORTED, WELL_KNOWN_SCOPES_SUPPORTED_VALUES);
 
     return wellKnownJson.toString(2);
+  }
+  public String getAuthorizationUrl() {
+    return appProperties.getServer_address() + "/oauth/authorization";
+  }
+
+  public String getIntrospectionUrl() {
+    return appProperties.getServer_address() + "/oauth/introspect";
+  }
+
+  public String getRegisterUrl() {
+    return appProperties.getServer_address() + "/oauth/register/client";
+  }
+
+  public String getTokenUrl() {
+    return appProperties.getServer_address() + "/oauth/token";
   }
 }

@@ -42,8 +42,8 @@ public class AuthorizationEndpoint {
   }
 
   public static ResponseEntity<String> handleAuthorizationPost(HttpEntity<String> entity,
-      String aud, String scope, String state, String clientId, String redirectURI, String responseType) {
-    final String baseUrl = AuthUtils.getFhirBaseUrl();
+      String aud, String scope, String state, String clientId, String redirectURI, String responseType, String serverAddress) {
+    final String baseUrl = AuthUtils.getFhirBaseUrl(serverAddress);
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     HashMap<String, String> attributes = new HashMap<>();
     Client clientRequest = Client.getClient(clientId);

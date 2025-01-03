@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -30,7 +30,6 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-import ca.uhn.fhir.jpa.starter.HapiProperties;
 import ca.uhn.fhir.jpa.starter.ServerLogger;
 
 public class AuthUtils {
@@ -95,8 +94,8 @@ public class AuthUtils {
    * 
    * @return the fhir base url
    */
-  public static String getFhirBaseUrl() {
-    String baseUrl = HapiProperties.getServerAddress();
+  public static String getFhirBaseUrl(String serverAddress) {
+    String baseUrl = serverAddress;
     if (baseUrl.endsWith("/"))
       return StringUtils.chop(baseUrl);
     else
