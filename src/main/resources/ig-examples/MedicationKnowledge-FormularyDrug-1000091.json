@@ -1,0 +1,29 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "FormularyDrug-1000091",
+  "meta": {
+    "lastUpdated": "2021-08-22T18:36:03.000+00:00",
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: MedicationKnowledge</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource MedicationKnowledge \"FormularyDrug-1000091\" Updated \"2021-08-22 06:36:03+0000\" </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-usdf-FormularyDrug.html\">Formulary Drug</a></p></div><p><b>code</b>: doxepin hydrochloride 50 MG/ML Topical Cream <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v3-rxNorm.html\">RxNorm</a>#1000091; <a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v3-rxNorm.html\">RxNorm</a>#1160770 \"doxepin Topical Product\")</span></p><p><b>status</b>: active</p></div>"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1000091",
+        "display": "doxepin hydrochloride 50 MG/ML Topical Cream"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1160770",
+        "display": "doxepin Topical Product"
+      }
+    ]
+  },
+  "status": "active"
+}

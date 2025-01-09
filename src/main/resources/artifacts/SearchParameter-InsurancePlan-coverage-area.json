@@ -1,0 +1,51 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "InsurancePlan-coverage-area",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: SearchParameter</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource SearchParameter \"InsurancePlan-coverage-area\" </p></div><p><b>url</b>: <code>http://hl7.org/fhir/us/davinci-drug-formulary/SearchParameter/InsurancePlan-coverage-area</code></p><p><b>version</b>: 2.0.0</p><p><b>name</b>: USDFInsurancePlanCoverageArea</p><p><b>status</b>: active</p><p><b>date</b>: 2022-08-25 01:09:53+0000</p><p><b>publisher</b>: HL7 Pharmacy Working Group</p><p><b>contact</b>: HL7 Pharmacy Working Group: <a href=\"http://www.hl7.org/Special/committees/medication\">http://www.hl7.org/Special/committees/medication</a>,<a href=\"mailto:pharmacy@lists.HL7.org\">pharmacy@lists.HL7.org</a></p><p><b>description</b>: Search InsurancePlan by coverage location.</p><p><b>jurisdiction</b>: United States of America <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (unknown#US)</span></p><p><b>code</b>: coverage-area</p><p><b>base</b>: InsurancePlan</p><p><b>type</b>: reference</p><p><b>expression</b>: InsurancePlan.coverageArea</p><p><b>target</b>: Location</p><p><b>multipleOr</b>: true</p><p><b>multipleAnd</b>: true</p></div>"
+  },
+  "url": "http://hl7.org/fhir/us/davinci-drug-formulary/SearchParameter/InsurancePlan-coverage-area",
+  "version": "2.0.0",
+  "name": "USDFInsurancePlanCoverageArea",
+  "status": "active",
+  "date": "2022-08-25T13:09:53+00:00",
+  "publisher": "HL7 Pharmacy Working Group",
+  "contact": [
+    {
+      "name": "HL7 Pharmacy Working Group",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        },
+        {
+          "system": "email",
+          "value": "pharmacy@lists.HL7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Search InsurancePlan by coverage location.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "code": "coverage-area",
+  "base": [
+    "InsurancePlan"
+  ],
+  "type": "reference",
+  "expression": "InsurancePlan.coverageArea",
+  "target": [
+    "Location"
+  ],
+  "multipleOr": true,
+  "multipleAnd": true
+}

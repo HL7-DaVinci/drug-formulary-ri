@@ -170,7 +170,6 @@ public class MetadataProvider {
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan");
     resource.addSupportedProfile(
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-Formulary");
-    resource.addSearchInclude("InsurancePlan:formulary-coverage");
   }
 
   private void setMedicationKnowledgeResourceProperties(CapabilityStatementRestResourceComponent resource) {
@@ -181,13 +180,11 @@ public class MetadataProvider {
   private void setBasicResourceProperties(CapabilityStatementRestResourceComponent resource) {
     resource.addSupportedProfile(
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem");
-    resource.addSearchInclude("Basic:formulary");
   }
 
   private void setLocationResourceProperties(CapabilityStatementRestResourceComponent resource) {
     resource.addSupportedProfile(
         "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation");
-    resource.addSearchParam(lastUpdatedParam());
   }
 
   private void setPatientResourceProperties(CapabilityStatementRestResourceComponent resource) {
@@ -196,12 +193,10 @@ public class MetadataProvider {
 
   private void setCoverageResourceProperties(CapabilityStatementRestResourceComponent resource) {
     resource.addSupportedProfile("https://hl7.org/fhir/us/carin-bb/STU1.1/StructureDefinition/C4BB-Coverage");
-    resource.addSearchParam(lastUpdatedParam());
   }
 
   private void setOrganizationResourceProperties(CapabilityStatementRestResourceComponent resource) {
     resource.addSupportedProfile("http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization");
-    resource.addSearchParam(lastUpdatedParam());
   }
 
   // Interaction component for all resources:

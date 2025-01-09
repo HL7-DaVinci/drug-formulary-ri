@@ -1,0 +1,88 @@
+{
+  "resourceType": "GraphDefinition",
+  "id": "PayerInsurancePlanGraphDefinition",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlanBulkDataGraphDefinition"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: GraphDefinition</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource GraphDefinition \"PayerInsurancePlanGraphDefinition\" </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-usdf-PayerInsurancePlanBulkDataGraphDefinition.html\">Payer Insurance Plan Bulk Data Graph Definition</a></p></div><p><b>url</b>: <code>http://hl7.org/fhir/us/davinci-drug-formulary/GraphDefinition/PayerInsurancePlanGraphDefinition</code></p><p><b>version</b>: 2.0.0</p><p><b>name</b>: PayerInsurancePlanGraphDefinition</p><p><b>status</b>: active</p><p><b>date</b>: 2022-08-25 01:09:53+0000</p><p><b>publisher</b>: HL7 Pharmacy Working Group</p><p><b>contact</b>: HL7 Pharmacy Working Group: <a href=\"http://www.hl7.org/Special/committees/medication\">http://www.hl7.org/Special/committees/medication</a>,<a href=\"mailto:pharmacy@lists.HL7.org\">pharmacy@lists.HL7.org</a></p><p><b>jurisdiction</b>: United States of America <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (unknown#US)</span></p><p><b>start</b>: InsurancePlan</p><p><b>profile</b>: <a href=\"StructureDefinition-usdf-PayerInsurancePlan.html\">Payer Insurance Plan</a></p><blockquote><p><b>link</b></p><p><b>path</b>: InsurancePlan.coverageArea</p><h3>Targets</h3><table class=\"grid\"><tr><td>-</td><td><b>Type</b></td><td><b>Profile</b></td></tr><tr><td>*</td><td>Location</td><td><a href=\"StructureDefinition-usdf-InsurancePlanLocation.html\">Insurance Plan Location</a></td></tr></table></blockquote><blockquote><p><b>link</b></p><p><b>path</b>: InsurancePlan.coverage.extension.where(url=http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension).valueReference</p><blockquote><p><b>target</b></p><p><b>type</b>: InsurancePlan</p><p><b>profile</b>: <a href=\"StructureDefinition-usdf-Formulary.html\">Formulary</a></p><blockquote><p><b>link</b></p></blockquote></blockquote></blockquote></div>"
+  },
+  "url": "http://hl7.org/fhir/us/davinci-drug-formulary/GraphDefinition/PayerInsurancePlanGraphDefinition",
+  "version": "2.0.0",
+  "name": "PayerInsurancePlanGraphDefinition",
+  "status": "active",
+  "date": "2022-08-25T13:09:53+00:00",
+  "publisher": "HL7 Pharmacy Working Group",
+  "contact": [
+    {
+      "name": "HL7 Pharmacy Working Group",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        },
+        {
+          "system": "email",
+          "value": "pharmacy@lists.HL7.org"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "start": "InsurancePlan",
+  "profile": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-PayerInsurancePlan",
+  "link": [
+    {
+      "path": "InsurancePlan.coverageArea",
+      "target": [
+        {
+          "type": "Location",
+          "profile": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-InsurancePlanLocation"
+        }
+      ]
+    },
+    {
+      "path": "InsurancePlan.coverage.extension.where(url=http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyReference-extension).valueReference",
+      "target": [
+        {
+          "type": "InsurancePlan",
+          "profile": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-Formulary",
+          "link": [
+            {
+              "target": [
+                {
+                  "type": "Basic",
+                  "params": "formulary={ref}",
+                  "profile": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem",
+                  "link": [
+                    {
+                      "path": "Basic.subject",
+                      "target": [
+                        {
+                          "type": "MedicationKnowledge",
+                          "profile": "http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyDrug"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

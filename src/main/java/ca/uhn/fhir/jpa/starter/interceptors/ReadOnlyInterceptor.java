@@ -10,6 +10,7 @@ public class ReadOnlyInterceptor extends InterceptorAdapter {
   public void incomingRequestPreHandled(RestOperationTypeEnum theOperation, RequestDetails theProcessedRequest) {
 
     if (theOperation != RestOperationTypeEnum.EXTENDED_OPERATION_TYPE &&
+        theOperation != RestOperationTypeEnum.EXTENDED_OPERATION_INSTANCE &&
         theOperation != RestOperationTypeEnum.HISTORY_INSTANCE &&
         theOperation != RestOperationTypeEnum.HISTORY_SYSTEM &&
         theOperation != RestOperationTypeEnum.HISTORY_TYPE &&
