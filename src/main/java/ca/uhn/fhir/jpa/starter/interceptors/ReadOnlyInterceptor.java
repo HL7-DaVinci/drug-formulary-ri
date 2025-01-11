@@ -20,7 +20,8 @@ public class ReadOnlyInterceptor extends InterceptorAdapter {
         theOperation != RestOperationTypeEnum.SEARCH_TYPE &&
         theOperation != RestOperationTypeEnum.TRANSACTION &&
         theOperation != RestOperationTypeEnum.VALIDATE &&
-        theOperation != RestOperationTypeEnum.VREAD) {
+        theOperation != RestOperationTypeEnum.VREAD &&
+        theOperation != RestOperationTypeEnum.GET_PAGE) {
       throw new MethodNotAllowedException(theOperation.toString());
     }
     
