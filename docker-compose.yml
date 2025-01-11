@@ -1,5 +1,6 @@
 services:
   drug-formulary:
+    image: drug-formulary
     build: .
     container_name: drug-formulary
     restart: on-failure

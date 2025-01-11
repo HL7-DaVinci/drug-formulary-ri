@@ -14,7 +14,6 @@ import ca.uhn.fhir.jpa.starter.interceptors.MetadataProvider;
 import ca.uhn.fhir.jpa.starter.interceptors.PatientAuthorizationInterceptor;
 import ca.uhn.fhir.jpa.starter.interceptors.ReadOnlyInterceptor;
 import ca.uhn.fhir.jpa.starter.mdm.MdmConfig;
-import ca.uhn.fhir.jpa.starter.resourceproviders.InsurancePlanExportProvider;
 import ca.uhn.fhir.jpa.subscription.channel.config.SubscriptionChannelConfig;
 import ca.uhn.fhir.jpa.subscription.match.config.SubscriptionProcessorConfig;
 import ca.uhn.fhir.jpa.subscription.match.config.WebsocketDispatcherConfig;
@@ -77,11 +76,11 @@ public class Application extends SpringBootServletInitializer {
 	@Conditional(OnEitherVersion.class)
 	public ServletRegistrationBean hapiServletRegistration(RestfulServer restfulServer) {
 
-		restfulServer.registerInterceptor(new ExportInterceptor());
+		restfulServer.registerInterceptor(new ExportInterceptor(appProperties));
 		restfulServer.registerInterceptor(new PatientAuthorizationInterceptor(appProperties));
 		restfulServer.registerInterceptor(new ReadOnlyInterceptor());
 		restfulServer.registerInterceptor(new MetadataProvider(appProperties));
-		restfulServer.registerProvider(new InsurancePlanExportProvider(daoRegistry, jobCoordinator, myFhirContext));
+		//restfulServer.registerProvider(new InsurancePlanExportProvider(daoRegistry, jobCoordinator, myFhirContext, bulkDataExportProvider));
 
 		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
 		beanFactory.autowireBean(restfulServer);
