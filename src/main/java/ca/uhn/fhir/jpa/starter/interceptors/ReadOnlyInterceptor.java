@@ -11,6 +11,7 @@ public class ReadOnlyInterceptor extends InterceptorAdapter {
 
     if (theOperation != RestOperationTypeEnum.EXTENDED_OPERATION_TYPE &&
         theOperation != RestOperationTypeEnum.EXTENDED_OPERATION_INSTANCE &&
+        theOperation != RestOperationTypeEnum.EXTENDED_OPERATION_SERVER &&
         theOperation != RestOperationTypeEnum.HISTORY_INSTANCE &&
         theOperation != RestOperationTypeEnum.HISTORY_SYSTEM &&
         theOperation != RestOperationTypeEnum.HISTORY_TYPE &&

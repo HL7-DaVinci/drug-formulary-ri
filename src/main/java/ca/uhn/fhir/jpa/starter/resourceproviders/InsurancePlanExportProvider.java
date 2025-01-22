@@ -10,6 +10,7 @@ import ca.uhn.fhir.rest.annotation.IdParam;
 import ca.uhn.fhir.rest.annotation.Operation;
 import ca.uhn.fhir.rest.api.server.IBundleProvider;
 import ca.uhn.fhir.rest.param.ReferenceParam;
+import ca.uhn.fhir.rest.param.TokenParam;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import ca.uhn.fhir.rest.server.servlet.ServletRequestDetails;
 import org.hl7.fhir.instance.model.api.IBaseResource;
@@ -67,7 +68,8 @@ public class InsurancePlanExportProvider implements IResourceProvider {
 
         // pulling referenced medication ids to pass to MedicationKnowledge type filters.
         SearchParameterMap searchParameterMap = new SearchParameterMap();
-        searchParameterMap.add("formulary", new ReferenceParam("InsurancePlan/"+insurancePlanId.getIdPart()));
+        searchParameterMap.add("formulary", new ReferenceParam(insurancePlanId));
+        searchParameterMap.add("_profile", new TokenParam("http://hl7.org/fhir/us/davinci-drug-formulary/StructureDefinition/usdf-FormularyItem"));
 
         IBundleProvider basicBundle = daoRegistry.getResourceDao(Basic.class).search(searchParameterMap);
 
@@ -76,7 +78,7 @@ public class InsurancePlanExportProvider implements IResourceProvider {
         }
         List<IPrimitiveType<String>> theTypeFilter = new ArrayList<>();
         theTypeFilter.add(new StringType("InsurancePlan?_id="+insurancePlanId.getIdPart()));
-        if( basicBundle != null && basicBundle.size() > 0 ){
+        if( basicBundle != null && basicBundle.size() != null && basicBundle.size() > 0 ){
             theType.add(new StringType("Basic"));
             theTypeFilter.add(new StringType("Basic?formulary="+insurancePlanId));
             List<IBaseResource> basicResource= basicBundle.getResources(0, basicBundle.size());
