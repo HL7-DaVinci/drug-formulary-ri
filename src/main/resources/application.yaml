@@ -79,11 +79,10 @@ spring:
   ### elastic parameters ===> see also elasticsearch section below <===
 #      hibernate.search.backend.type: elasticsearch
 #      hibernate.search.backend.analysis.configurer: ca.uhn.fhir.jpa.search.HapiHSearchAnalysisConfigurers$HapiElasticAnalysisConfigurer
+initial-data:
+  - ig-examples
 hapi:
   fhir:
-    initialdata:
-      - artifacts
-      - ig-examples
     ### This flag when enabled to true, will avail evaluate measure operations from CR Module.
     ### Flag is false by default, can be passed as command line argument to override.
     cr:
@@ -165,7 +164,15 @@ hapi:
     ### Flag is true by default. This flag filters resources during package installation, allowing only those resources with a valid status (e.g. active) to be installed.
     #    validate_resource_status_for_package_upload: false 
     #    install_transitive_ig_dependencies: true
-    #implementationguides:
+    implementationguides:
+      formulary:
+        name: hl7.fhir.us.davinci-drug-formulary
+        version: 2.1.0
+        installMode: STORE_AND_INSTALL
+      uscore70:
+        name: hl7.fhir.us.core
+        version: 7.0.0
+        installMode: STORE_ONLY
     ###    example from registry (packages.fhir.org)
     #  swiss:
     #    name: swiss.mednet.fhir
