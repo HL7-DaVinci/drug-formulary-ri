@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.authorization;
+package org.hl7.davinci.authorization;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

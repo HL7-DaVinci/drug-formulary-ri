@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.authorization;
+package org.hl7.davinci.authorization;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.ServerLogger;
 
 /**
  * @basedOn

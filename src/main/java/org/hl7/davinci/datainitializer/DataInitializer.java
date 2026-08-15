@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.datainitializer;
+package org.hl7.davinci.datainitializer;
 
 import java.nio.charset.StandardCharsets;
 

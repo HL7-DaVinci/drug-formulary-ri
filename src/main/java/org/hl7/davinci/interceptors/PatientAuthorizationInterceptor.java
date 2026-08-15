@@ -1,12 +1,12 @@
-package ca.uhn.fhir.jpa.starter.interceptors;
+package org.hl7.davinci.interceptors;
 
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ca.uhn.fhir.jpa.starter.AppProperties;
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.FormularyProperties;
+import org.hl7.davinci.ServerLogger;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -18,7 +18,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.r4.model.IdType;
 
-import ca.uhn.fhir.jpa.starter.authorization.OauthEndpointController;
+import org.hl7.davinci.authorization.OauthEndpointController;
 import ca.uhn.fhir.rest.api.server.RequestDetails;
 import ca.uhn.fhir.rest.server.exceptions.AuthenticationException;
 import ca.uhn.fhir.rest.server.interceptor.auth.AuthorizationInterceptor;
@@ -29,10 +29,10 @@ import ca.uhn.fhir.rest.server.interceptor.auth.RuleBuilder;
 public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
 
   private static final Logger logger = ServerLogger.getLogger();
-  private AppProperties appProperties;
+  private FormularyProperties formularyProperties;
 
-  public PatientAuthorizationInterceptor(AppProperties appProperties) {
-    this.appProperties = appProperties;
+  public PatientAuthorizationInterceptor(FormularyProperties formularyProperties) {
+    this.formularyProperties = formularyProperties;
   }
   @Override
   public List<IAuthRule> buildRuleList(RequestDetails theRequestDetails) {
@@ -44,7 +44,7 @@ public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
       if (matcher.find() && matcher.groupCount() == 1) {
         String token = matcher.group(1);
         logger.fine("AuthorizationInterceptor::Token retrieved is " + token);
-        String adminToken = appProperties.getAdmin_token();
+        String adminToken = formularyProperties.getAdminToken();
         if (adminToken != null && token.equals(adminToken)) {
           logger.info("AuthorizationInterceptor::JWT token is admin token");
           return adminAuthorizedRule();

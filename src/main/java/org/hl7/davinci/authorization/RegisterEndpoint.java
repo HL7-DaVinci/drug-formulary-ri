@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.authorization;
+package org.hl7.davinci.authorization;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -13,7 +13,7 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.ServerLogger;
 
 /**
  * @see https://github.com/carin-alliance/cpcds-server-ri/blob/patient-access/src/main/java/ca/uhn/fhir/jpa/starter/authorization/RegisterEndpoint.java

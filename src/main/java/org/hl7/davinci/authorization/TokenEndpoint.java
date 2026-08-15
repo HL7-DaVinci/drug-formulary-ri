@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.authorization;
+package org.hl7.davinci.authorization;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -18,7 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.ServerLogger;
 
 /**
  * @basedOn from

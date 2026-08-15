@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.debug;
+package org.hl7.davinci.debug;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
-import ca.uhn.fhir.jpa.starter.authorization.Client;
-import ca.uhn.fhir.jpa.starter.authorization.OauthEndpointController;
-import ca.uhn.fhir.jpa.starter.authorization.Database.Table;
+import org.hl7.davinci.ServerLogger;
+import org.hl7.davinci.authorization.Client;
+import org.hl7.davinci.authorization.OauthEndpointController;
+import org.hl7.davinci.authorization.Database.Table;
 
 /**
  * @copied from

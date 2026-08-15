@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.authorization;
+package org.hl7.davinci.authorization;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.ServerLogger;
 
 /**
  * @basedOn

@@ -1,10 +1,10 @@
-package ca.uhn.fhir.jpa.starter.authorization;
+package org.hl7.davinci.authorization;
 
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.ServerLogger;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,7 +25,7 @@ public class Database {
 
   private static final Logger logger = ServerLogger.getLogger();
 
-  private static final String CREATE_SQL_FILE = "src/main/java/ca/uhn/fhir/jpa/starter/authorization/CreateDatabase.sql";
+  private static final String CREATE_SQL_FILE = "src/main/java/org/hl7/davinci/authorization/CreateDatabase.sql";
 
   private static final String STYLE_FILE = "src/main/resources/style.html";
   private static final String SCRIPT_FILE = "src/main/resources/script.html";

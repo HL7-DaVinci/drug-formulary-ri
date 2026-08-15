@@ -1,6 +1,6 @@
-package ca.uhn.fhir.jpa.starter.interceptors;
+package org.hl7.davinci.interceptors;
 
-import ca.uhn.fhir.jpa.starter.ServerLogger;
+import org.hl7.davinci.ServerLogger;
 import ca.uhn.fhir.rest.server.exceptions.InvalidRequestException;
 import ca.uhn.fhir.rest.server.interceptor.*;
 import jakarta.servlet.http.HttpServletResponse;

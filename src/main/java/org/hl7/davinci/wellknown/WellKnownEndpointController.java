@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.wellknown;
+package org.hl7.davinci.wellknown;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ca.uhn.fhir.jpa.starter.AppProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ca.uhn.fhir.jpa.starter.ServerLogger;
-import ca.uhn.fhir.jpa.starter.authorization.AuthUtils;
+import org.hl7.davinci.ServerLogger;
+import org.hl7.davinci.authorization.AuthUtils;
 
 @RestController
 public class WellKnownEndpointController {

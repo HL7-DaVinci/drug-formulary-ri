@@ -1,5 +1,5 @@
 
-package ca.uhn.fhir.jpa.starter;
+package org.hl7.davinci;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

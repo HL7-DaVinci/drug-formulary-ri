@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter;
+package org.hl7.davinci;
 
 import java.io.File;
 import java.io.IOException;

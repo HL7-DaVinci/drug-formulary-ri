@@ -1,4 +1,4 @@
-package ca.uhn.fhir.jpa.starter.interceptors;
+package org.hl7.davinci.interceptors;
 
 import ca.uhn.fhir.rest.api.RestOperationTypeEnum;
 import ca.uhn.fhir.rest.api.server.RequestDetails;

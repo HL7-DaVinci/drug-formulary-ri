@@ -64,7 +64,6 @@ public class AppProperties {
   private Long retain_cached_searches_mins = 60L;
   private Long reuse_cached_search_results_millis = 60000L;
   private String server_address = null;
-  private String admin_token = null;
   private EncodingEnum default_encoding = EncodingEnum.JSON;
   private FhirVersionEnum fhir_version = FhirVersionEnum.R4;
   private ClientIdStrategyEnum client_id_strategy = ClientIdStrategyEnum.ALPHANUMERIC;
@@ -110,8 +109,6 @@ public class AppProperties {
 	private boolean userRequestRetryVersionConflictsInterceptorEnabled = false;
 
 	private List<Integer> search_prefetch_thresholds = new ArrayList<>();
-
-    private List<String> initialData = new ArrayList<>();
 
 	public List<String> getCustomInterceptorClasses() {
     return custom_interceptor_classes;
@@ -226,10 +223,6 @@ public Cors getCors() {
   public void setServer_address(String server_address) {
     this.server_address = server_address;
   }
-
-  public String getAdmin_token() { return admin_token; }
-    
-  public void setAdmin_token(String admin_token) { this.admin_token = admin_token; }
 
   public Subscription getSubscription() {
     return subscription;
@@ -670,13 +663,7 @@ public Cors getCors() {
 	public void  setSearch_prefetch_thresholds(List<Integer> thePrefetchThresholds) {
 		this.search_prefetch_thresholds = thePrefetchThresholds;
 	}
-    public List<String> getInitialData() {
-        return initialData;
-    }
 
-    public void setInitialData(List<String> initialData) {
-        this.initialData = initialData;
-    }
 	public boolean getUpliftedRefchains_enabled() {
 		return upliftedRefchains_enabled;
 	}
