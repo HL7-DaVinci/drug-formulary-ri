@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1009145",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1009145",
+        "display": "amphetamine aspartate 1.875 MG / amphetamine sulfate 1.875 MG / dextroamphetamine saccharate 1.875 MG / dextroamphetamine sulfate 1.875 MG Oral Tablet"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

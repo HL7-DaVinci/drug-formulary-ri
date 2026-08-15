@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1244634",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1244634",
+        "display": "betamethasone valerate 1.2 MG/ML Topical Foam"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421166008",
+        "display": "Foam"
+      }
+    ]
+  }
+}

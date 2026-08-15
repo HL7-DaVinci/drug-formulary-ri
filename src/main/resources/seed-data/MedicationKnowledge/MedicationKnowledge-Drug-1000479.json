@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1000479",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1000479",
+        "display": "{1 (bisacodyl 5 MG Delayed Release Oral Tablet) / 1 (2000 ML) (polyethylene glycol 3350 210000 MG / potassium chloride 740 MG / sodium bicarbonate 2860 MG / sodium chloride 5600 MG Powder for Oral Solution) } Pack"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385023001",
+        "display": "Oral solution"
+      }
+    ]
+  }
+}

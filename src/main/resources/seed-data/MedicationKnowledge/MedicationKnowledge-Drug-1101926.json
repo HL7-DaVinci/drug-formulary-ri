@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1101926",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1101926",
+        "display": "24 HR dexmethylphenidate hydrochloride 25 MG Extended Release Oral Capsule"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385049006",
+        "display": "Capsule"
+      }
+    ]
+  }
+}

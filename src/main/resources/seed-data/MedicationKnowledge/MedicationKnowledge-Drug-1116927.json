@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1116927",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1116927",
+        "display": "dexamethasone phosphate 4 MG/ML Injectable Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

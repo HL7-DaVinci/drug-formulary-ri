@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1091152",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1091152",
+        "display": "methylphenidate hydrochloride 10 MG Chewable Tablet"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "66076007",
+        "display": "Chewable tablet"
+      }
+    ]
+  }
+}

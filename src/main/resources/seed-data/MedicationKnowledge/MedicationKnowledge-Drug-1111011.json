@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1111011",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1111011",
+        "display": "etonogestrel 68 MG Drug Implant [Nexplanon]"
+      }
+    ]
+  },
+  "status": "active"
+}

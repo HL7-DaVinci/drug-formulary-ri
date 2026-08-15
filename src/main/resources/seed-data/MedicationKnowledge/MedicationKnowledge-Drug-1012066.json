@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1012066",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1012066",
+        "display": "5 ML lidocaine hydrochloride 10 MG/ML Prefilled Syringe"
+      }
+    ]
+  },
+  "status": "active"
+}

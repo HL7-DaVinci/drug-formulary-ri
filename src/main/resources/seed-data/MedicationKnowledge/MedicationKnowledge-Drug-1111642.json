@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1111642",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1111642",
+        "display": "1 ML glatiramer acetate 20 MG/ML Prefilled Syringe [Copaxone]"
+      }
+    ]
+  },
+  "status": "active"
+}

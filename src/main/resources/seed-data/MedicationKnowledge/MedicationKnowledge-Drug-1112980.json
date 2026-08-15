@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1112980",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1112980",
+        "display": "belatacept 250 MG Injection [Nulojix]"
+      }
+    ]
+  },
+  "status": "active"
+}

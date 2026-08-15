@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1010671",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1010671",
+        "display": "lidocaine hydrochloride 20 MG/ML Injectable Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

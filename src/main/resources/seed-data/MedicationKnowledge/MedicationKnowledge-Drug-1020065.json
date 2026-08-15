@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1020065",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1020065",
+        "display": "{4 (risedronate sodium 35 MG Delayed Release Oral Tablet) } Pack"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

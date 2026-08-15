@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1235867",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1235867",
+        "display": "{7 (ethinyl estradiol 0.035 MG / norethindrone 0.5 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norethindrone 0.75 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norethindrone 1 MG Oral Tablet) / 7 (inert ingredients 1 MG Oral Tablet) } Pack [Dasetta 7/7/7 28 Day]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1113046",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1113046",
+        "display": "amylase 15000 UNT / lipase 3000 UNT / protease 9500 UNT Delayed Release Oral Capsule [Creon]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385049006",
+        "display": "Capsule"
+      }
+    ]
+  }
+}

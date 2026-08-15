@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1244616",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1244616",
+        "display": "tafluprost 0.015 MG/ML Ophthalmic Solution [Zioptan]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "422060001",
+        "display": "Ophthalmic solution"
+      }
+    ]
+  }
+}

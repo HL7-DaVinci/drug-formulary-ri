@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1243346",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1243346",
+        "display": "tenofovir disoproxil fumarate 0.04 MG/MG Oral Powder [Viread]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385041009",
+        "display": "Oral powder"
+      }
+    ]
+  }
+}

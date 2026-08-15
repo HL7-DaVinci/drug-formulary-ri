@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1046920",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046920",
+        "display": "nicotine 4 MG Inhalation Solution [Nicotrol]"
+      }
+    ]
+  },
+  "status": "active"
+}

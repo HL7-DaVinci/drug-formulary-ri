@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1095224",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1095224",
+        "display": "{21 (ethinyl estradiol 0.035 MG / norethindrone 0.4 MG Chewable Tablet) / 7 (ferrous fumarate 75 MG Chewable Tablet) } Pack"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "66076007",
+        "display": "Chewable tablet"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1148141",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1148141",
+        "display": "3 ML icatibant 10 MG/ML Prefilled Syringe"
+      }
+    ]
+  },
+  "status": "active"
+}

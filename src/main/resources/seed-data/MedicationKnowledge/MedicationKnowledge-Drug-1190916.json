@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1190916",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1190916",
+        "display": "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Tenivac]"
+      }
+    ]
+  },
+  "status": "active"
+}

@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1053753",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1053753",
+        "display": "nystatin 100000 UNT/ML / triamcinolone acetonide 1 MG/ML Topical Cream"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385099005",
+        "display": "Cream"
+      }
+    ]
+  }
+}

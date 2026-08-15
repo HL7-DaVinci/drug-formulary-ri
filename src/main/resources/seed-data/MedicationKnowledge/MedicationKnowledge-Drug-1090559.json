@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1090559",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1090559",
+        "display": "1 ML octreotide 0.05 MG/ML Prefilled Syringe"
+      }
+    ]
+  },
+  "status": "active"
+}

@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1234482",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1234482",
+        "display": "ascorbic acid 35 MG/ML / cholecalciferol 400 UNT/ML / niacin 8 MG/ML / riboflavin 0.6 MG/ML / sodium fluoride 0.55 MG/ML / thiamine 0.5 MG/ML / vitamin A 1500 UNT/ML / vitamin B12 0.002 MG/ML / vitamin B6 0.4 MG/ML / vitamin E 5 UNT/ML Oral Solution"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385023001",
+        "display": "Oral solution"
+      }
+    ]
+  }
+}

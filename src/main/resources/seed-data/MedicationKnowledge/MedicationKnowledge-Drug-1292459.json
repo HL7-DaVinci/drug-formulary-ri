@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1292459",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1292459",
+        "display": "0.5 ML varicella-zoster virus vaccine live (Oka-Merck) strain 2700 UNT/ML Injection [Varivax]"
+      }
+    ]
+  },
+  "status": "active"
+}

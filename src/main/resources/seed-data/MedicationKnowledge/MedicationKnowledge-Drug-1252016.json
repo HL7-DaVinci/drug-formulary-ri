@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1252016",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1252016",
+        "display": "{21 (desogestrel 0.15 MG / ethinyl estradiol 0.02 MG Oral Tablet) / 5 (ethinyl estradiol 0.01 MG Oral Tablet) / 2 (inert ingredients 1 MG Oral Tablet) } Pack [Viorele 28 Day]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

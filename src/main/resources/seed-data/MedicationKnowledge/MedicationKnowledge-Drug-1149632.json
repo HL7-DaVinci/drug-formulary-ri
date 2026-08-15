@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1149632",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1149632",
+        "display": "84 HR estradiol 0.00313 MG/HR Transdermal System"
+      }
+    ]
+  },
+  "status": "active"
+}

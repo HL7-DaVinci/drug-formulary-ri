@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1100471",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1100471",
+        "display": "{30 (ascorbic acid 120 MG / calcium citrate 125 MG / cholecalciferol 400 UNT / folic acid 1 MG / iron carbonyl 20 MG / pyridoxine hydrochloride 25 MG Oral Tablet) / 10 (pyridoxine hydrochloride 25 MG Oral Tablet) } Pack [CitraNatal B-Calm Kit]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

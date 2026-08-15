@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-108515",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "108515",
+        "display": "1 ML tacrolimus 5 MG/ML Injection [Prograf]"
+      }
+    ]
+  },
+  "status": "active"
+}

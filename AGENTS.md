@@ -4,7 +4,7 @@ This file provides guidance to AI coding agents when working with code in this r
 
 ## Overview
 
-Reference FHIR R4 server for the [Da Vinci US Drug Formulary Implementation Guide](https://hl7.org/fhir/us/davinci-drug-formulary/) ([CI build](https://build.fhir.org/ig/HL7/davinci-pdex-formulary/)). It is a fork of the HAPI FHIR JPA Server starter (`hapi-fhir-jpaserver-starter`, HAPI 7.6.0, Spring Boot, Java 17, WAR packaging) with formulary-specific customizations layered on top. The hosted instance (https://drug-formulary-ri.davinci.hl7.org/fhir) is read only; data loading happens on the `formulary-write` branch.
+Reference FHIR R4 server for the [Da Vinci US Drug Formulary Implementation Guide](https://hl7.org/fhir/us/davinci-drug-formulary/) ([CI build](https://build.fhir.org/ig/HL7/davinci-pdex-formulary/)). It is a fork of the HAPI FHIR JPA Server starter (`hapi-fhir-jpaserver-starter`, HAPI 7.6.0, Spring Boot, Java 17, WAR packaging) with formulary-specific customizations layered on top. The hosted instance (https://drug-formulary-ri.davinci.hl7.org/fhir) is read only. To change the hosted data set, edit the JSON files in `src/main/resources/seed-data`.
 
 ## Commands
 
@@ -22,7 +22,7 @@ mvn test
 mvn test -Dtest=CustomOperationTest
 mvn test -Dtest=CustomOperationTest#methodName
 
-# Docker (test data pre-loaded)
+# Docker
 ./build-docker-image.sh
 docker compose up
 ```
@@ -51,7 +51,7 @@ The source tree is split into two top-level packages by origin:
   - `debug/` - `/debug/Clients`, `/debug/Users`, `/debug/UpdateClient` helper endpoints for OAuth troubleshooting.
   - `ServerLogger.java` - backs the `/Log` endpoint.
 
-Configuration is driven by `src/main/resources/application.yaml` (bound to `AppProperties`). The main FHIR data store is file-based H2 at `./target/database/h2` with Lucene indexes; pre-loaded formulary data ships in `data/` and is copied in by the Docker build.
+Configuration is driven by `src/main/resources/application.yaml` (bound to `AppProperties`). The main FHIR data store is file-based H2 at `./target/database/h2`, created empty at startup. All formulary data loads at startup: IG conformance resources come from the `implementationguides` configuration, IG example resources from `src/main/resources/ig-examples`, and the full sample formulary data set (36 InsurancePlan, 329 MedicationKnowledge, 5400 Basic resources derived from 2024 CMS QHP data) from `src/main/resources/seed-data`, both loaded by the `datainitializer` package.
 
 Tests in `src/test/java` are almost entirely upstream starter tests (generic HAPI IT suites), not formulary-specific.
 

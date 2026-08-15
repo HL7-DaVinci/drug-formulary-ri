@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1244205",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1244205",
+        "display": "0.5 ML diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection"
+      }
+    ]
+  },
+  "status": "active"
+}

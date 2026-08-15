@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1001405",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1001405",
+        "display": "docetaxel 20 MG/ML Injectable Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1191310",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1191310",
+        "display": "fluocinolone acetonide 0.1 MG/ML Topical Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

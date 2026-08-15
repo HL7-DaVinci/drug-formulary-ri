@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1013629",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1013629",
+        "display": "{24 (drospirenone 3 MG / ethinyl estradiol 0.02 MG / levomefolate calcium 0.451 MG Oral Tablet) / 4 (levomefolate calcium 0.451 MG Oral Tablet) } Pack"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

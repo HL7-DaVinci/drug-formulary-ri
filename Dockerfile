@@ -14,6 +14,8 @@ RUN mvn clean install -DskipTests -Djdk.lang.Process.launchMechanism=vfork
 FROM build-hapi AS build-distroless
 RUN mvn package -DskipTests spring-boot:repackage -Pboot
 RUN mkdir /app && cp /tmp/hapi-fhir-jpaserver-starter/target/ROOT.war /app/main.war
+# Writable directory for the runtime H2 and oauth databases (distroless has no shell to create it)
+RUN mkdir /app/target
 
 
 ########### bitnami tomcat version is suitable for debugging and comes with a shell
@@ -26,10 +28,9 @@ RUN rm -rf /opt/bitnami/tomcat/webapps/ROOT && \
     chown -R 1001:1001 /opt/bitnami/hapi/data/hapi/lucenefiles && \
     chmod 775 /opt/bitnami/hapi/data/hapi/lucenefiles
 
-RUN mkdir -p /target && chown -R 1001:1001 target
+RUN mkdir -p /opt/bitnami/hapi/target && chown -R 1001:1001 /opt/bitnami/hapi/target
 
-########### Added to copy data and src folder
-COPY  --chown=1001:1001 ./data /opt/bitnami/hapi/target
+########### Added to copy src folder (style.html and script.html are read from it at runtime)
 COPY  --chown=1001:1001 src /opt/bitnami/hapi/src
 
 USER 1001
@@ -52,8 +53,7 @@ WORKDIR /app
 COPY --chown=nonroot:nonroot --from=build-distroless /app /app
 COPY --chown=nonroot:nonroot --from=build-hapi /tmp/hapi-fhir-jpaserver-starter/opentelemetry-javaagent.jar /app
 
-########### Added to copy data and src folder
-COPY --chown=nonroot:nonroot ./data /app/target
+########### Added to copy src folder (style.html and script.html are read from it at runtime)
 COPY --chown=nonroot:nonroot src /app/src
 
 ENTRYPOINT ["java", "--class-path", "/app/main.war", "-Dloader.path=main.war!/WEB-INF/classes/,main.war!/WEB-INF/,/app/extra-classes", "org.springframework.boot.loader.PropertiesLauncher"]

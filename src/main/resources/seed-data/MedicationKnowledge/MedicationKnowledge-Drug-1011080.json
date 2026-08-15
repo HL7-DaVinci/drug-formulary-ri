@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1011080",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1011080",
+        "display": "dexamethasone 0.5 MG/ML / tobramycin 3 MG/ML Ophthalmic Suspension [Tobradex]"
+      }
+    ]
+  },
+  "status": "active"
+}

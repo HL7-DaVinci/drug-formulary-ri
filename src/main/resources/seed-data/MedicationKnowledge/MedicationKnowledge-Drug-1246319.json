@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1246319",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1246319",
+        "display": "formoterol fumarate 0.01 MG/ML Inhalation Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

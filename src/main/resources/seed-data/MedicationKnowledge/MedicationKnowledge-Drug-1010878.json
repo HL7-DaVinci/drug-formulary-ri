@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1010878",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1010878",
+        "display": "lidocaine hydrochloride 40 MG/ML Mucous Membrane Topical Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

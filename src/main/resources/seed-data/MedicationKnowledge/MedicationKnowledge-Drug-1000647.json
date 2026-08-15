@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1000647",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1000647",
+        "display": "pilocarpine hydrochloride 10 MG/ML Ophthalmic Solution"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "422060001",
+        "display": "Ophthalmic solution"
+      }
+    ]
+  }
+}

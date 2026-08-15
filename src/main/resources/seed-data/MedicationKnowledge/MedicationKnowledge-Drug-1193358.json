@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1193358",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1193358",
+        "display": "100 ML levetiracetam 10 MG/ML Injection"
+      }
+    ]
+  },
+  "status": "active"
+}

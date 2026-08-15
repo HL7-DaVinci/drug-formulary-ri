@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1292443",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1292443",
+        "display": "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 40000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML / varicella-zoster virus vaccine live (Oka-Merck) strain 20000 UNT/ML Injection [ProQuad]"
+      }
+    ]
+  },
+  "status": "active"
+}

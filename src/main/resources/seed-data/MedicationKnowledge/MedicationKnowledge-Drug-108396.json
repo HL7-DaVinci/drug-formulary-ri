@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-108396",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "108396",
+        "display": "20 ML zidovudine 10 MG/ML Injection [Retrovir]"
+      }
+    ]
+  },
+  "status": "active"
+}

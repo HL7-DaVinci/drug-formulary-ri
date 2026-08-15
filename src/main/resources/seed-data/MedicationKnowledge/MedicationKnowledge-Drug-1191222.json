@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1191222",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1191222",
+        "display": "naloxone hydrochloride 0.4 MG/ML Injectable Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

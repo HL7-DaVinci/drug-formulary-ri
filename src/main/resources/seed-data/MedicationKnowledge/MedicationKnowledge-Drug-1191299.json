@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1191299",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1191299",
+        "display": "fluocinolone acetonide 0.1 MG/ML Otic Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

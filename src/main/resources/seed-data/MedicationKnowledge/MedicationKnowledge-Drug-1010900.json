@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1010900",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1010900",
+        "display": "lidocaine hydrochloride 5 MG/ML Injectable Solution"
+      }
+    ]
+  },
+  "status": "active"
+}

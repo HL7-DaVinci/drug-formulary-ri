@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1037185",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1037185",
+        "display": "{24 (ethinyl estradiol 0.01 MG / norethindrone acetate 1 MG Oral Tablet) / 2 (ethinyl estradiol 0.01 MG Oral Tablet) / 2 (ferrous fumarate 75 MG Oral Tablet) } Pack [Lo Loestrin Fe 28 Day]"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "421026006",
+        "display": "Oral tablet"
+      }
+    ]
+  }
+}

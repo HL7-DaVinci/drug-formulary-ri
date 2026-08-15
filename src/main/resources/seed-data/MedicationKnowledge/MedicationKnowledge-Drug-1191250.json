@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1191250",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1191250",
+        "display": "2 ML naloxone hydrochloride 1 MG/ML Prefilled Syringe"
+      }
+    ]
+  },
+  "status": "active"
+}

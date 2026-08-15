@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-105607",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "105607",
+        "display": "pentostatin 10 MG Injection [Nipent]"
+      }
+    ]
+  },
+  "status": "active"
+}

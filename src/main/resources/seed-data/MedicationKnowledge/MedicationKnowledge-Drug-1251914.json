@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1251914",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251914",
+        "display": "24 HR rotigotine 0.0417 MG/HR Transdermal System [Neupro]"
+      }
+    ]
+  },
+  "status": "active"
+}

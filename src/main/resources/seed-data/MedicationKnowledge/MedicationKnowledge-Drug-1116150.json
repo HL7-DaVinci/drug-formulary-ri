@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1116150",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1116150",
+        "display": "bacitracin zinc 0.4 UNT/MG / hydrocortisone acetate 0.01 MG/MG / neomycin sulfate 0.0035 MG/MG / polymyxin B sulfate 10 UNT/MG Ophthalmic Ointment"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "385101003",
+        "display": "Ointment"
+      }
+    ]
+  }
+}

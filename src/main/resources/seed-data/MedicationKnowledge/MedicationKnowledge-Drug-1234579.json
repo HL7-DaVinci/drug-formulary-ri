@@ -1,0 +1,23 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1234579",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1234579",
+        "display": "phenylephrine hydrochloride 25 MG/ML Ophthalmic Solution"
+      }
+    ]
+  },
+  "status": "active",
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://www.snomed.org/",
+        "code": "422060001",
+        "display": "Ophthalmic solution"
+      }
+    ]
+  }
+}

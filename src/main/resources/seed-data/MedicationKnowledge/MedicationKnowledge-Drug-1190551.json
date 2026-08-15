@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1190551",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1190551",
+        "display": "5 ML atropine sulfate 0.05 MG/ML Prefilled Syringe"
+      }
+    ]
+  },
+  "status": "active"
+}

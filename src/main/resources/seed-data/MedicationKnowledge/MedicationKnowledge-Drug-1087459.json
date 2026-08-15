@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationKnowledge",
+  "id": "Drug-1087459",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1087459",
+        "display": "12 HR chlorpheniramine polistirex 1.6 MG/ML / hydrocodone polistirex 2 MG/ML Extended Release Suspension"
+      }
+    ]
+  },
+  "status": "active"
+}
