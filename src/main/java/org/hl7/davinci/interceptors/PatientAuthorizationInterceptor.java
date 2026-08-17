@@ -36,6 +36,10 @@ public class PatientAuthorizationInterceptor extends AuthorizationInterceptor {
   }
   @Override
   public List<IAuthRule> buildRuleList(RequestDetails theRequestDetails) {
+    if ("$bulk-publish".equals(theRequestDetails.getOperation())) {
+      return new RuleBuilder().allow().operation().named("$bulk-publish").onServer().andAllowAllResponses().build();
+    }
+
     String authHeader = theRequestDetails.getHeader("Authorization");
     if (authHeader != null) {
       // Retrieve the JWT token from the Authorization header

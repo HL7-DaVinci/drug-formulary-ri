@@ -1,0 +1,6 @@
+hapi:
+  fhir:
+    fhir_version: R4
+    advanced_lucene_indexing: false
+    search_index_full_text_enabled: false
+    mdm_enabled: false

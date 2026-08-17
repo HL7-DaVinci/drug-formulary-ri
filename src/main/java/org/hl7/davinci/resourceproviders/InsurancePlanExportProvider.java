@@ -13,6 +13,7 @@ import ca.uhn.fhir.rest.param.ReferenceParam;
 import ca.uhn.fhir.rest.param.TokenParam;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import ca.uhn.fhir.rest.server.servlet.ServletRequestDetails;
+import ca.uhn.fhir.rest.server.util.ServletRequestUtil;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.instance.model.api.IPrimitiveType;
@@ -49,14 +50,14 @@ public class InsurancePlanExportProvider implements IResourceProvider {
 
         IPrimitiveType<String> theType = new StringType("InsurancePlan,Location,Basic,MedicationKnowledge");
 
-        bulkDataExportProvider.export(null, theType, null , null, null, null, theRequestDetails);
+        bulkDataExportProvider.export(null, theType, null, null, null, null, null, null, theRequestDetails);
     }
 
     @Operation(name = "$export", idempotent = true, manualResponse = true)
     public void insurancePlanInstanceExport(@IdParam IIdType insurancePlanId, ServletRequestDetails theRequestDetails) {
 
         // require "Prefer: respond-async" request header
-        bulkDataExportProvider.validatePreferAsyncHeader(theRequestDetails, "$export");
+        ServletRequestUtil.validatePreferAsyncHeader(theRequestDetails, "$export");
 
         // validate if resource exists. Throws ResourceNotFoundException if doesn't exist
         InsurancePlan insurancePlan = daoRegistry.getResourceDao(InsurancePlan.class).read(new IdType(insurancePlanId.getIdPart()));
@@ -99,6 +100,6 @@ public class InsurancePlanExportProvider implements IResourceProvider {
         }
         String theTypeString = theType.stream().map(IPrimitiveType::getValue).collect(Collectors.joining(","));
 
-        bulkDataExportProvider.export(null, new StringType(theTypeString), null , theTypeFilter, null, null, theRequestDetails);
+        bulkDataExportProvider.export(null, new StringType(theTypeString), null, null, theTypeFilter, null, null, null, theRequestDetails);
     }
 }

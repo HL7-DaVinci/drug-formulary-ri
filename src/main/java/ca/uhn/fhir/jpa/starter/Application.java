@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration;
+import org.springframework.boot.autoconfigure.quartz.QuartzAutoConfiguration;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Import;
 @ServletComponentScan(basePackageClasses = {RestfulServer.class})
 @SpringBootApplication(
 		scanBasePackages = {"ca.uhn.fhir.jpa.starter", "org.hl7.davinci"},
-		exclude = {ElasticsearchRestClientAutoConfiguration.class, ThymeleafAutoConfiguration.class})
+		exclude = {ThymeleafAutoConfiguration.class, QuartzAutoConfiguration.class})
 @Import({
 	StarterCrR4Config.class,
 	StarterCrDstu3Config.class,
@@ -47,10 +47,9 @@ public class Application extends SpringBootServletInitializer {
 
 		SpringApplication.run(Application.class, args);
 
-		// Server is now accessible at eg. http://localhost:8080/fhir/metadata
+		// Server is now accessible at e.g. http://localhost:8080/fhir/metadata
 		// UI is now accessible at http://localhost:8080/
 	}
-
 
 	@Autowired
 	AutowireCapableBeanFactory beanFactory;
@@ -66,5 +65,4 @@ public class Application extends SpringBootServletInitializer {
 
 		return servletRegistrationBean;
 	}
-
 }

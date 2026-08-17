@@ -3,6 +3,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <java.version>17</java.version>
+        <hapi.fhir.jpa.server.starter.revision>3</hapi.fhir.jpa.server.starter.revision>
+        <clinical-reasoning.version>4.9.0</clinical-reasoning.version>
+
+        <!-- Plugins Versions -->
+        <maven.failsafe.version>3.5.4</maven.failsafe.version>
+        <maven.fire.version>${maven.failsafe.version}</maven.fire.version>
+        <maven.dependency.version>3.9.0</maven.dependency.version>
+        <maven.compiler.version>3.14.1</maven.compiler.version>
+
+        <!-- Dependencies Versions -->
+        <spring.ai.version>1.1.2</spring.ai.version>
+        <awaitility.version>4.3.0</awaitility.version>
+        <micrometer.version>1.16.2</micrometer.version>
+        <commons.logging.version>1.3.5</commons.logging.version>
+        <spring_boot_version>3.5.9</spring_boot_version>
+        <postgresql.version>42.7.9</postgresql.version>
+        <logback_version>1.5.25</logback_version>
+    </properties>
+
     <!-- one-liner to take you to the cloud with settings form the application.yaml file: -->
     <!-- 'mvn clean package com.google.cloud.tools:jib-maven-plugin:dockerBuild -Dimage=distroless-hapi && docker run -p 8080:8080 distroless-hapi' -->
     <!--
@@ -14,29 +35,26 @@
     <parent>
         <groupId>ca.uhn.hapi.fhir</groupId>
         <artifactId>hapi-fhir</artifactId>
-        <version>7.6.0</version>
+        <version>8.10.0</version>
     </parent>
 
     <artifactId>hapi-fhir-jpaserver-starter</artifactId>
+    <version>${project.parent.version}-${hapi.fhir.jpa.server.starter.revision}</version>
     <packaging>war</packaging>
-
-    <properties>
-        <java.version>17</java.version>
-    </properties>
-
-    <prerequisites>
-        <maven>3.8.3</maven>
-    </prerequisites>
 
     <name>HAPI FHIR JPA Server - Starter Project</name>
 
     <repositories>
         <repository>
-            <id>oss-snapshots</id>
+            <name>Central Portal Snapshots</name>
+            <id>central-portal-snapshots</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
@@ -54,8 +72,19 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <version>${spring_boot_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>co.elastic.clients</groupId>
+            <artifactId>elasticsearch-java</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
           <groupId>com.microsoft.sqlserver</groupId>
@@ -111,9 +140,9 @@
         </dependency>
         <!-- This dependency includes the JPA CQL Server -->
         <dependency>
-            <groupId>ca.uhn.hapi.fhir</groupId>
-            <artifactId>hapi-fhir-storage-cr</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>org.opencds.cqf.fhir</groupId>
+            <artifactId>cqf-fhir-cr-hapi</artifactId>
+            <version>${clinical-reasoning.version}</version>
         </dependency>
         <!-- This dependency includes the JPA MDM Server -->
         <dependency>
@@ -130,6 +159,12 @@
           <groupId>ca.uhn.hapi.fhir</groupId>
           <artifactId>hapi-fhir-server-cds-hooks</artifactId>
           <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-converter</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <!-- This dependency includes the OpenAPI Server -->
         <dependency>
@@ -166,13 +201,16 @@
 
         <!-- HAPI-FHIR uses Logback for logging support. The logback library is included automatically by Maven as a part of the hapi-fhir-base dependency, but you also need to include a logging library. Logback
             is used here, but log4j would also be fine. -->
+        <!-- Fixes CVE-2025-11226 -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <version>${logback_version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
+            <version>${logback_version}</version>
         </dependency>
 
         <!-- Needed for JEE/Servlet support -->
@@ -182,7 +220,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- If you are using HAPI narrative generation, you will need to include Thymeleaf as well. Otherwise the following can be omitted. -->
+        <!-- If you are using HAPI narrative generation, you will need to include Thymeleaf as well. Otherwise, the following can be omitted. -->
         <dependency>
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf</artifactId>
@@ -199,7 +237,7 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
+            <version>${commons.logging.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -252,12 +290,7 @@
             <artifactId>moment</artifactId>
         </dependency>
 
-        <!-- The following dependencies are only needed for automated unit tests, you do not neccesarily need them to run the example. -->
-        <dependency>
-            <groupId>co.elastic.clients</groupId>
-            <artifactId>elasticsearch-java</artifactId>
-            <scope>test</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
@@ -279,12 +312,12 @@
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>elasticsearch</artifactId>
+            <artifactId>testcontainers-elasticsearch</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>testcontainers-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -326,7 +359,7 @@
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
-            <version>4.2.0</version>
+            <version>${awaitility.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -346,30 +379,48 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
-            <version>1.13.3</version>
+            <version>${micrometer.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
-            <version>1.13.3</version>
+            <version>${micrometer.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus-simpleclient -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus-simpleclient</artifactId>
-            <version>1.13.3</version>
+            <version>${micrometer.version}</version>
         </dependency>
 
 
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>5.0.1</version>
+            <version>5.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-mcp</artifactId>
+            <version>${spring.ai.version}</version>
+        </dependency>
+
+        <!--implementation("org.springframework.ai:spring-ai-starter-mcp-server-webmvc:1.1.0-M1")-->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-server</artifactId>
+            <version>${spring.ai.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -399,21 +450,34 @@
             <artifactId>json</artifactId>
             <version>20240303</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>6.5.7</version>
+        </dependency>
     </dependencies>
 
     <build>
+
+        <!-- Enabling resource filtering -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
 
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>${maven.dependency.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <artifactId>maven-fire-plugin</artifactId>
+                    <version>${maven.fire.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -445,11 +509,24 @@
                 </executions>
             </plugin>
 
+            <!-- Resources plugin: sets custom delimiter '@' for placeholder substitutions -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+
             <!-- Tell Maven which Java source version you want to use -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>${maven.compiler.version}</version>
                 <configuration>
                     <release>${java.version}</release>
                 </configuration>
@@ -476,11 +553,33 @@
                 </configuration>
             </plugin>
 
+            <!-- Enforce minimum Maven version requirement -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.6.2</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.8.3</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- This is to run the integration tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>${maven.failsafe.version}</version>
                 <configuration>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                 </configuration>
@@ -652,62 +751,6 @@
                 </dependency>
             </dependencies>
         </profile>
-        <profile>
-            <id>ossrh-repo</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <property>
-                    <name>deployToSonatype</name>
-                </property>
-            </activation>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.13</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <keyname>${gpg.keyname}</keyname>
-                                    <passphraseServerId>${gpg.keyname}</passphraseServerId>
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
-                                    </gpgArguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <!-- For connecting to GCP CloudSQL Postgres instances:
         https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/blob/main/docs/jdbc.md#postgres-1
         Needs 'boot' profile as well. -->
@@ -717,7 +760,7 @@
                 <dependency>
                     <groupId>com.google.cloud.sql</groupId>
                     <artifactId>postgres-socket-factory</artifactId>
-                    <version>1.17.0</version>
+                    <version>1.28.0</version>
                 </dependency>
             </dependencies>
         </profile>       

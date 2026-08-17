@@ -1,14 +1,15 @@
 package ca.uhn.fhir.jpa.starter.common;
 
 import ca.uhn.fhir.jpa.api.config.JpaStorageSettings;
-import ca.uhn.fhir.jpa.binary.api.IBinaryStorageSvc;
 import ca.uhn.fhir.jpa.binstore.DatabaseBinaryContentStorageSvcImpl;
+import ca.uhn.fhir.jpa.binstore.FilesystemBinaryStorageSvcImpl;
 import ca.uhn.fhir.jpa.config.HibernatePropertiesProvider;
 import ca.uhn.fhir.jpa.model.config.PartitionSettings;
 import ca.uhn.fhir.jpa.model.config.PartitionSettings.CrossPartitionReferenceMode;
 import ca.uhn.fhir.jpa.model.config.SubscriptionSettings;
 import ca.uhn.fhir.jpa.model.entity.StorageSettings;
 import ca.uhn.fhir.jpa.starter.AppProperties;
+import ca.uhn.fhir.jpa.starter.elastic.ElasticsearchBootSvcImpl;
 import ca.uhn.fhir.jpa.starter.util.JpaHibernatePropertiesProvider;
 import ca.uhn.fhir.jpa.subscription.match.deliver.email.EmailSenderImpl;
 import ca.uhn.fhir.jpa.subscription.match.deliver.email.IEmailSender;
@@ -16,45 +17,54 @@ import ca.uhn.fhir.rest.server.mail.MailConfig;
 import ca.uhn.fhir.rest.server.mail.MailSvc;
 import com.google.common.base.Strings;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.env.YamlPropertySourceLoader;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.*;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.util.Assert;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;
+
+import static org.apache.commons.lang3.ObjectUtils.defaultIfNull;
 
 /**
  * This is the primary configuration file for the example server
  */
 @Configuration
 @EnableTransactionManagement
+@Import(ElasticsearchBootSvcImpl.class)
 public class FhirServerConfigCommon {
 
-	private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(FhirServerConfigCommon.class);
+	private static final Logger ourLog = LoggerFactory.getLogger(FhirServerConfigCommon.class);
+	private static final int DEFAULT_FILESYSTEM_INLINE_THRESHOLD = 102_400;
 
 	public FhirServerConfigCommon(AppProperties appProperties) {
-		ourLog.info("Server configured to " + (appProperties.getAllow_contains_searches() ? "allow" : "deny")
-				+ " contains searches");
-		ourLog.info("Server configured to " + (appProperties.getAllow_multiple_delete() ? "allow" : "deny")
-				+ " multiple deletes");
-		ourLog.info("Server configured to " + (appProperties.getAllow_external_references() ? "allow" : "deny")
-				+ " external references");
-		ourLog.info("Server configured to " + (appProperties.getDao_scheduling_enabled() ? "enable" : "disable")
-				+ " DAO scheduling");
-		ourLog.info("Server configured to " + (appProperties.getDelete_expunge_enabled() ? "enable" : "disable")
-				+ " delete expunges");
 		ourLog.info(
-				"Server configured to " + (appProperties.getExpunge_enabled() ? "enable" : "disable") + " expunges");
+				"Server configured to {} contains searches",
+				appProperties.getAllow_contains_searches() ? "allow" : "deny");
 		ourLog.info(
-				"Server configured to " + (appProperties.getAllow_override_default_search_params() ? "allow" : "deny")
-						+ " overriding default search params");
-		ourLog.info("Server configured to "
-				+ (appProperties.getAuto_create_placeholder_reference_targets() ? "allow" : "disable")
-				+ " auto-creating placeholder references");
+				"Server configured to {} multiple deletes",
+				appProperties.getAllow_multiple_delete() ? "allow" : "deny");
+		ourLog.info(
+				"Server configured to {} external references",
+				appProperties.getAllow_external_references() ? "allow" : "deny");
+		ourLog.info(
+				"Server configured to {} DAO scheduling",
+				appProperties.getDao_scheduling_enabled() ? "enable" : "disable");
+		ourLog.info(
+				"Server configured to {} delete expunges",
+				appProperties.getDelete_expunge_enabled() ? "enable" : "disable");
+		ourLog.info("Server configured to {} expunges", appProperties.getExpunge_enabled() ? "enable" : "disable");
+		ourLog.info(
+				"Server configured to {} overriding default search params",
+				appProperties.getAllow_override_default_search_params() ? "allow" : "deny");
+		ourLog.info(
+				"Server configured to {} auto-creating placeholder references",
+				appProperties.getAuto_create_placeholder_reference_targets() ? "allow" : "disable");
 		ourLog.info(
 				"Server configured to auto-version references at paths {}",
 				appProperties.getAuto_version_reference_at_paths());
@@ -62,12 +72,14 @@ public class FhirServerConfigCommon {
 		if (appProperties.getSubscription().getEmail() != null) {
 			AppProperties.Subscription.Email email =
 					appProperties.getSubscription().getEmail();
-			ourLog.info("Server is configured to enable email with host '" + email.getHost() + "' and port "
-					+ email.getPort());
-			ourLog.info("Server will use '" + email.getFrom() + "' as the from email address");
+			ourLog.info(
+					"Server is configured to enable email with host '{}' and port {}",
+					email.getHost(),
+					email.getPort());
+			ourLog.info("Server will use '{}' as the from email address", email.getFrom());
 
 			if (!Strings.isNullOrEmpty(email.getUsername())) {
-				ourLog.info("Server is configured to use username '" + email.getUsername() + "' for email");
+				ourLog.info("Server is configured to use username '{}' for email", email.getUsername());
 			}
 
 			if (!Strings.isNullOrEmpty(email.getPassword())) {
@@ -86,6 +98,20 @@ public class FhirServerConfigCommon {
 		if (appProperties.getEnable_index_contained_resource() == Boolean.TRUE) {
 			ourLog.info("Indexed on contained resource enabled");
 		}
+
+		ourLog.info(
+				"Server configured to {} value set pre-expansion",
+				appProperties.getPre_expand_value_sets() ? "enable" : "disable");
+		ourLog.info(
+				"Server configured to {} value set pre-expansion task",
+				appProperties.getEnable_task_pre_expand_value_sets() ? "enable" : "disable");
+		ourLog.info(
+				"Server configured for pre-expand value set default count of {}",
+				appProperties.getPre_expand_value_sets_default_count());
+		ourLog.info(
+				"Server configured for pre-expand value set max count of {}",
+				appProperties.getPre_expand_value_sets_max_count());
+		ourLog.info("Server configured for maximum expansion size of {}", appProperties.getMaximum_expansion_size());
 	}
 
 	@Bean
@@ -94,31 +120,48 @@ public class FhirServerConfigCommon {
 		if (appProperties.getSubscription() != null) {
 			if (appProperties.getSubscription().getEmail() != null)
 				subscriptionSettings.setEmailFromAddress(
-					appProperties.getSubscription().getEmail().getFrom());
+						appProperties.getSubscription().getEmail().getFrom());
 
 			// Subscriptions are enabled by channel type
 			if (appProperties.getSubscription().getResthook_enabled()) {
 				ourLog.info("Enabling REST-hook subscriptions");
 				subscriptionSettings.addSupportedSubscriptionType(
-					org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.RESTHOOK);
+						org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.RESTHOOK);
 			}
 			if (appProperties.getSubscription().getEmail() != null) {
 				ourLog.info("Enabling email subscriptions");
 				subscriptionSettings.addSupportedSubscriptionType(
-					org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.EMAIL);
+						org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.EMAIL);
 			}
 			if (appProperties.getSubscription().getWebsocket_enabled()) {
 				ourLog.info("Enabling websocket subscriptions");
 				subscriptionSettings.addSupportedSubscriptionType(
-					org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.WEBSOCKET);
+						org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.WEBSOCKET);
 			}
-
+			if (appProperties.getSubscription().getPolling_interval_ms() != null) {
+				ourLog.info(
+						"Setting subscription polling interval to {} ms",
+						appProperties.getSubscription().getPolling_interval_ms());
+				subscriptionSettings.setSubscriptionIntervalInMs(
+						appProperties.getSubscription().getPolling_interval_ms());
+			}
+			if (appProperties.getSubscription().getImmediately_queued()) {
+				ourLog.info("Subscription update will be queued immediately");
+				subscriptionSettings.setSubscriptionChangeQueuedImmediately(
+						appProperties.getSubscription().getImmediately_queued());
+			}
+			boolean crossPartitionEnabled =
+					Boolean.TRUE.equals(appProperties.getSubscription().getCross_partition_enabled());
+			if (crossPartitionEnabled) {
+				ourLog.info("Enabling cross-partition subscriptions");
+			}
+			subscriptionSettings.setCrossPartitionSubscriptionEnabled(crossPartitionEnabled);
 		}
 		if (appProperties.getMdm_enabled()) {
 			// MDM requires the subscription of type message
 			ourLog.info("Enabling message subscriptions");
 			subscriptionSettings.addSupportedSubscriptionType(
-				org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.MESSAGE);
+					org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType.MESSAGE);
 		}
 		return subscriptionSettings;
 	}
@@ -129,14 +172,20 @@ public class FhirServerConfigCommon {
 	public JpaStorageSettings jpaStorageSettings(AppProperties appProperties) {
 		JpaStorageSettings jpaStorageSettings = new JpaStorageSettings();
 
+		jpaStorageSettings.setAllowDatabaseValidationOverride(appProperties.getAllow_database_validation_override());
+		jpaStorageSettings.setPreExpandValueSets(appProperties.getPre_expand_value_sets());
+		jpaStorageSettings.setEnableTaskPreExpandValueSets(appProperties.getEnable_task_pre_expand_value_sets());
+		jpaStorageSettings.setPreExpandValueSetsMaxCount(appProperties.getPre_expand_value_sets_max_count());
+		jpaStorageSettings.setPreExpandValueSetsDefaultCount(appProperties.getPre_expand_value_sets_default_count());
+		jpaStorageSettings.setMaximumExpansionSize(appProperties.getMaximum_expansion_size());
+
 		jpaStorageSettings.setIndexMissingFields(
 				appProperties.getEnable_index_missing_fields()
 						? StorageSettings.IndexEnabledEnum.ENABLED
 						: StorageSettings.IndexEnabledEnum.DISABLED);
 		jpaStorageSettings.setAutoCreatePlaceholderReferenceTargets(
 				appProperties.getAuto_create_placeholder_reference_targets());
-		jpaStorageSettings.setMassIngestionMode(
-				appProperties.getMass_ingestion_mode_enabled());
+		jpaStorageSettings.setMassIngestionMode(appProperties.getMass_ingestion_mode_enabled());
 		jpaStorageSettings.setAutoVersionReferenceAtPaths(appProperties.getAuto_version_reference_at_paths());
 		jpaStorageSettings.setEnforceReferentialIntegrityOnWrite(
 				appProperties.getEnforce_referential_integrity_on_write());
@@ -146,10 +195,16 @@ public class FhirServerConfigCommon {
 		jpaStorageSettings.setAllowMultipleDelete(appProperties.getAllow_multiple_delete());
 		jpaStorageSettings.setAllowExternalReferences(appProperties.getAllow_external_references());
 		jpaStorageSettings.setSchedulingDisabled(!appProperties.getDao_scheduling_enabled());
+		jpaStorageSettings.setIndexStorageOptimized(appProperties.getIndex_storage_optimized());
+		jpaStorageSettings.setMatchUrlCacheEnabled(appProperties.getMatch_url_cache_enabled());
+		jpaStorageSettings.setMarkResourcesForReindexingUponSearchParameterChange(
+				appProperties.getMark_resources_for_reindexing_upon_search_parameter_change());
+		jpaStorageSettings.setDeleteEnabled(appProperties.getDelete_enabled());
 		jpaStorageSettings.setDeleteExpungeEnabled(appProperties.getDelete_expunge_enabled());
 		jpaStorageSettings.setExpungeEnabled(appProperties.getExpunge_enabled());
 		jpaStorageSettings.setLanguageSearchParameterEnabled(appProperties.getLanguage_search_parameter_enabled());
-		jpaStorageSettings.setValidateResourceStatusForPackageUpload(appProperties.getValidate_resource_status_for_package_upload());
+		jpaStorageSettings.setValidateResourceStatusForPackageUpload(
+				appProperties.getValidate_resource_status_for_package_upload());
 		jpaStorageSettings.setIndexOnUpliftedRefchains(appProperties.getUpliftedRefchains_enabled());
 
 		if (!appProperties.getSearch_prefetch_thresholds().isEmpty()) {
@@ -158,8 +213,9 @@ public class FhirServerConfigCommon {
 
 		Integer maxFetchSize = appProperties.getMax_page_size();
 		jpaStorageSettings.setFetchSizeDefaultMaximum(maxFetchSize);
-		ourLog.info("Server configured to have a maximum fetch size of "
-				+ (maxFetchSize == Integer.MAX_VALUE ? "'unlimited'" : maxFetchSize));
+		ourLog.info(
+				"Server configured to have a maximum fetch size of {}",
+				maxFetchSize == Integer.MAX_VALUE ? "'unlimited'" : maxFetchSize);
 
 		Long reuseCachedSearchResultsMillis = appProperties.getReuse_cached_search_results_millis();
 		jpaStorageSettings.setReuseCachedSearchResultsForMillis(reuseCachedSearchResultsMillis);
@@ -168,19 +224,14 @@ public class FhirServerConfigCommon {
 		Long retainCachedSearchesMinutes = appProperties.getRetain_cached_searches_mins();
 		jpaStorageSettings.setExpireSearchResultsAfterMillis(retainCachedSearchesMinutes * 60 * 1000);
 
-
-
 		jpaStorageSettings.setFilterParameterEnabled(appProperties.getFilter_search_enabled());
-		jpaStorageSettings.setAdvancedHSearchIndexing(appProperties.getAdvanced_lucene_indexing());
+		jpaStorageSettings.setHibernateSearchIndexSearchParams(appProperties.getAdvanced_lucene_indexing());
+		jpaStorageSettings.setHibernateSearchIndexFullText(appProperties.getSearch_index_full_text_enabled());
 		jpaStorageSettings.setTreatBaseUrlsAsLocal(new HashSet<>(appProperties.getLocal_base_urls()));
 		jpaStorageSettings.setTreatReferencesAsLogical(new HashSet<>(appProperties.getLogical_urls()));
 
 		if (appProperties.getLastn_enabled()) {
 			jpaStorageSettings.setLastNEnabled(true);
-		}
-
-		if (appProperties.getInline_resource_storage_below_size() != 0) {
-			jpaStorageSettings.setInlineResourceTextBelowSize(appProperties.getInline_resource_storage_below_size());
 		}
 
 		jpaStorageSettings.setStoreResourceInHSearchIndex(appProperties.getStore_resource_in_lucene_index_enabled());
@@ -202,29 +253,63 @@ public class FhirServerConfigCommon {
 		// Set and/or recommend default Server ID Strategy of UUID when using the ANY Client ID Strategy
 		if (appProperties.getClient_id_strategy() == JpaStorageSettings.ClientIdStrategyEnum.ANY) {
 			if (appProperties.getServer_id_strategy() == null) {
-				ourLog.info("Defaulting server to use '" + JpaStorageSettings.IdStrategyEnum.UUID
-						+ "' Server ID Strategy when using the '" + JpaStorageSettings.ClientIdStrategyEnum.ANY
-						+ "' Client ID Strategy");
+				ourLog.info(
+						"Defaulting server to use '{}' Server ID Strategy when using the '{}' Client ID Strategy",
+						JpaStorageSettings.IdStrategyEnum.UUID,
+						JpaStorageSettings.ClientIdStrategyEnum.ANY);
 				appProperties.setServer_id_strategy(JpaStorageSettings.IdStrategyEnum.UUID);
 			} else if (appProperties.getServer_id_strategy() != JpaStorageSettings.IdStrategyEnum.UUID) {
-				ourLog.warn("WARNING: '" + JpaStorageSettings.IdStrategyEnum.UUID
-						+ "' Server ID Strategy is highly recommended when using the '"
-						+ JpaStorageSettings.ClientIdStrategyEnum.ANY + "' Client ID Strategy");
+				ourLog.warn(
+						"WARNING: '{}' Server ID Strategy is highly recommended when using the '{}' Client ID Strategy",
+						JpaStorageSettings.IdStrategyEnum.UUID,
+						JpaStorageSettings.ClientIdStrategyEnum.ANY);
 			}
 		}
 		if (appProperties.getServer_id_strategy() != null) {
 			jpaStorageSettings.setResourceServerIdStrategy(appProperties.getServer_id_strategy());
-			ourLog.info("Server configured to use '" + appProperties.getServer_id_strategy() + "' Server ID Strategy");
+			ourLog.info("Server configured to use '{}' Server ID Strategy", appProperties.getServer_id_strategy());
 		}
-		
-		//to Disable the Resource History
+
+		// to Disable the Resource History
 		jpaStorageSettings.setResourceDbHistoryEnabled(appProperties.getResource_dbhistory_enabled());
 
 		// Parallel Batch GET execution settings
 		jpaStorageSettings.setBundleBatchPoolSize(appProperties.getBundle_batch_pool_size());
 		jpaStorageSettings.setBundleBatchPoolSize(appProperties.getBundle_batch_pool_max_size());
 
-		storageSettings(appProperties, jpaStorageSettings);
+		// Set store meta source information
+		ourLog.debug("Server configured to Store Meta Source: {}", appProperties.getStore_meta_source_information());
+		jpaStorageSettings.setStoreMetaSourceInformation(appProperties.getStore_meta_source_information());
+		jpaStorageSettings.setDefaultSearchParamsCanBeOverridden(
+				appProperties.getAllow_override_default_search_params());
+		jpaStorageSettings.setIndexIdentifierOfType(appProperties.getEnable_index_of_type());
+
+		// Configure thread counts for reindex and expunge operations
+		if (appProperties.getReindex_thread_count() != null) {
+			jpaStorageSettings.setReindexThreadCount(appProperties.getReindex_thread_count());
+			ourLog.info(
+					"Server configured to use {} threads for reindex operations",
+					appProperties.getReindex_thread_count());
+		}
+		if (appProperties.getExpunge_thread_count() != null) {
+			jpaStorageSettings.setExpungeThreadCount(appProperties.getExpunge_thread_count());
+			ourLog.info(
+					"Server configured to use {} threads for expunge operations",
+					appProperties.getExpunge_thread_count());
+		}
+
+		// Determine index prefix from configuration
+		if (appProperties.getElasticsearch() != null) {
+			String indexPrefix = appProperties.getElasticsearch().getIndex_prefix();
+			jpaStorageSettings.setHSearchIndexPrefix(indexPrefix != null ? indexPrefix : "");
+		}
+
+		// Configure the bulk export file retention period
+		if (appProperties.getBulk_export_file_retention_period_hours() != null) {
+			jpaStorageSettings.setBulkExportFileRetentionPeriodHours(
+					appProperties.getBulk_export_file_retention_period_hours());
+		}
+
 		return jpaStorageSettings;
 	}
 
@@ -240,6 +325,14 @@ public class FhirServerConfigCommon {
 		// Partitioning
 		if (appProperties.getPartitioning() != null) {
 			retVal.setPartitioningEnabled(true);
+			boolean databasePartitionModeEnabled =
+					defaultIfNull(appProperties.getPartitioning().getDatabase_partition_mode_enabled(), Boolean.FALSE);
+			Integer defaultPartitionId = appProperties.getPartitioning().getDefault_partition_id();
+			if (databasePartitionModeEnabled) {
+				retVal.setDatabasePartitionMode(true);
+				defaultPartitionId = defaultIfNull(defaultPartitionId, 0);
+			}
+			retVal.setDefaultPartitionId(defaultPartitionId);
 			retVal.setIncludePartitionInSearchHashes(
 					appProperties.getPartitioning().getPartitioning_include_in_search_hashes());
 			if (appProperties.getPartitioning().getAllow_references_across_partitions()) {
@@ -248,7 +341,20 @@ public class FhirServerConfigCommon {
 				retVal.setAllowReferencesAcrossPartitions(CrossPartitionReferenceMode.NOT_ALLOWED);
 			}
 			retVal.setConditionalCreateDuplicateIdentifiersEnabled(
-				appProperties.getPartitioning().getConditional_create_duplicate_identifiers_enabled());
+					appProperties.getPartitioning().getConditional_create_duplicate_identifiers_enabled());
+
+			ourLog.info(
+					"""
+					Partitioning is enabled on this server. Settings:
+					 * Database Partition Mode Enabled: {}
+					 * Default Partition ID           : {}
+					 * Cross-Partition References     : {}""",
+					databasePartitionModeEnabled,
+					defaultPartitionId,
+					retVal.getAllowReferencesAcrossPartitions());
+
+		} else {
+			ourLog.info("Partitioning is not enabled on this server");
 		}
 
 		return retVal;
@@ -261,29 +367,50 @@ public class FhirServerConfigCommon {
 		return new JpaHibernatePropertiesProvider(myEntityManagerFactory);
 	}
 
-	protected StorageSettings storageSettings(AppProperties appProperties, JpaStorageSettings jpaStorageSettings) {
-		jpaStorageSettings.setAllowContainsSearches(appProperties.getAllow_contains_searches());
-		jpaStorageSettings.setAllowExternalReferences(appProperties.getAllow_external_references());
-		jpaStorageSettings.setDefaultSearchParamsCanBeOverridden(
-				appProperties.getAllow_override_default_search_params());
-
-		jpaStorageSettings.setNormalizedQuantitySearchLevel(appProperties.getNormalized_quantity_search_level());
-
-		jpaStorageSettings.setIndexOnContainedResources(appProperties.getEnable_index_contained_resource());
-		jpaStorageSettings.setIndexIdentifierOfType(appProperties.getEnable_index_of_type());
-		return jpaStorageSettings;
-	}
-
-	@Lazy
 	@Bean
-	public IBinaryStorageSvc binaryStorageSvc(AppProperties appProperties) {
-		DatabaseBinaryContentStorageSvcImpl binaryStorageSvc = new DatabaseBinaryContentStorageSvcImpl();
+	@ConditionalOnProperty(prefix = "hapi.fhir", name = "binary_storage_mode", havingValue = "FILESYSTEM")
+	public FilesystemBinaryStorageSvcImpl filesystemBinaryStorageSvc(AppProperties appProperties) {
+		String baseDirectory = appProperties.getBinary_storage_filesystem_base_directory();
+		Assert.hasText(
+				baseDirectory,
+				"binary_storage_filesystem_base_directory must be provided when binary_storage_mode=FILESYSTEM");
 
-		if (appProperties.getMax_binary_size() != null) {
-			binaryStorageSvc.setMaximumBinarySize(appProperties.getMax_binary_size());
+		FilesystemBinaryStorageSvcImpl filesystemSvc = new FilesystemBinaryStorageSvcImpl(baseDirectory);
+		Integer inlineResourceThreshold = resolveInlineResourceThreshold(appProperties);
+		int minimumBinarySize =
+				inlineResourceThreshold == null ? DEFAULT_FILESYSTEM_INLINE_THRESHOLD : inlineResourceThreshold;
+		filesystemSvc.setMinimumBinarySize(minimumBinarySize);
+
+		Integer maxBinarySize = appProperties.getMax_binary_size();
+		if (maxBinarySize != null) {
+			filesystemSvc.setMaximumBinarySize(maxBinarySize.longValue());
 		}
 
-		return binaryStorageSvc;
+		return filesystemSvc;
+	}
+
+	@Bean
+	@ConditionalOnProperty(
+			prefix = "hapi.fhir",
+			name = "binary_storage_mode",
+			havingValue = "DATABASE",
+			matchIfMissing = true)
+	public DatabaseBinaryContentStorageSvcImpl databaseBinaryStorageSvc(AppProperties appProperties) {
+		DatabaseBinaryContentStorageSvcImpl databaseSvc = new DatabaseBinaryContentStorageSvcImpl();
+		Integer maxBinarySize = appProperties.getMax_binary_size();
+		if (maxBinarySize != null) {
+			databaseSvc.setMaximumBinarySize(maxBinarySize.longValue());
+		}
+		return databaseSvc;
+	}
+
+	private Integer resolveInlineResourceThreshold(AppProperties appProperties) {
+		Integer inlineResourceThreshold = appProperties.getBinary_storage_minimum_binary_size();
+		if (inlineResourceThreshold == null
+				&& appProperties.getBinary_storage_mode() == AppProperties.BinaryStorageMode.FILESYSTEM) {
+			return DEFAULT_FILESYSTEM_INLINE_THRESHOLD;
+		}
+		return inlineResourceThreshold;
 	}
 
 	@Bean

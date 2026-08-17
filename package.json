@@ -1,0 +1,18 @@
+{
+  "name": "drug-formulary-ri",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "@nx/devkit": "^23.1.1",
+    "nx": "^23.1.1",
+    "nx-fhir": "0.3.0"
+  },
+  "scripts": {
+    "build": "nx run-many -t build",
+    "serve": "nx run-many -t serve",
+    "test": "nx run-many -t test"
+  },
+  "nx": {
+    "includedScripts": []
+  }
+}

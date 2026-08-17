@@ -1,0 +1,32 @@
+{
+  "name": "drug-formulary-ri",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "includedScripts": [],
+  "projectType": "application",
+  "sourceRoot": "src",
+  "packageBase": "org.hl7.davinci",
+  "fhirVersion": "R4",
+  "hapiReleaseVersion": "8.10.0-3",
+  "pluginVersion": "0.3.0",
+  "tags": [
+    "nx-fhir-server",
+    "fhir",
+    "server"
+  ],
+  "features": {
+    "bulk-publish": {
+      "version": 1,
+      "options": {
+        "resourceTypes": [
+          "Basic",
+          "InsurancePlan",
+          "MedicationKnowledge"
+        ],
+        "intervalMs": 60000,
+        "transactionLagMs": 60000,
+        "storagePath": "./publish-data",
+        "resetOnStartup": false
+      }
+    }
+  }
+}
